@@ -1,4 +1,4 @@
-{:paths ["src" "vendor" "resources" "test"]
+{:paths ["../../frontend/src" "src" "vendor" "resources" "test"]
  :deps
  {penpot/common
   {:local/root "../common"}
@@ -45,7 +45,7 @@
    :main-opts ["-m" "rebel-readline.main"]}
 
   :dev
-  {:extra-paths ["../../frontend/src" "dev"]
+  {:extra-paths ["dev"]
    :extra-deps
    {thheller/shadow-cljs {:mvn/version "3.2.2"}
     com.bhauman/rebel-readline {:mvn/version "RELEASE"}
