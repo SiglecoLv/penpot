@@ -45,7 +45,7 @@
    :main-opts ["-m" "rebel-readline.main"]}
 
   :dev
-  {:extra-paths ["dev"]
+  {:extra-paths ["../../frontend/src" "dev"]
    :extra-deps
    {thheller/shadow-cljs {:mvn/version "3.2.2"}
     com.bhauman/rebel-readline {:mvn/version "RELEASE"}
