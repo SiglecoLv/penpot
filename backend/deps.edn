@@ -70,7 +70,10 @@
 
  :paths ["src" "resources" "target/classes"]
  :aliases
- {:dev
+ {:contrast
+  {:extra-paths ["../../backend/src"]}
+
+  :dev
   {:extra-deps
    {com.bhauman/rebel-readline {:mvn/version "RELEASE"}
     clojure-humanize/clojure-humanize {:mvn/version "0.2.2"}
