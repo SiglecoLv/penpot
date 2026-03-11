@@ -79,7 +79,9 @@
     clojure-humanize/clojure-humanize {:mvn/version "0.2.2"}
     org.clojure/data.csv {:mvn/version "RELEASE"}
     com.clojure-goes-fast/clj-async-profiler {:mvn/version "RELEASE"}
-    mockery/mockery {:mvn/version "RELEASE"}}
+    mockery/mockery {:mvn/version "RELEASE"}
+    djblue/portal {:mvn/version "0.58.2"}
+    cider/cider-nrepl {:mvn/version "0.58.0"}}
    :extra-paths ["test" "dev"]}
 
   :build

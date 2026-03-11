@@ -652,7 +652,8 @@
     (let [p (promise)]
       (when (contains? cf/flags :nrepl-server)
         (l/inf :hint "start nrepl server" :port 6064)
-        (nrepl/start-server :bind "0.0.0.0" :port 6064))
+        (nrepl/start-server :bind "0.0.0.0" :port 6064
+                            :middleware '[cider.nrepl/cider-middleware]))
 
       (start)
       (deref p))

@@ -244,33 +244,37 @@
 (defn- resolve-methods
   [cfg]
   (let [cfg (assoc cfg ::module "main" ::type "command" ::metrics-id :rpc-main-timing)]
-    (->> (sv/scan-ns
-          'app.rpc.commands.access-token
-          'app.rpc.commands.audit
-          'app.rpc.commands.auth
-          'app.rpc.commands.feedback
-          'app.rpc.commands.fonts
-          'app.rpc.commands.binfile
-          'app.rpc.commands.comments
-          'app.rpc.commands.demo
-          'app.rpc.commands.files
-          'app.rpc.commands.files-create
-          'app.rpc.commands.files-share
-          'app.rpc.commands.files-update
-          'app.rpc.commands.files-snapshot
-          'app.rpc.commands.files-thumbnails
-          'app.rpc.commands.ldap
-          'app.rpc.commands.management
-          'app.rpc.commands.media
-          'app.rpc.commands.nitrate
-          'app.rpc.commands.profile
-          'app.rpc.commands.projects
-          'app.rpc.commands.search
-          'app.rpc.commands.teams
-          'app.rpc.commands.teams-invitations
-          'app.rpc.commands.verify-token
-          'app.rpc.commands.viewer
-          'app.rpc.commands.webhooks)
+    (->> (apply sv/scan-ns
+          (concat
+           ['app.rpc.commands.access-token
+            'app.rpc.commands.audit
+            'app.rpc.commands.auth
+            'app.rpc.commands.feedback
+            'app.rpc.commands.fonts
+            'app.rpc.commands.binfile
+            'app.rpc.commands.comments
+            'app.rpc.commands.demo
+            'app.rpc.commands.files
+            'app.rpc.commands.files-create
+            'app.rpc.commands.files-share
+            'app.rpc.commands.files-update
+            'app.rpc.commands.files-snapshot
+            'app.rpc.commands.files-thumbnails
+            'app.rpc.commands.ldap
+            'app.rpc.commands.management
+            'app.rpc.commands.media
+            'app.rpc.commands.nitrate
+            'app.rpc.commands.profile
+            'app.rpc.commands.projects
+            'app.rpc.commands.search
+            'app.rpc.commands.teams
+            'app.rpc.commands.teams-invitations
+            'app.rpc.commands.verify-token
+            'app.rpc.commands.viewer
+            'app.rpc.commands.webhooks]
+           ;; Contrast extension point: returns list of namespaces to scan
+           (do (require 'app.contrast.rpc)
+               ((resolve 'app.contrast.rpc/extension-namespaces)))))
          (map (partial process-method cfg wrap))
          (into {}))))
 
