@@ -12,7 +12,8 @@
    [app.migrations.clj.migration-0023 :as mg0023]
    [app.migrations.clj.migration-0145 :as mg0145]
    [app.util.migrations :as mg]
-   [integrant.core :as ig]))
+   [integrant.core :as ig]
+   [app.extensions :as extensions]))
 
 (def migrations
   [{:name "0001-add-extensions"
@@ -482,4 +483,4 @@
   [module {:keys [::db/pool]}]
   (when-not (db/read-only? pool)
     (l/info :hint "running migrations" :module module)
-    (some->> (seq migrations) (apply-migrations! pool "main"))))
+    (some->> (concat migrations extensions/migrations) (apply-migrations! pool "main"))))

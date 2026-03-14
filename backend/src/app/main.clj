@@ -47,7 +47,8 @@
    [cuerdas.core :as str]
    [integrant.core :as ig]
    [nrepl.server :as nrepl]
-   [promesa.exec :as px])
+   [promesa.exec :as px]
+   [app.extensions :as extensions])
   (:gen-class))
 
 (def default-metrics
@@ -587,7 +588,7 @@
 (defn start
   []
   (cf/validate!)
-  (ig/load-namespaces (merge system-config worker-config))
+  (ig/load-namespaces (merge system-config worker-config extensions/system-config))
   (alter-var-root #'system (fn [sys]
                              (when sys (ig/halt! sys))
                              (-> system-config
