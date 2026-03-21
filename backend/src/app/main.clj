@@ -591,7 +591,7 @@
   (ig/load-namespaces (merge system-config worker-config extensions/system-config))
   (alter-var-root #'system (fn [sys]
                              (when sys (ig/halt! sys))
-                             (-> system-config
+                             (-> (merge system-config extensions/system-config)
                                  (cond-> (contains? cf/flags :backend-worker)
                                    (merge worker-config))
                                  (ig/expand)
