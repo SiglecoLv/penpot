@@ -33,6 +33,7 @@
    [app.util.i18n :refer [tr]]
    [app.util.modules :as mod]
    [app.util.theme :as theme]
+   [app.extensions :as extensions]
    [beicon.v2.core :as rx]
    [rumext.v2 :as mf]))
 
@@ -53,6 +54,16 @@
 
 (def workspace-page*
   (mf/lazy #(mod/load 'app.main.ui.workspace/workspace-page*)))
+
+(defn load-extension-pages
+  []
+  (reduce-kv
+    (fn [m k v]
+      (assoc m k (mf/lazy #(mod/load v))))
+    {}
+    extensions/pages))
+
+(def extension-pages (load-extension-pages))
 
 (mf/defc workspace-legacy-redirect*
   {::mf/props :obj
@@ -188,6 +199,9 @@
         :auth-recovery-request
         :auth-recovery)
        [:? [:& auth-page {:route route}]]
+
+       (when-let [ext-page (get extension-pages section)]
+         [:? [:& ext-page {:route route}]])
 
        :auth-verify-token
        [:? [:& verify-token-page* {:route route}]]
@@ -364,6 +378,9 @@
 
        :frame-preview
        [:& frame-preview/frame-preview]
+
+       (when-let [page-handler (get extensions/ui-sections section)]
+         [:? [:& page-handler {:route route}]])
 
        nil)]))
 

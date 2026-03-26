@@ -17,6 +17,7 @@
    [app.main.ui.icons :as deprecated-icon]
    [app.util.dom :as dom]
    [app.util.i18n :as i18n :refer [tr]]
+   [app.extensions :as extensions]
    [rumext.v2 :as mf]))
 
 (mf/defc auth*
@@ -64,7 +65,10 @@
         [:& recovery-request-page]
 
         :auth-recovery
-        [:& recovery-page {:params params}])
+        [:& recovery-page {:params params}]
+
+        (when-let [page-handler (get extensions/ui-sections section)]
+          [:& page-handler {:params params}]))
 
       (when (= section :auth-register)
         [:& terms-register])]]))

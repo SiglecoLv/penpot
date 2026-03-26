@@ -16,11 +16,12 @@
    [app.main.router :as rt]
    [app.main.store :as st]
    [app.util.storage :as storage]
+   [app.extensions :as extensions]
    [beicon.v2.core :as rx]
    [cuerdas.core :as str]
    [potok.v2.core :as ptk]))
 
-(def routes
+(def base-routes
   [["/auth"
     ["/login"             :auth-login]
     ["/register"          :auth-register]
@@ -81,6 +82,9 @@
 
    ["/workspace" :workspace]
    ["/workspace/:project-id/:file-id" :workspace-legacy]])
+
+(def routes
+  (into base-routes extensions/routes))
 
 
 (defn- store-session-params
