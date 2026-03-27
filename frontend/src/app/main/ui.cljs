@@ -58,12 +58,12 @@
 (defn load-extension-pages
   []
   (reduce-kv
-    (fn [m k v]
-      (assoc m k (mf/lazy #(mod/load v))))
+    (fn [m k [f v]]
+      (assoc m k [f (mf/lazy #(mod/load v))]))
     {}
     extensions/pages))
 
-(def extension-pages (load-extension-pages))
+(def extension-pages* (load-extension-pages))
 
 (mf/defc workspace-legacy-redirect*
   {::mf/props :obj
@@ -199,9 +199,6 @@
         :auth-recovery-request
         :auth-recovery)
        [:? [:& auth-page {:route route}]]
-
-       (when-let [ext-page (get extension-pages section)]
-         [:? [:& ext-page {:route route}]])
 
        :auth-verify-token
        [:? [:& verify-token-page* {:route route}]]
@@ -379,10 +376,9 @@
        :frame-preview
        [:& frame-preview/frame-preview]
 
-       (when-let [page-handler (get extensions/ui-sections section)]
-         [:? [:& page-handler {:route route}]])
-
-       nil)]))
+       (let [[f page] (get extension-pages* section)]
+         (when page
+           [:> page (f route profile)])))]))
 
 (mf/defc app
   []
