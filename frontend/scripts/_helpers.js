@@ -132,6 +132,17 @@ export async function compileSassAll(worker) {
     .filter((path) => !isOldComponentSystemFile(path))
     .map((path) => ph.join(sourceDir, path));
 
+  // Contrast overrides: include SCSS from ../../frontend/src
+  const contrastDir = "../../frontend/src";
+  try {
+    const contrastFiles = (await fs.readdir(contrastDir, { recursive: true }))
+      .filter(isSassFile)
+      .map((path) => ph.join(contrastDir, path));
+    appFiles.push(...contrastFiles);
+  } catch (e) {
+    // Contrast directory not available — skip silently
+  }
+
   const dsFiles = files
     .filter(isDesignSystemFile)
     .map((path) => ph.join(sourceDir, path));

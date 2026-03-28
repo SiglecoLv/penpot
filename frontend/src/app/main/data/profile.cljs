@@ -11,6 +11,7 @@
    [app.common.types.profile :refer [schema:profile]]
    [app.common.uuid :as uuid]
    [app.config :as cf]
+   [app.extensions :as extensions]
    [app.main.data.event :as ev]
    [app.main.data.media :as di]
    [app.main.data.notifications :as ntf]
@@ -71,14 +72,20 @@
 ;; FIXME: make it as general purpose handler, not only on profile
 (defn- on-fetch-profile-exception
   [cause]
-  (let [data (ex-data cause)]
-    (if (and (= :authorization (:type data))
-             (= :challenge-required (:code data)))
+  (let [data (ex-data cause)
+        hdl  (extensions/profile-error-handler data)]
+    (cond
+      hdl
+      (hdl)
+
+      (and (= :authorization (:type data))
+           (= :challenge-required (:code data)))
       (let [path (rt/get-current-path)
             href (->> path
                       (js/encodeURIComponent)
                       (str "/challenge.html?redirect="))]
         (rx/of (rt/nav-raw :href href)))
+      :else
       (rx/throw cause))))
 
 (defn on-fetch-profile-success

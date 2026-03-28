@@ -7,3 +7,5 @@
 (def pages {})
 
 (def handlers {})
+
+(defn profile-error-handler [_data] nil)

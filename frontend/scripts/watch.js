@@ -85,6 +85,12 @@ h.watch("resources/styles", h.isSassFile, async function (path) {
   await compileSassAll();
 });
 
+log.info("watch: scss: contrast (~)");
+h.watch("../../frontend/src", h.isSassFile, async function (path) {
+  log.info("changed:", path);
+  await compileSassAll();
+});
+
 log.info("watch: templates (~)");
 h.watch("resources/templates", null, async function (path) {
   log.info("changed:", path);

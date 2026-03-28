@@ -97,6 +97,14 @@
       (swap! storage/session assoc
              :plugin-url plugin))))
 
+(defn check-license-error
+  [cause]
+  (let [data (ex-data cause)]
+    (if (and (= :license-required (:type data))
+             (= :invalid-license (:code data)))
+      (rx/of (rt/nav :auth-license-key))
+      (rx/throw cause))))
+
 (defn on-navigate
   [router path send-event-info?]
   (let [location        (.-location js/document)
@@ -142,7 +150,8 @@
                          (st/emit! (rt/assign-exception {:type :not-found}))))
 
                      (fn [cause]
-                       (errors/on-error cause)))))))
+                       (errors/on-error cause)))
+           (rx/catch check-license-error)))))
 
 (defn init-routes
   []
