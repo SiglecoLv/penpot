@@ -12,25 +12,27 @@
    [app.common.math :as mth]
    [app.main.ui.formats :as fmt]
    [app.main.ui.hooks :as hooks]
+   [app.main.ui.workspace.viewport.rulers-config :as rc]
    [app.util.object :as obj]
    [rumext.v2 :as mf]))
 
-(def rulers-pos 15)
-(def rulers-size 4)
-(def rulers-width 1)
-(def ruler-area-size 22)
-(def ruler-area-half-size (/ ruler-area-size 2))
-(def rulers-background "var(--panel-background-color)")
-(def selection-area-color "var(--color-accent-tertiary)")
-(def selection-area-opacity 0.3)
-(def over-number-size 100)
-(def over-number-opacity 0.8)
-(def over-number-percent 0.75)
+(def rulers-pos rc/rulers-pos)
+(def rulers-size rc/rulers-size)
+(def rulers-width rc/rulers-width)
+(def ruler-area-size rc/ruler-area-size)
+(def ruler-clip-area rc/ruler-clip-area)
+(def ruler-area-half-size rc/ruler-area-half-size)
+(def rulers-background rc/rulers-background)
+(def selection-area-color rc/selection-area-color)
+(def selection-area-opacity rc/selection-area-opacity)
+(def over-number-size rc/over-number-size)
+(def over-number-opacity rc/over-number-opacity)
+(def over-number-percent rc/over-number-percent)
 
-(def font-size 12)
-(def font-family "worksans")
-(def font-color "var(--layer-row-foreground-color)")
-(def canvas-border-radius 12)
+(def font-size rc/font-size)
+(def font-family rc/font-family)
+(def font-color rc/font-color)
+(def canvas-border-radius rc/canvas-border-radius)
 
 ;; ----------------
 ;;   RULERS
@@ -57,15 +59,15 @@
 (defn get-clip-area
   [vbox zoom-inverse axis]
   (if (= axis :x)
-    (let [x      (+ (:x vbox) (* 25 zoom-inverse))
+    (let [x      (+ (:x vbox) (* ruler-clip-area zoom-inverse))
           y      (:y vbox)
           width  (- (:width vbox) (* 21 zoom-inverse))
-          height (* 25 zoom-inverse)]
+          height (* ruler-clip-area zoom-inverse)]
       {:x x :y y :width width :height height})
 
     (let [x      (:x vbox)
-          y      (+ (:y vbox) (* 25 zoom-inverse))
-          width  (* 25 zoom-inverse)
+          y      (+ (:y vbox) (* ruler-clip-area zoom-inverse))
+          width  (* ruler-clip-area zoom-inverse)
           height (- (:height vbox) (* 21 zoom-inverse))]
       {:x x :y y :width width :height height})))
 
@@ -204,10 +206,11 @@
               :stroke "rgba(0,0,0,0)"}]
 
       ;; This goes behind because if it goes in front the background bleeds through
-      [:path {:d (rulers-inside-path x1 y1 x2 y2 br bw)
-              :fill "none"
-              :stroke-width bs
-              :stroke "var(--panel-border-color)"}]
+      (when rc/show-border?
+       [:path {:d (rulers-inside-path x1 y1 x2 y2 br bw)
+               :fill "none"
+               :stroke-width bs
+               :stroke "var(--panel-border-color)"}])
 
       [:path {:d (dm/str (rulers-outside-path x1 y1 x2 y2)
                          (rulers-inside-path x1 y1 x2 y2 br bw))
