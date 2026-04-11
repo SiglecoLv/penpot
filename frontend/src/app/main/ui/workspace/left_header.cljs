@@ -26,7 +26,7 @@
 ;; --- Header Component
 
 (mf/defc left-header*
-  [{:keys [file layout project class]}]
+  [{:keys [file layout project class action-button]}]
   (let [file-id     (:id file)
         file-name   (:name file)
         project-id  (:id project)
@@ -131,6 +131,8 @@
          [:div {:class (stl/css :file-name-label)} file-name]])]
      (when ^boolean shared?
        [:span {:class (stl/css :shared-badge)} deprecated-icon/library])
+     (when action-button
+       action-button)
      [:div {:class (stl/css :menu-section)}
       [:> main-menu/menu* {:layout layout
                            :file file}]]]))

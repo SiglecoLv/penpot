@@ -99,12 +99,16 @@
 
 ;; --- Password Page
 
+(mf/defc password-container 
+  []
+  [:div {:class (stl/css :form-container)}
+   [:h2 (tr "dashboard.password-change")]
+   [:& password-form]])
+
 (mf/defc password-page
   []
   (mf/with-effect []
     (dom/set-html-title (tr "title.settings.password")))
 
   [:section {:class (stl/css :dashboard-settings)}
-   [:div {:class (stl/css :form-container)}
-    [:h2 (tr "dashboard.password-change")]
-    [:& password-form]]])
+   [:& password-container]])

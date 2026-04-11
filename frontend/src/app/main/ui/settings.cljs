@@ -15,6 +15,7 @@
    [app.main.ui.modal :refer [modal-container*]]
    [app.main.ui.settings.change-email]
    [app.main.ui.settings.delete-account]
+   [app.main.ui.settings.license :refer [license-page*]]
    [app.main.ui.settings.feedback :refer [feedback-page*]]
    [app.main.ui.settings.integrations :refer [integrations-page*]]
    [app.main.ui.settings.notifications :refer [notifications-page*]]
@@ -70,6 +71,9 @@
           :settings-options
           [:& options-page]
 
+          :settings-license
+          [:& license-page*]
+
           :settings-subscription
           [:> subscription-page* {:profile profile}]
 
@@ -83,4 +87,5 @@
   {::mf/lazy-load true}
   [props]
   [:> settings* props])
+
 

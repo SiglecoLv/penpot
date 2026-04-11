@@ -36,6 +36,7 @@
     ["/password"      :settings-password]
     ["/feedback"      :settings-feedback]
     ["/options"       :settings-options]
+    ["/license"       :settings-license]
     ["/subscriptions" :settings-subscription]
     ["/integrations"  :settings-integrations]
     ["/notifications" :settings-notifications]]
@@ -102,7 +103,7 @@
   (let [data (ex-data cause)]
     (if (and (= :license-required (:type data))
              (= :invalid-license (:code data)))
-      (rx/of (rt/nav :auth-license-key))
+      (rx/of (rt/nav :license))
       (rx/throw cause))))
 
 (defn on-navigate

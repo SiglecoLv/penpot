@@ -206,6 +206,7 @@
        (:settings-profile
         :settings-password
         :settings-options
+        :settings-license
         :settings-feedback
         :settings-subscription
         :settings-integrations

@@ -295,6 +295,7 @@
 (def ^:icon-id view-as-icons "view-as-icons")
 (def ^:icon-id view-as-list "view-as-list")
 (def ^:icon-id wrap "wrap")
+(def ^:icon-id sidebar-toggle "sidebar-toggle")
 
 (def icon-list
   "A collection of all icons"

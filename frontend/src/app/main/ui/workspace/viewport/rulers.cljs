@@ -194,10 +194,17 @@
   (let [{:keys [width height] x1 :x y1 :y} vbox
         x2 (+ x1 width)
         y2 (+ y1 height)
-        bw (if show-rulers? (* ruler-area-size zoom-inverse) 0)
+        bw (* ruler-area-size zoom-inverse)
         br (/ canvas-border-radius zoom)
-        bs (* 4 zoom-inverse)]
-    [:*
+        bs (* 4 zoom-inverse)
+        transform (if show-rulers?
+                    "scale(1)"
+                    "scale(0)")
+        transition-time "0.3s"]
+    [:g {:style {:transform transform
+                 :transform-origin (str x1 "px " y1 "px")
+                 :transition (dm/str "transform " transition-time " ease-out")
+                 :will-change "transform"}}
      [:g.viewport-frame-background
       ;; Fix for a Firefox bug that shows some strange artifacts when creating shape
       [:rect {:x 0 :y 0 :width 1 :height 1
@@ -207,15 +214,25 @@
 
       ;; This goes behind because if it goes in front the background bleeds through
       (when rc/show-border?
-       [:path {:d (rulers-inside-path x1 y1 x2 y2 br bw)
-               :fill "none"
-               :stroke-width bs
-               :stroke "var(--panel-border-color)"}])
+        [:path {:d (rulers-inside-path x1 y1 x2 y2 br bw)
+                :fill "none"
+                :stroke-width bs
+                :stroke "var(--panel-border-color)"}])
 
       [:path {:d (dm/str (rulers-outside-path x1 y1 x2 y2)
                          (rulers-inside-path x1 y1 x2 y2 br bw))
               :fill-rule "evenodd"
-              :fill rulers-background}]]
+              :fill rulers-background}]
+
+      (when show-rulers?
+        [:path {:d (dm/str
+                    "M" (+ x1 (* ruler-clip-area zoom-inverse)) "," y1
+                    "L" (+ x1 (* ruler-clip-area zoom-inverse)) "," (+ y1 (* ruler-clip-area zoom-inverse))
+                    "M" x1 "," (+ y1 (* ruler-clip-area zoom-inverse))
+                    "L" (+ x1 (* ruler-clip-area zoom-inverse)) "," (+ y1 (* ruler-clip-area zoom-inverse)))
+                :fill "none"
+                :stroke font-color
+                :stroke-width zoom-inverse}])]
 
      (when show-rulers?
        (let [step (calculate-step-size zoom)]

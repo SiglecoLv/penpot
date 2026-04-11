@@ -271,7 +271,8 @@
                        'app.rpc.commands.teams-invitations
                        'app.rpc.commands.verify-token
                        'app.rpc.commands.viewer
-                       'app.rpc.commands.webhooks]
+                        'app.rpc.commands.webhooks
+                        'app.contrast.license]
                        app.extensions/rpc))
          (map (partial process-method cfg wrap))
          (into {}))))

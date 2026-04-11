@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Остриё пера / диагональный штрих -->
+  <path d="M13.5 2.5L6 10L5 11L4 12L3 11L2 10L3.5 8.5L5 7L6 6L10 2.5L13.5 2.5Z" />
+  <!-- Перо (перьевой элемент) -->
+  <path d="M3 11L2 13L4 12L3 11Z" />
+  <!-- Деталь пера / изгиб -->
+  <path d="M5 9L6 10" />
+</svg>

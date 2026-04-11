@@ -12,6 +12,7 @@
    [app.db :as db]
    [app.main :as-alias main]
    [app.rpc :as-alias rpc]
+   [app.rpc.commands.profile :as profile]
    [app.rpc.doc :as-alias doc]
    [app.rpc.quotes :as quotes]
    [app.setup :as-alias setup]
@@ -86,7 +87,7 @@
                  {:profile-id profile-id}
                  {:order-by [[:expires-at :asc] [:created-at :asc]]
                   :columns [:id :name :perms :type :created-at :updated-at :expires-at]})
-       (mapv decode-row)))
+       (map profile/decode-row)))
 
 
 (def ^:private schema:get-current-mcp-token

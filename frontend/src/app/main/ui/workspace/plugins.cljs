@@ -93,7 +93,6 @@
   {::mf/register modal/components
    ::mf/register-as :plugin-management}
   []
-
   (let [plugins-state* (mf/use-state #(preg/plugins-list))
         plugins-state  (deref plugins-state*)
 

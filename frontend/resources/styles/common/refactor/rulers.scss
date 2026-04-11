@@ -1,0 +1,20 @@
+.viewport-frame-background,
+.viewport-frame-rulers {
+  transform-origin: top left;
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
+
+.rulers-shown {
+  .viewport-frame-background,
+  .viewport-frame-rulers {
+    transform: scale(1);
+  }
+}
+
+.rulers-hidden {
+  .viewport-frame-background,
+  .viewport-frame-rulers {
+    transform: scale(0);
+  }
+}
