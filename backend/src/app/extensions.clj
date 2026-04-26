@@ -4,3 +4,4 @@
 (def migrations [])
 (def rpc [])
 (defn middlewares [_] [])
+(def routes [])

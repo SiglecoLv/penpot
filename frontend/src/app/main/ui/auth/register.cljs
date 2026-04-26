@@ -103,6 +103,9 @@
                [:validation :email-as-password]
                (swap! form assoc-in [:errors :password]
                       {:message (tr "errors.email-as-password")})
+               
+               [:restriction :profile-limits]
+               (st/emit! (ntf/error "Превышен лимит пользователей"))
 
                (do
                  (when-let [explain (get edata :explain)]

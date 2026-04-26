@@ -177,6 +177,8 @@
                             [mw/restrict-methods]]
                            (extensions/middlewares cfg))}
 
+     (extensions/routes cfg)
+
      (::mtx/routes cfg)
      (::assets/routes cfg)
      (::debug/routes cfg)
