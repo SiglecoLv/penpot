@@ -130,8 +130,9 @@
     "add"))
 
 (defn should-display-asset-count?
-  [section assets-count]
-  (or (not (= section :tokens)) (and (< 0 assets-count) (= section :tokens))))
+  [_section _assets-count]
+  false
+  #_(or (not (= section :tokens)) (and (< 0 assets-count) (= section :tokens))))
 
 (mf/defc asset-section*
   [{:keys [children file-id title section assets-count icon is-open on-click]}]
@@ -156,7 +157,7 @@
          [:span {:class (stl/css-case :title-name true
                                       :title-tokens (= section :tokens)
                                       :title-tokens-active (and (= section :tokens) (< 0 assets-count)))}
-          [:span {:class (stl/css :section-icon)}
+          #_[:span {:class (stl/css :section-icon)}
            [:> icon* {:icon-id (or icon (section-icon section)) :size "s"}]]
           [:span {:class (stl/css :section-name)}
            title]

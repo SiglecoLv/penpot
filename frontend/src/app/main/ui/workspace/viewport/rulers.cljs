@@ -222,17 +222,7 @@
       [:path {:d (dm/str (rulers-outside-path x1 y1 x2 y2)
                          (rulers-inside-path x1 y1 x2 y2 br bw))
               :fill-rule "evenodd"
-              :fill rulers-background}]
-
-      (when show-rulers?
-        [:path {:d (dm/str
-                    "M" (+ x1 (* ruler-clip-area zoom-inverse)) "," y1
-                    "L" (+ x1 (* ruler-clip-area zoom-inverse)) "," (+ y1 (* ruler-clip-area zoom-inverse))
-                    "M" x1 "," (+ y1 (* ruler-clip-area zoom-inverse))
-                    "L" (+ x1 (* ruler-clip-area zoom-inverse)) "," (+ y1 (* ruler-clip-area zoom-inverse)))
-                :fill "none"
-                :stroke font-color
-                :stroke-width zoom-inverse}])]
+              :fill rulers-background}]]
 
      (when show-rulers?
        (let [step (calculate-step-size zoom)]

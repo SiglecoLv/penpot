@@ -42,7 +42,7 @@
 .shade-selector {
   display: flex;
   gap: deprecated.$s-4;
-  height: deprecated.$s-52;
+  height: calc(deprecated.$s-44 * 2);
   cursor: pointer;
 }
 
@@ -50,4 +50,5 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  gap: 20px
 }

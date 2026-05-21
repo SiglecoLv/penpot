@@ -337,8 +337,9 @@
      [:div {:class (stl/css :gradient-options)}
       [:& select
        {:default-value type
-        :options [{:value :linear-gradient :label "Linear"}
-                  {:value :radial-gradient :label "Radial"}]
+        :variant "dark"
+        :options [{:value :linear-gradient :label "Линейный"}
+                  {:value :radial-gradient :label "Радиальный"}]
         :on-change handle-change-type
         :class (stl/css :gradient-options-select)}]
 

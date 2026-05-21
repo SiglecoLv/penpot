@@ -790,7 +790,7 @@ msgstr "+ Новый файл"
 
 #: src/app/main/data/dashboard.cljs:536, src/app/main/data/dashboard.cljs:648
 msgid "dashboard.new-file-prefix"
-msgstr "Новый файл"
+msgstr "Холст"
 
 #: src/app/main/ui/dashboard/projects.cljs:62
 msgid "dashboard.new-project"
@@ -2458,6 +2458,14 @@ msgstr "Мы проводим диагностику наших систем."
 #: src/app/main/ui/static.cljs:305
 msgid "labels.service-unavailable.main-message"
 msgstr "Сервис недоступен"
+
+#: src/app/main/ui/workspace/tokens/sidebar.cljs:75
+msgid "labels.sets"
+msgstr "Наборы"
+
+#: src/app/main/ui/inspect/styles/style_box.cljs:27, src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:229
+msgid "labels.shadow"
+msgstr "Тень"
 
 #: src/app/main/ui/dashboard/sidebar.cljs:464, src/app/main/ui/dashboard/team.cljs:101, src/app/main/ui/dashboard/team.cljs:115, src/app/main/ui/settings/options.cljs:87, src/app/main/ui/settings/sidebar.cljs:109
 msgid "labels.settings"
@@ -4444,7 +4452,7 @@ msgstr "Имя группы"
 
 #: src/app/main/ui/workspace/sidebar/assets/file_library.cljs:108, src/app/main/ui/workspace/sidebar/options/menus/component.cljs:686
 msgid "workspace.assets.local-library"
-msgstr "локальная библиотека"
+msgstr "Локальная библиотека"
 
 #: src/app/main/ui/workspace/sidebar/assets/file_library.cljs:307
 msgid "workspace.assets.not-found"
@@ -6386,11 +6394,674 @@ msgstr "Изменить темы"
 
 #: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:251
 msgid "workspace.tokens.save-theme"
-msgstr "Сохранить тему"
+msgstr "Сохранить"
+
+#: src/app/main/ui/workspace/tokens/sidebar.cljs
+#, unused
+msgid "workspace.tokens.add set"
+msgstr "Добавить набор"
+
+#: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:66, src/app/main/ui/workspace/tokens/themes/create_modal.cljs:151, src/app/main/ui/workspace/tokens/themes/create_modal.cljs:347
+msgid "workspace.tokens.add-new-theme"
+msgstr "Добавить новую тему"
+
+#: src/app/main/ui/workspace/tokens/sets/context_menu.cljs:62
+msgid "workspace.tokens.add-set-to-group"
+msgstr "Добавить набор в эту группу"
+
+#: src/app/main/ui/workspace/colorpicker/color_tokens.cljs:196, src/app/main/ui/workspace/tokens/management/group.cljs:156
+msgid "workspace.tokens.add-token"
+msgstr "Добавить токен: %s"
+
+#: src/app/main/ui/workspace/tokens/management/token_pill.cljs:137
+msgid "workspace.tokens.applied-to"
+msgstr "Применено к"
+
+#: src/app/main/ui/workspace/tokens/management/context_menu.cljs:330
+msgid "workspace.tokens.axis"
+msgstr "Ось"
+
+#: src/app/main/ui/workspace/tokens/settings/menu.cljs:89
+msgid "workspace.tokens.base-font-size"
+msgstr "Базовый размер шрифта"
+
+#: src/app/main/ui/workspace/tokens/settings/menu.cljs:43
+msgid "workspace.tokens.base-font-size.error"
+msgstr "Базовый размер шрифта должен быть значением в пикселях или без единиц."
+
+#: src/app/main/ui/workspace/tokens/modals/import.cljs:127
+#, unused
+msgid "workspace.tokens.choose-file"
+msgstr "Выбрать файл"
+
+#: src/app/main/ui/workspace/tokens/modals/import.cljs:132
+#, unused
+msgid "workspace.tokens.choose-folder"
+msgstr "Выбрать папку"
+
+#: src/app/main/ui/workspace/tokens/management/context_menu.cljs:299, src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:130
+msgid "workspace.tokens.color"
+msgstr "Цвет"
+
+#: src/app/main/data/workspace/tokens/errors.cljs:101, src/app/main/ui/workspace/tokens/management/forms/typography.cljs:251
+msgid "workspace.tokens.composite-line-height-needs-font-size"
+msgstr "Высота строки зависит от размера шрифта. Добавьте размер шрифта, чтобы увидеть итоговое значение."
+
+#: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:57
+msgid "workspace.tokens.create-new-theme"
+msgstr "Создайте первую тему прямо сейчас."
+
+#: src/app/main/ui/workspace/tokens/sets/lists.cljs:96, src/app/main/ui/workspace/tokens/themes.cljs:44
+msgid "workspace.tokens.create-one"
+msgstr "Создать."
+
+#: src/app/main/ui/workspace/tokens/sets/lists.cljs:96
+msgid "workspace.tokens.create-set"
+msgstr "Создайте набор."
+
+#: src/app/main/ui/workspace/tokens/themes.cljs:44
+msgid "workspace.tokens.create-theme"
+msgstr "Создайте тему."
+
+#: src/app/main/ui/workspace/tokens/management/forms/generic_form.cljs:235
+msgid "workspace.tokens.create-token"
+msgstr "Создайте новый токен"
+
+#: src/app/main/ui/workspace/tokens/management/context_menu.cljs:353
+msgid "workspace.tokens.delete"
+msgstr "Удалить токен"
+
+#: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:140
+msgid "workspace.tokens.delete-theme-title"
+msgstr "Удалить тему"
+
+#: src/app/main/ui/workspace/tokens/management/context_menu.cljs:350
+msgid "workspace.tokens.duplicate"
+msgstr "Дублировать токен"
+
+#: src/app/main/data/workspace/tokens/library_edit.cljs:240, src/app/main/data/workspace/tokens/library_edit.cljs:509
+msgid "workspace.tokens.duplicate-suffix"
+msgstr "копия"
+
+#: src/app/main/ui/workspace/tokens/management/context_menu.cljs:337
+msgid "workspace.tokens.edit"
+msgstr "Изменить токен"
+
+#: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:346
+msgid "workspace.tokens.edit-theme-title"
+msgstr "Изменить тему"
+
+#: src/app/main/ui/workspace/tokens/management/forms/generic_form.cljs:234
+msgid "workspace.tokens.edit-token"
+msgstr "Изменить токен"
+
+#: src/app/main/data/workspace/tokens/errors.cljs:41
+msgid "workspace.tokens.empty-input"
+msgstr "Значение токена не может быть пустым"
+
+#: src/app/main/ui/workspace/tokens/management/forms/generic_form.cljs:241
+msgid "workspace.tokens.enter-token-name"
+msgstr "Введите название %s токена"
+
+#: src/app/main/data/workspace/tokens/errors.cljs:15
+msgid "workspace.tokens.error-parse"
+msgstr "Ошибка импорта: не удалось разобрать JSON."
+
+#: src/app/main/ui/workspace/tokens/export/modal.cljs:49
+msgid "workspace.tokens.export"
+msgstr "Экспорт"
+
+#: src/app/main/ui/workspace/tokens/export/modal.cljs:125
+msgid "workspace.tokens.export-tokens"
+msgstr "Экспорт токенов"
+
+#: src/app/main/ui/workspace/tokens/export/modal.cljs:118
+msgid "workspace.tokens.export.multiple-files"
+msgstr "Несколько файлов"
+
+#: src/app/main/ui/workspace/tokens/export/modal.cljs:38
+msgid "workspace.tokens.export.no-tokens-themes-sets"
+msgstr "Нет токенов, тем или наборов для экспорта."
+
+#: src/app/main/ui/workspace/tokens/export/modal.cljs:35
+msgid "workspace.tokens.export.preview"
+msgstr "Предпросмотр:"
+
+#: src/app/main/ui/workspace/tokens/export/modal.cljs:116
+msgid "workspace.tokens.export.single-file"
+msgstr "Один файл"
+
+#: src/app/main/ui/workspace/tokens/management/forms/typography.cljs:129
+msgid "workspace.tokens.font-size-value-enter"
+msgstr "Размер шрифта или {alias}"
+
+#: src/app/main/data/workspace/tokens/application.cljs:325
+msgid "workspace.tokens.font-variant-not-found"
+msgstr ""
+"Ошибка установки насыщенности/стиля шрифта. "
+"Этого стиля шрифта нет в текущем шрифте"
+
+#: src/app/main/ui/workspace/tokens/management/forms/form_container.cljs:42, src/app/main/ui/workspace/tokens/management/forms/typography.cljs:137
+msgid "workspace.tokens.font-weight-value-enter"
+msgstr "Насыщенность шрифта (300, Bold Italic...) или {alias}"
+
+#: src/app/main/ui/workspace/tokens/management/context_menu.cljs:240
+msgid "workspace.tokens.gaps"
+msgstr "Интервалы"
+
+#: src/app/main/ui/workspace/tokens/style_dictionary.cljs
+#, unused
+msgid "workspace.tokens.generic-error"
+msgstr "Ошибка: "
+
+#: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:93
+msgid "workspace.tokens.group-name"
+msgstr "Название группы"
+
+#: src/app/main/ui/workspace/tokens/sets.cljs
+#, unused
+msgid "workspace.tokens.grouping-set-alert"
+msgstr "Группировка наборов токенов пока не поддерживается."
+
+#: src/app/main/ui/workspace/tokens/import/modal.cljs:233
+msgid "workspace.tokens.import-button-prefix"
+msgstr "Импортировать %s"
+
+#: src/app/main/data/workspace/tokens/errors.cljs:32, src/app/main/data/workspace/tokens/errors.cljs:37
+msgid "workspace.tokens.import-error"
+msgstr "Ошибка импорта:"
+
+#: src/app/main/ui/workspace/tokens/import/modal.cljs:273
+msgid "workspace.tokens.import-menu-folder-option"
+msgstr "Папка"
+
+#: src/app/main/ui/workspace/tokens/import/modal.cljs:271
+msgid "workspace.tokens.import-menu-json-option"
+msgstr "Один JSON-файл"
+
+#: src/app/main/ui/workspace/tokens/import/modal.cljs:272
+msgid "workspace.tokens.import-menu-zip-option"
+msgstr "ZIP-файл"
+
+#: src/app/main/ui/workspace/tokens/import/modal.cljs:241
+msgid "workspace.tokens.import-multiple-files"
+msgstr "В нескольких файлах имя/путь файла являются именами наборов."
+
+#: src/app/main/ui/workspace/tokens/import/modal.cljs:240
+msgid "workspace.tokens.import-single-file"
+msgstr "В одном JSON-файле ключи первого уровня должны быть именами наборов токенов."
+
+#: src/app/main/ui/workspace/tokens/import/modal.cljs:237
+msgid "workspace.tokens.import-tokens"
+msgstr "Импорт токенов"
+
+#: src/app/main/ui/workspace/tokens/sidebar.cljs:414, src/app/main/ui/workspace/tokens/sidebar.cljs:415
+#, unused
+msgid "workspace.tokens.import-tooltip"
+msgstr "Импорт JSON-файла перезапишет все ваши текущие токены, наборы и темы"
+
+#: src/app/main/ui/workspace/tokens/import/modal.cljs:247
+msgid "workspace.tokens.import-warning"
+msgstr "Импорт токенов перезапишет все ваши текущие токены, наборы и темы."
+
+#: src/app/main/ui/workspace/tokens/management.cljs:78
+msgid "workspace.tokens.inactive-set"
+msgstr "Неактивен"
+
+#: src/app/main/ui/workspace/tokens/management.cljs:70
+msgid "workspace.tokens.inactive-set-description"
+msgstr ""
+"Этот набор неактивен. Измените тему или активируйте этот набор, "
+"чтобы увидеть изменения на холсте"
+
+#: src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:240, src/app/main/ui/workspace/tokens/management/forms/typography.cljs:195
+msgid "workspace.tokens.individual-tokens"
+msgstr "Использовать отдельные токены"
+
+#: src/app/main/data/workspace/tokens/errors.cljs:49
+msgid "workspace.tokens.invalid-color"
+msgstr "Недействительное значение цвета: %s"
+
+#: src/app/main/data/workspace/tokens/errors.cljs:93
+msgid "workspace.tokens.invalid-font-family-token-value"
+msgstr "Недействительное значение токена: можно ссылаться только на токен семейства шрифтов"
+
+#: src/app/main/data/workspace/tokens/errors.cljs:89
+msgid "workspace.tokens.invalid-font-weight-token-value"
+msgstr ""
+"Недействительное значение насыщенности шрифта: используйте числовые значения (100–950) "
+"или стандартные названия (thin, light, regular, bold и т.д.), "
+"при необходимости с суффиксом 'Italic'"
+
+#: src/app/main/data/workspace/tokens/errors.cljs:23
+msgid "workspace.tokens.invalid-json"
+msgstr "Ошибка импорта: недействительные данные токена в JSON."
+
+#: src/app/main/data/workspace/tokens/errors.cljs:27
+msgid "workspace.tokens.invalid-json-token-name"
+msgstr "Ошибка импорта: недействительное имя токена в JSON."
+
+#: src/app/main/data/workspace/tokens/errors.cljs:28
+msgid "workspace.tokens.invalid-json-token-name-detail"
+msgstr ""
+"\"%s\" — недействительное имя токена.\n"
+"Имена токенов должны содержать только буквы и цифры, разделённые точками, "
+"и не должны начинаться со знака $."
+
+#: src/app/main/data/workspace/tokens/errors.cljs:105
+msgid "workspace.tokens.invalid-shadow-type-token-value"
+msgstr "Недействительный тип тени: принимаются только 'innerShadow' или 'dropShadow'"
+
+#: src/app/main/data/workspace/tokens/errors.cljs:81
+msgid "workspace.tokens.invalid-text-case-token-value"
+msgstr ""
+"Недействительное значение токена: принимаются только none, Uppercase, Lowercase или Capitalize"
+
+#: src/app/main/data/workspace/tokens/errors.cljs:85
+msgid "workspace.tokens.invalid-text-decoration-token-value"
+msgstr "Недействительное значение токена: принимаются только none, underline и strike-through"
+
+#: src/app/main/data/workspace/tokens/errors.cljs:117
+msgid "workspace.tokens.invalid-token-value-shadow"
+msgstr "Недействительное значение: должна быть ссылка на составной токен тени."
+
+#: src/app/main/data/workspace/tokens/errors.cljs:97
+msgid "workspace.tokens.invalid-token-value-typography"
+msgstr "Недействительное значение: должна быть ссылка на составной токен типографики."
+
+#: src/app/main/data/workspace/tokens/errors.cljs:61, src/app/main/data/workspace/tokens/errors.cljs:73, src/app/main/data/workspace/tokens/errors.cljs:77
+msgid "workspace.tokens.invalid-value"
+msgstr "Недействительное значение токена: %s"
+
+#: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:205
+msgid "workspace.tokens.label.group"
+msgstr "Группа"
+
+#: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:207
+msgid "workspace.tokens.label.group-placeholder"
+msgstr "Добавить группу"
+
+#: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:214
+msgid "workspace.tokens.label.theme"
+msgstr "Тема"
+
+#: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:215
+msgid "workspace.tokens.label.theme-placeholder"
+msgstr "Добавить тему"
+
+#: src/app/main/ui/workspace/tokens/management/forms/typography.cljs:153
+msgid "workspace.tokens.letter-spacing-value-enter-composite"
+msgstr "Межбуквенный интервал или {alias}"
+
+#: src/app/main/ui/workspace/tokens/management/forms/typography.cljs:145
+msgid "workspace.tokens.line-height-value-enter"
+msgstr "Высота строки (множитель, px, %) или {alias}"
+
+#: src/app/main/ui/workspace/tokens/management/context_menu.cljs:232
+msgid "workspace.tokens.margins"
+msgstr "Внешние отступы"
+
+#: src/app/main/ui/workspace/tokens/management/context_menu.cljs:268
+msgid "workspace.tokens.max-size"
+msgstr "Макс. размер"
+
+#: src/app/main/ui/workspace/tokens/management/context_menu.cljs:262
+msgid "workspace.tokens.min-size"
+msgstr "Мин. размер"
+
+#: src/app/main/ui/workspace/tokens/management/token_pill.cljs:303
+msgid "workspace.tokens.missing-reference"
+msgstr "Ссылка отсутствует"
+
+#: src/app/main/data/workspace/tokens/errors.cljs:57
+msgid "workspace.tokens.missing-references"
+msgstr "Отсутствующие ссылки на токены: "
+
+#: src/app/main/ui/workspace/tokens/management/token_pill.cljs:124
+msgid "workspace.tokens.more-options"
+msgstr "Правый клик для просмотра параметров"
+
+#: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:135
+msgid "workspace.tokens.no-active-sets"
+msgstr "Нет активных наборов"
+
+#: src/app/main/ui/workspace/tokens/themes/theme_selector.cljs:91
+msgid "workspace.tokens.no-active-theme"
+msgstr "Нет активной темы"
+
+#: src/app/main/ui/workspace/tokens/sets/lists.cljs:72
+msgid "workspace.tokens.no-permisions-set"
+msgstr "Нужны права редактора для активации/деактивации наборов"
+
+#: src/app/main/ui/workspace/tokens/themes.cljs:54
+msgid "workspace.tokens.no-permission-themes"
+msgstr "Нужны права редактора для использования тем"
+
+#: src/app/main/ui/workspace/tokens/remapping_modal.cljs:87
+#, unused
+msgid "workspace.tokens.no-references-found"
+msgstr "Ссылки не найдены"
+
+#: src/app/main/ui/workspace/tokens/remapping_modal.cljs
+#, unused
+msgid "workspace.tokens.no-remap-needed"
+msgstr "Этот токен не используется в вашем дизайне, переназначение не требуется."
+
+#: src/app/main/ui/workspace/tokens/sets/lists.cljs:485
+msgid "workspace.tokens.no-sets-create"
+msgstr "Наборы ещё не заданы. Сначала создайте хотя бы один."
+
+#: src/app/main/ui/workspace/tokens/sets/lists.cljs:93, src/app/main/ui/workspace/tokens/sets/lists.cljs:99
+msgid "workspace.tokens.no-sets-yet"
+msgstr "Наборов пока нет."
+
+#: src/app/main/ui/workspace/tokens/themes.cljs:40
+msgid "workspace.tokens.no-themes"
+msgstr "Тем пока нет."
+
+#: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:53
+msgid "workspace.tokens.no-themes-currently"
+msgstr "У вас пока нет тем."
+
+#: src/app/main/data/workspace/tokens/errors.cljs:19
+msgid "workspace.tokens.no-token-files-found"
+msgstr "В этом файле не найдено токенов, наборов или тем."
+
+#: src/app/main/ui/workspace/tokens/remapping_modal.cljs:95
+msgid "workspace.tokens.not-remap"
+msgstr "Не переназначать"
+
+#: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:134
+msgid "workspace.tokens.num-active-sets"
+msgstr "Активных наборов: %s"
+
+#: src/app/main/data/workspace/tokens/errors.cljs:53
+msgid "workspace.tokens.number-too-large"
+msgstr "Недействительное значение токена. Итоговое значение слишком велико: %s"
+
+#: src/app/main/data/workspace/tokens/errors.cljs:73, src/app/main/data/workspace/tokens/warnings.cljs:15
+msgid "workspace.tokens.opacity-range"
+msgstr "Прозрачность должна быть от 0 до 100% или от 0 до 1 (например, 50% или 0.5)."
+
+#: src/app/main/ui/workspace/tokens/management/token_pill.cljs:121
+#, fuzzy
+msgid "workspace.tokens.original-value"
+msgstr "Исходное значение: %s"
+
+#: src/app/main/ui/workspace/tokens/management/context_menu.cljs:216
+msgid "workspace.tokens.paddings"
+msgstr "Внутренние отступы"
+
+#: src/app/main/ui/workspace/tokens/management/context_menu.cljs:292
+msgid "workspace.tokens.radius"
+msgstr "Радиус"
+
+#: src/app/main/ui/workspace/tokens/management/token_pill.cljs:129
+msgid "workspace.tokens.ref-not-valid"
+msgstr "Ссылка недействительна или не входит ни в один активный набор"
+
+#: src/app/main/ui/workspace/tokens/management/forms/typography.cljs:178
+msgid "workspace.tokens.reference-composite"
+msgstr "Введите псевдоним токена типографики"
+
+#: src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:204
+msgid "workspace.tokens.reference-composite-shadow"
+msgstr "Введите псевдоним токена тени"
+
+#: src/app/main/ui/workspace/tokens/style_dictionary.cljs
+#, unused
+msgid "workspace.tokens.reference-error"
+msgstr "Ошибки ссылок: "
+
+#: src/app/main/ui/workspace/tokens/remapping_modal.cljs:99
+msgid "workspace.tokens.remap"
+msgstr "Переназначить токены"
+
+#: src/app/main/ui/workspace/tokens/remapping_modal.cljs:86
+msgid "workspace.tokens.remap-token-references-title"
+msgstr "Переназначить все токены, использующие `%s` на `%s`?"
+
+#: src/app/main/ui/workspace/tokens/remapping_modal.cljs:88
+msgid "workspace.tokens.remap-warning-effects"
+msgstr "Это изменит все слои и ссылки, использующие старое имя токена."
+
+#: src/app/main/ui/workspace/tokens/remapping_modal.cljs:89
+msgid "workspace.tokens.remap-warning-time"
+msgstr "Это действие может занять некоторое время."
+
+#: src/app/main/ui/workspace/tokens/remapping_modal.cljs:92
+#, unused
+msgid "workspace.tokens.remapping-in-progress"
+msgstr "Переназначение ссылок на токены..."
+
+#: src/app/main/data/workspace/tokens/warnings.cljs:15, src/app/main/data/workspace/tokens/warnings.cljs:19, src/app/main/ui/workspace/colorpicker/color_tokens.cljs:56, src/app/main/ui/workspace/colorpicker/color_tokens.cljs:84, src/app/main/ui/workspace/sidebar/options/rows/color_row.cljs:103, src/app/main/ui/workspace/tokens/management/forms/controls/color_input.cljs:285, src/app/main/ui/workspace/tokens/management/forms/controls/color_input.cljs:459, src/app/main/ui/workspace/tokens/management/forms/controls/fonts_combobox.cljs:176, src/app/main/ui/workspace/tokens/management/forms/controls/fonts_combobox.cljs:311, src/app/main/ui/workspace/tokens/management/forms/controls/input.cljs:251, src/app/main/ui/workspace/tokens/management/forms/controls/input.cljs:364, src/app/main/ui/workspace/tokens/management/forms/controls/input.cljs:465, src/app/main/ui/workspace/tokens/management/token_pill.cljs:122
+#, fuzzy
+msgid "workspace.tokens.resolved-value"
+msgstr "Итоговое значение: %s"
+
+#: src/app/main/ui/workspace/tokens/sets/lists.cljs:204, src/app/main/ui/workspace/tokens/sets/lists.cljs:309
+msgid "workspace.tokens.select-set"
+msgstr "Выбрать набор."
+
+#: src/app/main/data/workspace/tokens/errors.cljs:45, src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:299, src/app/main/ui/workspace/tokens/management/forms/typography.cljs:243
+msgid "workspace.tokens.self-reference"
+msgstr "Токен ссылается на себя"
+
+#: src/app/main/ui/workspace/tokens/sets/lists.cljs:60
+msgid "workspace.tokens.set-edit-placeholder"
+msgstr "Введите имя (используйте '/' для групп)"
+
+#: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:361
+msgid "workspace.tokens.set-selection-theme"
+msgstr "Определите, какие наборы токенов должны использоваться в рамках этой темы:"
+
+#: src/app/main/ui/workspace/tokens/token_pill.cljs:47
+#, unused
+msgid "workspace.tokens.set.not-active"
+msgstr "Набор токенов неактивен"
+
+#: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:129
+msgid "workspace.tokens.sets-hint"
+msgstr "Изменить тему и управлять наборами"
+
+#: src/app/main/ui/workspace/tokens/settings/menu.cljs:91
+msgid "workspace.tokens.setting-description"
+msgstr "Здесь вы можете настроить базовый размер шрифта, определяющий значение 1rem:"
+
+#: src/app/main/ui/workspace/tokens/settings/menu.cljs:84
+msgid "workspace.tokens.settings"
+msgstr "Настройки токенов"
+
+#: src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:232
+msgid "workspace.tokens.shadow-add-shadow"
+msgstr "Добавить тень"
+
+#: src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:161, src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:162, src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:165
+msgid "workspace.tokens.shadow-blur"
+msgstr "Размытие"
+
+#: src/app/main/data/workspace/tokens/errors.cljs:109
+msgid "workspace.tokens.shadow-blur-range"
+msgstr "Размытие тени должно быть не менее 0."
+
+#: src/app/main/ui/workspace/tokens/management/create/form.cljs:987, src/app/main/ui/workspace/tokens/management/create/form.cljs:988
+#, unused
+msgid "workspace.tokens.shadow-color"
+msgstr "Цвет"
+
+#: src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:114
+msgid "workspace.tokens.shadow-inset"
+msgstr "Внутренняя"
+
+#: src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:123
+msgid "workspace.tokens.shadow-remove-shadow"
+msgstr "Убрать тень"
+
+#: src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:173, src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:174, src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:177
+msgid "workspace.tokens.shadow-spread"
+msgstr "Разброс"
+
+#: src/app/main/data/workspace/tokens/errors.cljs:113
+msgid "workspace.tokens.shadow-spread-range"
+msgstr "Разброс тени должен быть не менее 0."
+
+#: src/app/main/ui/workspace/tokens/management/create/form.cljs:1215
+#, unused
+msgid "workspace.tokens.shadow-title"
+msgstr "Тени"
+
+#: src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:281
+msgid "workspace.tokens.shadow-token-blur-value-error"
+msgstr "Значение размытия не может быть отрицательным"
+
+#: src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:287
+#, unused
+msgid "workspace.tokens.shadow-token-spread-value-error"
+msgstr "Значение разброса не может быть отрицательным"
+
+#: src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:139, src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:141
+msgid "workspace.tokens.shadow-x"
+msgstr "X"
+
+#: src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:150, src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:152
+msgid "workspace.tokens.shadow-y"
+msgstr "Y"
+
+#: src/app/main/ui/workspace/tokens/management/context_menu.cljs:256
+msgid "workspace.tokens.size"
+msgstr "Размер"
+
+#: src/app/main/data/workspace/tokens/errors.cljs:77, src/app/main/data/workspace/tokens/warnings.cljs:19
+msgid "workspace.tokens.stroke-width-range"
+msgstr "Толщина обводки должна быть не менее 0."
+
+#: src/app/main/ui/workspace/tokens/management/forms/form_container.cljs:40, src/app/main/ui/workspace/tokens/management/forms/typography.cljs:161
+msgid "workspace.tokens.text-case-value-enter"
+msgstr "none | uppercase | lowercase | capitalize или {alias}"
+
+#: src/app/main/ui/workspace/tokens/management/forms/form_container.cljs:41, src/app/main/ui/workspace/tokens/management/forms/typography.cljs:169
+msgid "workspace.tokens.text-decoration-value-enter"
+msgstr "none | underline | strike-through или {alias}"
+
+#: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:154
+#, unused
+msgid "workspace.tokens.theme-name"
+msgstr "Тема %s"
+
+#: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:51
+#, unused
+msgid "workspace.tokens.theme-name-already-exists"
+msgstr "Тема с таким именем уже существует"
+
+#: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:100
+#, unused
+msgid "workspace.tokens.theme.disable"
+msgstr "Отключить"
+
+#: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:96
+#, unused
+msgid "workspace.tokens.theme.enable"
+msgstr "Включить"
+
+#: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:85
+msgid "workspace.tokens.themes-description"
+msgstr ""
+"Здесь вы можете управлять темами, включать/выключать их "
+"и настраивать активные наборы."
+
+#: src/app/main/ui/workspace/tokens/themes/create_modal.cljs:49, src/app/main/ui/workspace/tokens/themes/create_modal.cljs:83
+msgid "workspace.tokens.themes-list"
+msgstr "Список тем"
+
+#: src/app/main/ui/workspace/tokens/management/forms/generic_form.cljs:275, src/app/main/ui/workspace/tokens/management/forms/generic_form.cljs:276
+#, fuzzy
+msgid "workspace.tokens.token-description"
+msgstr "Описание"
+
+#: src/app/main/ui/workspace/tokens/management/forms/controls/fonts_combobox.cljs:122, src/app/main/ui/workspace/tokens/management/forms/controls/fonts_combobox.cljs:246
+msgid "workspace.tokens.token-font-family-select"
+msgstr "Выбрать семейство шрифтов"
+
+#: src/app/main/ui/workspace/tokens/management/forms/typography.cljs:122
+msgid "workspace.tokens.token-font-family-value"
+msgstr "Семейство шрифтов"
+
+#: src/app/main/ui/workspace/tokens/management/forms/typography.cljs:120
+msgid "workspace.tokens.token-font-family-value-enter"
+msgstr "Семейство шрифтов или список шрифтов через запятую (,)"
+
+#: src/app/main/ui/workspace/colorpicker/color_tokens.cljs:83, src/app/main/ui/workspace/sidebar/options/rows/color_row.cljs:112, src/app/main/ui/workspace/tokens/management/forms/generic_form.cljs:240
+msgid "workspace.tokens.token-name"
+msgstr "Название"
+
+#: src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:268, src/app/main/ui/workspace/tokens/management/forms/typography.cljs:223
+msgid "workspace.tokens.token-name-duplication-validation-error"
+msgstr "По этому пути уже существует токен: %s"
+
+#: src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:265, src/app/main/ui/workspace/tokens/management/forms/typography.cljs:220
+msgid "workspace.tokens.token-name-length-validation-error"
+msgstr "Название должно содержать не менее 1 символа"
+
+#: src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:267, src/app/main/ui/workspace/tokens/management/forms/typography.cljs:222
+msgid "workspace.tokens.token-name-validation-error"
+msgstr ""
+" — недействительное имя токена.\n"
+"Имена токенов должны содержать только буквы и цифры, разделённые точками, "
+"и не должны начинаться со знака $."
+
+#: src/app/main/ui/workspace/tokens/style_dictionary.cljs:259
+#, unused
+msgid "workspace.tokens.token-not-resolved"
+msgstr "Не удалось разрешить ссылочный токен с именем: %s"
+
+#: src/app/main/ui/workspace/tokens/management/forms/generic_form.cljs:267
+msgid "workspace.tokens.token-value"
+msgstr "Значение"
+
+#: src/app/main/ui/workspace/tokens/management/forms/generic_form.cljs:266, src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:129
+msgid "workspace.tokens.token-value-enter"
+msgstr "Введите значение или псевдоним {alias}"
+
+#: src/app/main/ui/workspace/tokens/management.cljs:67
+msgid "workspace.tokens.tokens-section-title"
+msgstr "Токены"
+
+#: src/app/main/ui/workspace/tokens/sidebar.cljs:122
+msgid "workspace.tokens.tools"
+msgstr "Инструменты"
+
+#: src/app/main/data/workspace/tokens/import_export.cljs:46
+msgid "workspace.tokens.unknown-token-type-message"
+msgstr "Импорт выполнен успешно. Некоторые токены не были включены."
+
+#: src/app/main/data/workspace/tokens/import_export.cljs:48
+msgid "workspace.tokens.unknown-token-type-section"
+msgstr "Тип '%s' не поддерживается (%s)\n"
+
+#: src/app/main/ui/workspace/tokens/management/forms/shadow.cljs:244, src/app/main/ui/workspace/tokens/management/forms/typography.cljs:199
+msgid "workspace.tokens.use-reference"
+msgstr "Использовать ссылку"
 
 #: src/app/main/ui/workspace/tokens/management/token_pill.cljs:132
 msgid "workspace.tokens.value-not-valid"
 msgstr "Значение недействительное"
+
+#: src/app/main/data/workspace/tokens/errors.cljs:69
+msgid "workspace.tokens.value-with-percent"
+msgstr "Недействительное значение: % не допускается."
+
+#: src/app/main/data/workspace/tokens/errors.cljs:65
+msgid "workspace.tokens.value-with-units"
+msgstr "Недействительное значение: единицы измерения не допускаются."
+
+#: src/app/main/ui/workspace/tokens/management/forms/generic_form.cljs
+#, unused
+msgid "workspace.tokens.warning-name-change"
+msgstr "Переименование этого токена разрушит все ссылки на его старое имя"
+
+#: src/app/main/data/workspace/tokens/application.cljs
+msgid "workspace.tokens.error-text-edition"
+msgstr "Токены нельзя применять при редактировании текста. Вместо этого выберите слой с текстом."
 
 #: src/app/main/ui/workspace/sidebar.cljs:159, src/app/main/ui/workspace/sidebar.cljs:166
 msgid "workspace.toolbar.assets"

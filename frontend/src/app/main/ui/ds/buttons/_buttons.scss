@@ -106,8 +106,8 @@
   --button-focus-outer-ring-color: var(--color-accent-primary);
 }
 
-%base-button-ghost {
-  --button-bg-color: transparent;
+%base-button-dark {
+  --button-bg-color: var(--color-background-fifty);
   --button-fg-color: var(--color-foreground-secondary);
 
   --button-hover-bg-color: var(--color-background-tertiary);
@@ -117,10 +117,29 @@
   --button-active-fg-color: var(--color-accent-primary);
 
   --button-disabled-bg-color: transparent;
+  --button-disabled-fg-color: var(--color-foreground-secondary);
+
+  --button-focus-bg-color: var(--color-background-tertiary);
+  --button-focus-fg-color: var(--color-foreground-primary);
+  --button-focus-inner-ring-color: var(--color-background-secondary);
+  --button-focus-outer-ring-color: var(--color-accent-primary);
+}
+
+%base-button-ghost {
+  --button-bg-color: transparent;
+  --button-fg-color: var(--color-foreground-third);
+
+  --button-hover-bg-color: var(--color-background-quaternary);
+  --button-hover-fg-color: var(--color-accent-primary);
+
+  --button-active-bg-color: var(--color-background-quaternary);
+  --button-active-fg-color: var(--color-accent-primary);
+
+  --button-disabled-bg-color: transparent;
   --button-disabled-fg-color: var(--color-accent-primary-muted);
 
   --button-focus-bg-color: transparent;
-  --button-focus-fg-color: var(--color-foreground-secondary);
+  --button-focus-fg-color: var(--color-foreground-third);
   --button-focus-inner-ring-color: transparent;
   --button-focus-outer-ring-color: var(--color-accent-primary);
 }

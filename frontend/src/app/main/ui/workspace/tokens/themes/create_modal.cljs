@@ -45,7 +45,7 @@
          (mf/deps change-view)
          #(change-view :create-theme))]
     [:div {:class (stl/css :themes-modal-wrapper)}
-     [:> heading* {:level 2 :typography "headline-medium" :class (stl/css :themes-modal-title)}
+     [:> heading* {:level 2 :typography "title-medium-typography" :class (stl/css :themes-modal-title)}
       (tr "workspace.tokens.themes-list")]
      [:div {:class (stl/css :empty-themes-wrapper)}
       [:div {:class (stl/css :empty-themes-message)}
@@ -340,7 +340,7 @@
              (on-toggle-token-set (ctob/get-name set)))))]
 
     [:div {:class (stl/css :themes-modal-wrapper)}
-     [:> heading* {:level 2 :typography "headline-medium" :class (stl/css :themes-modal-title)}
+     [:> heading* {:level 2 :typography "title-small" :class (stl/css :themes-modal-title)}
       (if is-editing
         (tr "workspace.tokens.edit-theme-title")
         (tr "workspace.tokens.add-new-theme"))]

@@ -60,7 +60,7 @@
            :aria-labelledby (dm/str group "-label")
            :role "group"}
       (when (seq group)
-        [:> text* {:as "span" :typography "headline-small" :class (stl/css :group) :id (dm/str (str/kebab group) "-label") :title group} group])
+        [:> text* {:as "span" :typography "body-small" :class (stl/css :group) :id (dm/str (str/kebab group) "-label") :title group} group])
       [:& themes-list {:themes themes
                        :active-theme-paths active-theme-paths
                        :on-close on-close

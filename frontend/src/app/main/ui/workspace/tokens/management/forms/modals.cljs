@@ -92,7 +92,7 @@
                    :token-modal-large modal-size-large?)
            :style wrapper-style
            :data-testid "token-update-create-modal"}
-     [:> icon-button* {:on-click close-modal
+     #_[:> icon-button* {:on-click close-modal
                        :class (stl/css :close-btn)
                        :icon i/close
                        :variant "action"

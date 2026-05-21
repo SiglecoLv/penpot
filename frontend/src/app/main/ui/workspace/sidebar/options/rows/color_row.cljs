@@ -49,7 +49,7 @@
     [:div {:class (stl/css :color-bullet-wrapper)}
      [:> swatch* {:background color
                   :on-click handle-click-color
-                  :size "small"}]]
+                  :size "medium"}]]
     children]
    (when opacity
      [:div {:class (stl/css :opacity-element-wrapper)}
@@ -368,7 +368,7 @@
                 :title (str color-name)}
           (str color-name)]
          [:> icon-button*
-          {:variant "ghost"
+          {:variant "options"
            :class (stl/css :detach-btn)
            :aria-label (tr "settings.detach")
            :on-click detach-value
@@ -427,12 +427,12 @@
                            :on-change on-color-change}]]])
 
      (when (some? on-remove)
-       [:> icon-button* {:variant "ghost"
+       [:> icon-button* {:variant "options"
                          :aria-label (tr "settings.remove-color")
                          :on-click on-remove'
                          :icon i/remove}])
      (when select-only
-       [:> icon-button* {:variant "ghost"
+       [:> icon-button* {:variant "options"
                          :aria-label (tr "settings.select-this-color")
                          :on-click handle-select
                          :icon i/move}])]))

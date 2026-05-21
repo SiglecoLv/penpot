@@ -10,12 +10,15 @@
 .button {
   @extend %base-button;
 
-  @include use-typography("headline-small");
+  // @include use-typography("body-small");
   padding: 0 var(--sp-m);
 
   display: inline-flex;
   align-items: center;
   column-gap: var(--sp-xs);
+
+  min-width: 140px;
+  justify-content: center
 }
 
 .button-primary {
@@ -24,6 +27,10 @@
 
 .button-secondary {
   @extend %base-button-secondary;
+}
+
+.button-dark {
+  @extend %base-button-dark;
 }
 
 .button-ghost {

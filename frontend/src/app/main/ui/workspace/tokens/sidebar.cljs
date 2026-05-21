@@ -116,9 +116,9 @@
 
     [:div {:class (stl/css :import-export-button-wrapper)}
      [:> button* {:on-click open-menu
-                  :type "button"
-                  :icon i/import-export
-                  :variant "secondary"}
+                  :type "button" 
+                  ;:icon i/import-export
+                  :variant "dark"}
       (tr "workspace.tokens.tools")]
      [:> dropdown-menu* {:show show-menu?
                          :on-close close-menu

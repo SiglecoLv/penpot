@@ -56,7 +56,7 @@
 }
 
 .sidebar-section-title {
-  @include t.use-typography("headline-small");
+  @include t.use-typography("body-small");
   padding: 0 var(--sp-s) var(--sp-s) var(--sp-xxl);
   color: var(--color-foreground-secondary);
 }

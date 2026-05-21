@@ -157,13 +157,13 @@
                         :is-expandable expandable?
                         :aria-expanded is-type-unfolded
                         :aria-controls (dm/str "token-tree-" (name type))
-                        :on-toggle-expand on-toggle-open-click
-                        :icon (token-section-icon type)}
+                        :on-toggle-expand on-toggle-open-click}
       (when can-edit?
         [:> icon-button* {:id (str "add-token-button-" title)
                           :icon "add"
                           :aria-label (tr "workspace.tokens.add-token" title)
                           :variant "ghost"
+                          :size "s"
                           :on-click on-popover-open-click
                           :class (stl/css :token-section-icon)}])]
      (when is-type-unfolded

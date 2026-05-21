@@ -15,7 +15,7 @@
 
 .empty-sets-wrapper {
   padding: deprecated.$s-12;
-  padding-inline-start: deprecated.$s-24;
+  padding-inline-start: deprecated.$s-50;
   color: var(--color-foreground-secondary);
 }
 
@@ -127,7 +127,7 @@
   align-items: center;
   width: 100%;
   padding: deprecated.$s-12;
-  color: var(--color-foreground-secondary);
+  color: var(--color-foreground-third);
 }
 .selected-set {
   background-color: var(--layer-row-background-color-selected);

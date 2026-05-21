@@ -31,7 +31,7 @@
 
 .tokens-section-wrapper {
   height: 100%;
-  padding-left: var(--sp-m);
+  padding-left: var(--sp-26);
   overflow-y: auto;
   scrollbar-gutter: stable;
 }
@@ -40,7 +40,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: var(--sp-m);
+  margin-left: var(--sp-18);
   padding-top: var(--sp-m);
   color: var(--layer-row-foreground-color);
 }
@@ -68,7 +68,10 @@
   justify-content: end;
   padding: var(--sp-s);
   background-color: var(--color-background-primary);
-  box-shadow: var(--el-shadow-dark);
+
+  --button-secondary-background-color-rest: #000000
+
+  // box-shadow: var(--el-shadow-dark);
 }
 
 .import-export-button {

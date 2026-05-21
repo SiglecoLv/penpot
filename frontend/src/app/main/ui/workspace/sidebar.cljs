@@ -57,6 +57,8 @@
   [:> icon-button* {:variant "ghost"
                     :aria-label (tr "workspace.sidebar.collapse")
                     :on-click toggle-collapse-left-sidebar
+                    :fill-based true
+                    :size "ml"
                     :icon i/sidebar-toggle}])
 
 (mf/defc collapsed-button*

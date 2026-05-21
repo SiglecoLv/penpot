@@ -126,6 +126,7 @@
         :data-direction "up"
         :default-value (or (d/name selected) "recent")
         :options options
+        :variant "dark"
         :on-change on-library-change}]]
 
      [:div {:class (stl/css :selected-colors)}

@@ -41,8 +41,8 @@
   align-items: center;
   flex: 1;
   gap: var(--sp-xxs);
-  block-size: $sz-32;
-  border-radius: $br-8;
+  block-size: $sz-30;
+  border-radius: $br-7;
   background-color: var(--color-background-primary);
 
   &:hover {
@@ -51,30 +51,30 @@
 }
 
 .color-name-wrapper {
-  --color-name-wrapper-background-color: var(--color-background-tertiary);
+  --color-name-wrapper-background-color: var(--color-background-fifty);
   --color-name-wrapper-foreground-color: var(--color-foreground-primary);
-  --color-name-wrapper-boder-color: var(--color-background-tertiary);
+  --color-name-wrapper-boder-color: var(--color-background-fifty);
   @include t.use-typography("body-small");
   @include textEllipsis;
   display: flex;
   align-items: center;
   flex-grow: 1;
   gap: var(--sp-xs);
-  block-size: $sz-32;
+  block-size: $sz-30;
   min-inline-size: 0;
   inline-size: 100%;
   padding: 0;
   margin-inline-end: 0;
   border: $b-1 solid var(--color-name-wrapper-boder-color);
-  border-radius: $br-8;
+  border-radius: $br-7;
   background-color: var(--color-name-wrapper-background-color);
   color: var(--color-name-wrapper-foreground-color);
-  border-radius: $br-8 0 0 $br-8;
+  border-radius: $br-7 0 0 $br-7;
 
   &.no-opacity {
-    border-radius: $br-8;
+    border-radius: $br-7;
     .color-input-wrapper {
-      border-radius: $br-8;
+      border-radius: $br-7;
     }
   }
 
@@ -92,17 +92,17 @@
 
     &:focus,
     &:focus-within {
-      --color-name-wrapper-background-color: var(--color-background-tertiary);
+      --color-name-wrapper-background-color: transparent;
       --color-name-wrapper-boder-color: var(--color-accent-primary);
     }
   }
 
   &:focus,
   &:focus-within {
-    --color-name-wrapper-background-color: var(--color-background-tertiary);
+    --color-name-wrapper-background-color: transparent;
     --color-name-wrapper-boder-color: var(--color-accent-primary);
     &:hover {
-      --color-name-wrapper-background-color: var(--color-background-quaternary);
+      --color-name-wrapper-background-color: transparent;
     }
   }
 
@@ -138,7 +138,7 @@
   @include textEllipsis;
   flex-grow: 1;
   padding-inline: px2rem(6);
-  border-radius: $br-8;
+  border-radius: $br-7;
   color: var(--color-name-wrapper-foreground-color);
 }
 
@@ -146,9 +146,9 @@
   display: flex;
   align-items: center;
   position: relative;
-  block-size: $sz-32;
-  padding: 0 var(--sp-xxs) 0 var(--sp-s);
-  border-radius: $br-8 0 0 $br-8;
+  block-size: $sz-30;
+  padding: 0 var(--sp-xxs) 0 var(--sp-6);
+  border-radius: $br-7 0 0 $br-7;
   background-color: transparent;
   &:hover {
     background-color: transparent;
@@ -165,7 +165,7 @@
   flex-grow: 1;
   margin: var(--sp-xxs) 0;
   padding: 0 0 0 px2rem(6);
-  border-radius: $br-8;
+  border-radius: $br-7;
   color: var(--input-foreground-color-active);
   &[disabled] {
     opacity: 0.5;
@@ -174,20 +174,20 @@
 }
 
 .library-name-wrapper {
-  border-radius: $br-8;
+  border-radius: $br-7;
 }
 
 .opacity-element-wrapper {
-  --opacity-input-background-color: var(--color-background-tertiary);
-  --opacity-input-boder-color: var(--color-background-tertiary);
+  --opacity-input-background-color: var(--color-background-fifty);
+  --opacity-input-boder-color: var(--color-background-fifty);
 
   @include t.use-typography("body-small");
   display: flex;
   align-items: center;
-  block-size: $sz-32;
+  block-size: $sz-30;
   inline-size: px2rem(60);
   padding-inline-start: var(--sp-xs);
-  border-radius: 0 $br-8 $br-8 0;
+  border-radius: 0 $br-7 $br-7 0;
   border: $b-1 solid var(--opacity-input-boder-color);
   background-color: var(--opacity-input-background-color);
 
@@ -204,17 +204,17 @@
 
     &:focus,
     &:focus-within {
-      --opacity-input-background-color: var(--color-background-tertiary);
+      --opacity-input-background-color: transparent;
       --opacity-input-boder-color: var(--color-accent-primary);
     }
   }
 
   &:focus,
   &:focus-within {
-    --opacity-input-background-color: var(--color-background-tertiary);
+    --opacity-input-background-color: transparent;
     --opacity-input-boder-color: var(--color-accent-primary);
     &:hover {
-      --opacity-input-background-color: var(--color-background-quaternary);
+      --opacity-input-background-color: transparent;
     }
   }
 
@@ -233,7 +233,7 @@
   flex-grow: 1;
   inline-size: 100%;
   padding: 0;
-  border-radius: 0 $br-8 $br-8 0;
+  border-radius: 0 $br-7 $br-7 0;
   border: none;
   background: none;
   outline: none;
@@ -250,7 +250,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  block-size: $sz-32;
+  block-size: $sz-30;
   margin-inline-end: var(--sp-xs);
   margin-block-start: var(--sp-xxs);
   color: var(--color-foreground-secondary);
@@ -266,14 +266,14 @@
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: var(--sp-xs);
-  block-size: $sz-32;
+  block-size: $sz-30;
   min-inline-size: 0;
   inline-size: 100%;
   padding: 0;
   margin-inline-end: 0;
   background: var(--token-color-wrapper-background-color);
   border: $b-1 solid var(--token-color-wrapper-border-color);
-  border-radius: $br-8;
+  border-radius: $br-7;
   &:hover {
     --token-color-wrapper-background-color: var(--color-token-background);
     --token-color-wrapper-foreground-color: var(--color-foreground-primary);
@@ -299,8 +299,8 @@
   @include t.use-typography("body-small");
   @include textEllipsis;
   color: var(--token-color-wrapper-foreground-color);
-  block-size: $sz-32;
-  line-height: $sz-32;
+  block-size: $sz-30;
+  line-height: $sz-30;
 }
 
 .token-tooltip {

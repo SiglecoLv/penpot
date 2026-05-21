@@ -65,12 +65,12 @@
            :on-pointer-move #(when @dragging? (calculate-pos %))}
      (let [value-percent (* (/ (- value min-value)
                                (- max-value min-value)) 100)
-
+    
            value-percent (if reverse?
                            (mth/abs (- value-percent 100))
                            value-percent)
            value-percent-str (str value-percent "%")
-
+    
            style-common #js {:pointerEvents "none"}
            style-horizontal (obj/merge! #js {:left value-percent-str} style-common)
            style-vertical   (obj/merge! #js {:bottom value-percent-str} style-common)]

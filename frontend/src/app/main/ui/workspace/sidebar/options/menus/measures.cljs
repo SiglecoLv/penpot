@@ -419,7 +419,7 @@
                            :value "horiz"
                            :id "size-horizontal"}]]
         [:> icon-button*
-         {:variant "ghost"
+         {:variant "options"
           :aria-label (tr "workspace.options.fit-content")
           :on-pointer-down handle-fit-content
           :icon i/fit-content}]])
@@ -479,7 +479,7 @@
                                                  :class (stl/css :numeric-input)
                                                  :value (:height values)}]]])
 
-        [:> icon-button* {:variant "ghost"
+        [:> icon-button* {:variant "options"
                           :tooltip-placement "top-left"
                           :icon (if proportion-lock "lock" "unlock")
                           :class (stl/css-case :selected (true? proportion-lock))

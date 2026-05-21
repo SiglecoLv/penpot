@@ -207,7 +207,7 @@
 .zoom-widget {
   @include deprecated.buttonStyle;
   @include deprecated.flexCenter;
-  height: deprecated.$s-28;
+  height: deprecated.$s-22;
   min-width: deprecated.$s-64;
   border-radius: deprecated.$br-8;
   .label {

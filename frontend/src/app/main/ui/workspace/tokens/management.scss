@@ -7,8 +7,9 @@
 @use "ds/typography.scss" as *;
 
 .sets-header-container {
-  @include use-typography("headline-small");
+  @include use-typography("body-small");
   padding: var(--sp-s);
+  padding-left: 0;
   color: var(--title-foreground-color);
   word-break: break-word;
   display: flex;

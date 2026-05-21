@@ -126,7 +126,7 @@
 }
 
 .team-label {
-  @include t.use-typography("headline-small");
+  @include t.use-typography("body-small");
   color: var(--title-foreground-color);
 }
 

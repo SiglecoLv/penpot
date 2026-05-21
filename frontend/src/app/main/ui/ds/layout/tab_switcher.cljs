@@ -18,9 +18,11 @@
 
 (mf/defc tab*
   {::mf/private true}
-  [{:keys [selected icon label aria-label id ref] :rest props}]
+  [{:keys [selected icon label aria-label id ref slim] :rest props}]
   (let [class (stl/css-case
                :tab true
+               :tab-default (not slim)
+               :tab-slim slim
                :selected selected)
         props (mf/spread-props props
                                {:class class
@@ -43,20 +45,27 @@
       (when (string? label)
         [:span {:class (stl/css-case
                         :tab-text true
+                        :tab-text-default (not slim)
+                        :tab-text-slim slim
                         :tab-text-and-icon icon)}
          label])]]))
 
 (mf/defc tab-nav*
   {::mf/private true
    ::mf/memo true}
-  [{:keys [ref tabs selected on-click button-position action-button] :rest props}]
+  [{:keys [ref tabs selected on-click button-position action-button slim] :rest props}]
   (let [nav-class
         (stl/css-case :tab-nav true
+                      :tab-nav-default (not slim)
+                      :tab-nav-slim slim
                       :tab-nav-start (= "start" button-position)
                       :tab-nav-end (= "end" button-position))
         props
         (mf/spread-props props
-                         {:class (stl/css :tab-list)
+                         {:class (stl/css-case
+                                  :tab-list true
+                                  :tab-list-default (not slim)
+                                  :tab-list-slim slim)
                           :role "tablist"
                           :aria-orientation "horizontal"})]
     [:nav {:class nav-class}
@@ -75,6 +84,7 @@
                     :label      label
                     :aria-label aria-label
                     :selected   (= id selected)
+                    :slim       slim
                     :on-click   on-click
                     :ref        ref
                     :id         id}]))]
@@ -103,6 +113,8 @@
   [:map
    [:tabs [:vector {:min 1} schema:tab]]
    [:class {:optional true} :string]
+   [:switcher-class {:optional true} :string]
+   [:variant {:optional true} [:maybe [:enum "default" "slim"]]]
    [:on-change fn?]
    [:selected :string]
    [:action-button {:optional true} some?]
@@ -111,8 +123,9 @@
 
 (mf/defc tab-switcher*
   {::mf/schema schema:tab-switcher}
-  [{:keys [tabs class on-change selected action-button-position action-button children] :rest props}]
-  (let [nodes-ref (mf/use-ref nil)
+  [{:keys [switcher-class tabs class on-change selected action-button-position action-button variant children] :rest props}]
+  (let [slim      (= variant "slim")
+        nodes-ref (mf/use-ref nil)
 
         tabs
         (if (array? tabs)
@@ -177,11 +190,12 @@
         (mf/spread-props props {:class [class (stl/css :tabs)]})]
 
     [:> :div props
-     [:div {:class (stl/css :padding-wrapper)}
+     [:div {:class [switcher-class (stl/css :padding-wrapper)]}
       [:> tab-nav* {:button-position action-button-position
                     :action-button action-button
                     :tabs tabs
                     :ref on-ref
+                    :slim slim
                     :selected selected
                     :on-key-down on-key-down
                     :on-click on-click}]]

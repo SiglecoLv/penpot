@@ -6,6 +6,7 @@
 
 @use "refactor/common-refactor.scss" as deprecated;
 @use "../../../sidebar/common/sidebar.scss" as sidebar;
+@use "ds/_utils.scss" as *;
 
 .boolean-options {
   @include sidebar.option-grid-structure;
@@ -20,18 +21,23 @@
 
 .flatten-button {
   @extend .button-tertiary;
-  height: deprecated.$s-32;
-  width: deprecated.$s-32;
+  height: deprecated.$s-30;
+  width: deprecated.$s-30;
   border-radius: deprecated.$br-8;
   grid-column: 5 / span 1;
-  --flatten-icon-foreground-color: var(--icon-foreground);
+  --flatten-icon-foreground-color: var(--color-foreground-secondary);
+
+  &:hover:not(.disabled) {
+    background-color: var(--color-background-quaternary);
+    --flatten-icon-foreground-color: var(--color-accent-primary);
+  }
 
   &.disabled {
     cursor: default;
     --flatten-icon-foreground-color: var(--button-foreground-color-disabled);
 
     &:hover {
-      background-color: var(--panel-background-color);
+      background-color: transparent;
       --flatten-icon-foreground-color: var(--button-foreground-color-disabled);
     }
   }
@@ -39,6 +45,8 @@
 
 .flatten-icon {
   @extend .button-icon;
+  width: px2rem(20.5);
+  height: px2rem(20.5);
   stroke: var(--flatten-icon-foreground-color);
 }
 

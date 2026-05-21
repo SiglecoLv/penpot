@@ -58,7 +58,7 @@
 .annotation-title {
   display: flex;
   align-items: center;
-  block-size: $sz-32;
+  block-size: $sz-30;
 
   &.expanded {
     border-bottom: $b-1 solid var(--color-background-quaternary);
@@ -95,7 +95,7 @@
   justify-content: center;
   align-items: center;
   inline-size: $sz-28;
-  block-size: $sz-32;
+  block-size: $sz-30;
   border-radius: $br-8;
   margin: 0;
   padding: 0;
@@ -337,7 +337,7 @@
   cursor: pointer;
   display: grid;
   grid-template-columns: 1fr var(--sp-m);
-  block-size: $sz-32;
+  block-size: $sz-30;
   align-items: center;
 
   &:hover {
@@ -364,10 +364,10 @@
 }
 
 .swap-title {
-  @include t.use-typography("headline-small");
+  @include t.use-typography("body-small");
   display: flex;
   align-items: center;
-  block-size: $sz-32;
+  block-size: $sz-30;
   padding-inline-start: var(--sp-xxs);
   color: var(--color-foreground-secondary);
 }
@@ -410,7 +410,7 @@
   align-items: center;
   gap: var(--sp-xs);
   inline-size: 100%;
-  block-size: $sz-32;
+  block-size: $sz-30;
   padding: 0;
   border: 0;
   background-color: var(--color-background-primary);
@@ -423,7 +423,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   direction: rtl;
-  block-size: $sz-32;
+  block-size: $sz-30;
   padding: var(--sp-s) 0 var(--sp-s) var(--sp-xxs);
 }
 
@@ -456,13 +456,13 @@
 }
 
 .component-title-swap {
-  @include t.use-typography("headline-small");
+  @include t.use-typography("body-small");
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: var(--sp-xs);
   inline-size: 100%;
-  block-size: $sz-32;
+  block-size: $sz-30;
   padding: 0;
   border: 0;
   border-radius: $br-8;
@@ -545,7 +545,7 @@
 
 .pill-btn-icon {
   display: flex;
-  block-size: $sz-32;
+  block-size: $sz-30;
   align-items: center;
   color: var(--color-foreground-secondary);
 }
@@ -553,7 +553,7 @@
 .pill-btn-name {
   display: flex;
   flex-direction: column;
-  min-block-size: $sz-32;
+  min-block-size: $sz-30;
   padding: var(--sp-s) 0 var(--sp-s) var(--sp-xxs);
   border-radius: $br-8 0 0 $br-8;
   overflow: hidden;
@@ -582,7 +582,7 @@
 }
 
 .pill-actions {
-  flex: 0 0 $sz-32;
+  flex: 0 0 $sz-30;
   position: relative;
 }
 
@@ -666,7 +666,7 @@
   grid-column: span 5;
   display: flex;
   align-items: center;
-  block-size: $sz-32;
+  block-size: $sz-30;
   padding-inline-start: var(--sp-s);
 }
 

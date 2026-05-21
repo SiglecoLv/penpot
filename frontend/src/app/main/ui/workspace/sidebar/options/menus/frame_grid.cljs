@@ -180,11 +180,11 @@
                                :on-change handle-change-size}]])]
 
       [:div {:class (stl/css :actions)}
-       [:> icon-button* {:variant "ghost"
+       [:> icon-button* {:variant "options"
                          :aria-label (tr "workspace.options.guides.toggle-guide")
                          :on-click handle-toggle-visibility
                          :icon (if display "shown" "hide")}]
-       [:> icon-button* {:variant "ghost"
+       [:> icon-button* {:variant "options"
                          :aria-label (tr "workspace.options.guides.remove-guide")
                          :on-click on-remove
                          :icon i/remove}]]]
@@ -323,7 +323,7 @@
                       :class        (stl/css-case :title-spacing-board-grid (not has-frame-grids?))
                       :title        (tr "workspace.options.guides.title")}
 
-       [:> icon-button* {:variant "ghost"
+       [:> icon-button* {:variant "options"
                          :aria-label (tr "workspace.options.guides.add-guide")
                          :on-click handle-create-grid
                          :icon i/add}]]]

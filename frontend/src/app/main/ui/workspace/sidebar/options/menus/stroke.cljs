@@ -185,7 +185,7 @@
                       :title        label
                       :class        (stl/css-case :stroke-title-bar (not has-strokes?))}
        (when (not (= :multiple strokes))
-         [:> icon-button* {:variant "ghost"
+         [:> icon-button* {:variant "options"
                            :aria-label (tr "workspace.options.stroke.add-stroke")
                            :on-click on-add-stroke
                            :icon i/add
@@ -198,7 +198,7 @@
           [:div {:class (stl/css :stroke-multiple)}
            [:div {:class (stl/css :stroke-multiple-label)}
             (tr "settings.multiple")]
-           [:> icon-button* {:variant "ghost"
+           [:> icon-button* {:variant "options"
                              :aria-label (tr "workspace.options.stroke.remove-stroke")
                              :on-click handle-remove-all
                              :icon i/remove}]]

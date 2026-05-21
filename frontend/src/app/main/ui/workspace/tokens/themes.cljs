@@ -33,7 +33,7 @@
            (modal/show! :tokens/themes {})))]
 
     [:div {:class (stl/css :themes-wrapper)}
-     [:> text* {:as "div" :typography "headline-small" :class (stl/css :themes-header)} (tr "labels.themes")]
+     [:> text* {:as "div" :typography "body-small" :class (stl/css :themes-header)} (tr "labels.themes")]
      (if (empty? ordered-themes)
        [:div {:class (stl/css :empty-theme-wrapper)}
         [:> text* {:as "span" :typography "body-small" :class (stl/css :empty-state-message)}
@@ -41,7 +41,7 @@
         (when can-edit?
           [:button {:on-click open-modal
                     :class (stl/css :create-theme-button)}
-           (tr "workspace.tokens.create-one")])]
+           (tr "workspace.tokens.create-theme")])]
        (if can-edit?
          [:div {:class (stl/css :theme-selector-wrapper)}
           [:& theme-selector]

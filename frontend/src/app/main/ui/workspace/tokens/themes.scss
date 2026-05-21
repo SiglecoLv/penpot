@@ -13,18 +13,18 @@
 }
 
 .themes-header {
-  padding: var(--sp-s);
+  padding: var(--sp-9) var(--sp-14);
   color: var(--title-foreground-color);
   word-break: break-word;
 }
 
 .empty-theme-wrapper {
-  padding: var(--sp-m);
+  padding: var(--sp-9) var(--sp-17);
   color: var(--color-foreground-secondary);
 }
 
 .empty-state-message {
-  color: var(--color-foreground-secondary);
+  color: var(--color-foreground-third);
 }
 
 .create-theme-button {

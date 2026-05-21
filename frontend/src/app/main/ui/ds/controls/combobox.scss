@@ -22,7 +22,7 @@
 
   &:focus-within:not(.disabled) {
     --combobox-outline-color: var(--color-accent-primary);
-    --combobox-background-color: var(--color-background-primary);
+    --combobox-background-color: none;
   }
 
   @include use-typography("body-small");

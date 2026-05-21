@@ -12,7 +12,7 @@
   --select-icon-color: var(--color-icon-default);
   --select-text-color: var(--color-foreground-primary);
   --select-text-color-dimmed: var(--color-foreground-secondary);
-  --select-background-color: var(--color-background-tertiary);
+  --select-background-color: var(--color-background-fifty);
   --select-outline-color: none;
   --select-border-color: none;
 
@@ -44,7 +44,7 @@
   display: grid;
   grid-template-columns: 1fr auto;
   gap: var(--sp-xs);
-  block-size: $sz-32;
+  block-size: $sz-30;
   inline-size: 100%;
   padding: var(--sp-s);
   border: none;
@@ -54,6 +54,11 @@
   background: var(--select-background-color);
   color: var(--select-text-color);
   appearance: none;
+}
+
+.variant-dark {
+  --select-background-color: #2A2B2B;
+  --select-dropdown-bg-override: #2A2B2B;
 }
 
 .variant-ghost {

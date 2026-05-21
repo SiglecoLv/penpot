@@ -173,7 +173,8 @@
           [:button {:class (stl/css :libraries-button)
                     :on-click show-libraries-dialog
                     :data-testid "libraries"}
-           (tr "workspace.assets.manage-library")]))
+           "Управление библиотекой"
+           #_(tr "workspace.assets.manage-library")]))
 
 
       [:div {:class (stl/css :search-wrapper)}
@@ -202,6 +203,7 @@
        [:> icon-button* {:variant "ghost"
                          :aria-label (tr "workspace.assets.sort")
                          :on-click toggle-ordering
+                         :icon-fill-based true
                          :icon (if reverse-sort? "asc-sort" "desc-sort")}]]]
 
      [:& (mf/provider cmm/assets-filters) {:value filters}

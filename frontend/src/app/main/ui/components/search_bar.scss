@@ -23,14 +23,14 @@
 
 .search-input-wrapper {
   @include deprecated.flexCenter;
-  height: deprecated.$s-32;
+  height: deprecated.$s-22;
   width: 100%;
-  border: deprecated.$s-1 solid var(--search-bar-input-border-color);
+  // border: deprecated.$s-1 solid var(--search-bar-input-border-color);
   border-radius: deprecated.$br-8;
-  background-color: var(--search-bar-input-background-color);
+  background-color: transparent;
 
   &:hover {
-    border: deprecated.$s-1 solid var(--input-border-color-hover);
+    // border: deprecated.$s-1 solid var(--input-border-color-hover);
     background-color: var(--input-background-color-hover);
     .search-input {
       background-color: var(--input-background-color-hover);
@@ -38,11 +38,11 @@
   }
 
   &:focus-within {
-    background-color: var(--input-background-color-active);
+    background-color: transparent;
     color: var(--input-foreground-color-active);
     border: deprecated.$s-1 solid var(--input-border-color-focus);
     .search-input {
-      background-color: var(--input-background-color-active);
+      background-color: transparent;
     }
   }
 }
@@ -52,7 +52,7 @@
   height: 100%;
   margin: 0 deprecated.$s-8 0 deprecated.$s-4;
   border: 0;
-  background-color: var(--input-background-color);
+  background-color: transparent;
   font-size: deprecated.$fs-12;
   color: var(--input-foreground-color);
   border-radius: deprecated.$br-8;

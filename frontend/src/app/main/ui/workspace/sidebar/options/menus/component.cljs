@@ -615,7 +615,7 @@
       (cpn/last-path group-name)]
 
      [:> icon* {:class (stl/css :swap-group-icon)
-                :variant "ghost"
+                :variant "options"
                 :icon-id i/arrow-right
                 :size "s"}]]))
 
@@ -1037,13 +1037,13 @@
                (tr "workspace.options.component.copy"))]]
 
            (when is-variant?
-             [:> icon-button* {:variant "ghost"
+             [:> icon-button* {:variant "options"
                                :aria-label (tr "workspace.options.component.variants-help-modal.title")
                                :on-click on-click-variant-title-help
                                :icon i/help}])
 
            (when main-instance?
-             [:> icon-button* {:variant "ghost"
+             [:> icon-button* {:variant "options"
                                :aria-label (tr "workspace.shape.menu.add-variant")
                                :on-click (if is-variant? create-variant transform-into-variant)
                                :icon i/variant}])])]
@@ -1065,7 +1065,7 @@
                                 :disabled (or is-swap-opened (not can-swap?))
                                 :menu-entries menu-entries}]
            (when (and is-variant? main-instance?)
-             [:> icon-button* {:variant "ghost"
+             [:> icon-button* {:variant "options"
                                :aria-label (tr "workspace.shape.menu.add-variant-property")
                                :on-click add-new-property
                                :icon i/add}])]
@@ -1145,7 +1145,7 @@
                             :is-editing (:editing? (meta property))
                             :max-length ctv/property-max-length
                             :on-blur on-blur}]
-      [:> icon-button* {:variant "ghost"
+      [:> icon-button* {:variant "options"
                         :icon i/remove
                         :data-position pos
                         :aria-label (if is-remove-disabled
@@ -1281,11 +1281,11 @@
           [:span {:class (stl/css :component-title-bar-type)}
            (tr "workspace.options.component.main")]]
 
-         [:> icon-button* {:variant "ghost"
+         [:> icon-button* {:variant "options"
                            :aria-label (tr "workspace.options.component.variants-help-modal.title")
                            :on-click on-click-variant-title-help
                            :icon i/help}]
-         [:> icon-button* {:variant "ghost"
+         [:> icon-button* {:variant "options"
                            :aria-label (tr "workspace.shape.menu.add-variant")
                            :on-click (partial create-variant "workspace:button-design-tab-component")
                            :icon i/variant}]]]
@@ -1299,7 +1299,7 @@
                                         (cpn/last-path shape-name))
                                 :disabled true
                                 :menu-entries menu-entries}]
-           [:> icon-button* {:variant "ghost"
+           [:> icon-button* {:variant "options"
                              :aria-label (tr "workspace.shape.menu.add-variant-property")
                              :on-click (partial add-new-property "workspace:button-design-tab-component")
                              :icon i/add}]]

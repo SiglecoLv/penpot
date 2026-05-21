@@ -48,7 +48,7 @@
 }
 
 .panel-title {
-  @include use-typography("headline-small");
+  @include use-typography("body-small");
   flex: 1;
   color: var(--title-color);
   padding-block: var(--title-padding);

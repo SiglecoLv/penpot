@@ -1028,7 +1028,7 @@
                              {:value :percent :label "%"}]
                    :on-change #(set-column-type type index %)}]]]
 
-     [:> icon-button* {:variant "ghost"
+     [:> icon-button* {:variant "options"
                        :aria-label (tr "workspace.shape.menu.delete")
                        :on-click remove-element
                        :data-type type
@@ -1265,7 +1265,7 @@
 
        (if (and (not multiple) (:layout values))
          [:div {:class (stl/css :title-actions)}
-          [:> icon-button* {:variant "ghost"
+          [:> icon-button* {:variant "options"
                             :aria-label (tr "workspace.shape.menu.add-layout")
                             :on-click on-toggle-dropdown-visibility
                             :icon i/menu}]
@@ -1283,13 +1283,13 @@
              "Grid layout"]]]
 
           (when has-layout?
-            [:> icon-button* {:variant "ghost"
+            [:> icon-button* {:variant "options"
                               :aria-label (tr "workspace.shape.menu.remove-layout")
                               :on-click on-remove-layout
                               :icon i/remove}])]
 
          [:div {:class (stl/css :title-actions)}
-          [:> icon-button* {:variant "ghost"
+          [:> icon-button* {:variant "options"
                             :aria-label (tr "workspace.shape.menu.add-layout")
                             :on-click on-toggle-dropdown-visibility
                             :icon i/add}]
@@ -1307,7 +1307,7 @@
              "Grid layout"]]]
 
           (when has-layout?
-            [:> icon-button* {:variant "ghost"
+            [:> icon-button* {:variant "options"
                               :aria-label (tr "workspace.shape.menu.delete")
                               :on-click on-remove-layout
                               :icon i/remove}])])]]
@@ -1334,7 +1334,7 @@
                                     :justify-content justify-content
                                     :on-change set-justify-content}]
 
-           [:> icon-button* {:variant "ghost"
+           [:> icon-button* {:variant "options"
                              :aria-label (tr "labels.help-center")
                              :on-click open-flex-help
                              :icon i/help}]]
@@ -1362,7 +1362,7 @@
           (when (= 1 (count ids))
             [:div {:class (stl/css :edit-grid-wrapper)}
              [:& grid-edit-mode {:id (first ids)}]
-             [:> icon-button* {:variant "ghost"
+             [:> icon-button* {:variant "options"
                                :aria-label (tr "labels.help-center")
                                :on-click open-grid-help
                                :icon i/help}]])
@@ -1549,7 +1549,7 @@
     [:div {:class (stl/css :grid-layout-menu)}
      [:div {:class (stl/css :grid-first-row)}
       [:div {:class (stl/css :grid-layout-menu-title)} "GRID LAYOUT"]
-      [:> icon-button* {:variant "ghost"
+      [:> icon-button* {:variant "options"
                         :class (stl/css :help-button)
                         :aria-label (tr "labels.help-center")
                         :on-click open-grid-help
@@ -1580,7 +1580,7 @@
                             :value grid-justify-content-row
                             :on-change on-row-justify-change}]
 
-      [:> icon-button* {:variant "ghost"
+      [:> icon-button* {:variant "options"
                         :class (stl/css :locate-button)
                         :aria-label (tr "workspace.layout-grid.editor.top-bar.locate.tooltip")
                         :on-click handle-locate-grid

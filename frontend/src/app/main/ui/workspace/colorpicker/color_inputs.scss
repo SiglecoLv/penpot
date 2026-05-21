@@ -8,17 +8,18 @@
 
 .color-values {
   @include deprecated.flexColumn;
+  gap: calc(deprecated.$s-10 - deprecated.$s-1);
   margin-top: deprecated.$s-8;
 
   &.disable-opacity {
-    grid-template-columns: 3.5rem repeat(3, 1fr);
+    grid-template-columns: 4rem repeat(4, 1fr);
   }
   .colors-row {
     @include deprecated.flexRow;
     .input-wrapper {
       @extend .input-element;
       @include deprecated.bodySmallTypography;
-      width: deprecated.$s-84;
+      width: calc(deprecated.$s-88 + deprecated.$s-1);
       display: flex;
       align-items: baseline;
     }
@@ -28,9 +29,9 @@
     .input-wrapper {
       @extend .input-element;
       @include deprecated.bodySmallTypography;
-      width: deprecated.$s-84;
+      width: calc(deprecated.$s-88 + deprecated.$s-1);
       &.hex {
-        width: deprecated.$s-172;
+        width: calc(deprecated.$s-88 * 2 + deprecated.$s-12);
         display: flex;
         align-items: baseline;
         gap: deprecated.$s-8;

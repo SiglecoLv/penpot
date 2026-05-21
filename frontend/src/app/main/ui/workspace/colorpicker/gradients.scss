@@ -10,7 +10,7 @@
   margin-top: deprecated.$s-12;
   display: grid;
   gap: deprecated.$s-4;
-  grid-template-rows: deprecated.$s-56 deprecated.$s-32 1fr;
+  grid-template-rows: deprecated.$s-56 deprecated.$s-30 1fr;
 }
 
 .gradient-preview {
@@ -124,7 +124,7 @@
   position: relative;
 
   &.is-selected {
-    border-color: var(--color-accent-primary-muted);
+    border-color: transparent;
   }
 
   &:hover {

@@ -9,7 +9,7 @@
 @use "ds/typography.scss" as *;
 
 .tabs {
-  --tabs-bg-color: var(--color-background-secondary);
+  --tabs-bg-color: var(--color-background-fifty);
   display: grid;
   grid-template-rows: auto 1fr;
 }
@@ -21,14 +21,22 @@
   padding-block-end: var(--tabs-nav-padding-block-end, 0);
 }
 
-// TAB NAV
+// TAB NAV — shared
 .tab-nav {
+  width: 100%;
+}
+
+.tab-nav-default {
   display: grid;
   gap: var(--sp-xxs);
-  width: 100%;
   border-radius: $br-8;
   padding: var(--sp-xxs);
   background-color: var(--tabs-bg-color);
+}
+
+.tab-nav-slim {
+  gap: var(--sp-xxs);
+  border-radius: $br-5;
 }
 
 .tab-nav-start {
@@ -39,21 +47,28 @@
   grid-template-columns: 1fr auto;
 }
 
+// TAB LIST — shared
 .tab-list {
-  display: grid;
-  grid-auto-flow: column;
-  gap: var(--sp-xxs);
   width: 100%;
   // Removing margin bottom from default ul
   margin-block-end: 0;
+}
+
+.tab-list-default {
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--sp-xxs);
   border-radius: $br-8;
 }
 
-// TAB
+.tab-list-slim {
+  display: flex;
+  gap: var(--sp-m);
+  border-radius: $br-5;
+}
+
+// TAB — shared
 .tab {
-  --tabs-item-bg-color: var(--color-background-secondary);
-  --tabs-item-fg-color: var(--color-foreground-secondary);
-  --tabs-item-fg-color-hover: var(--color-foreground-primary);
   --tabs-item-outline-color: none;
 
   &:hover {
@@ -65,10 +80,7 @@
   }
 
   appearance: none;
-  height: $sz-32;
   border: none;
-  border-radius: $br-8;
-  padding: 0 var(--sp-s);
   outline: $b-1 solid var(--tabs-item-outline-color);
   display: grid;
   grid-auto-flow: column;
@@ -77,8 +89,27 @@
   column-gap: var(--sp-xs);
   background: var(--tabs-item-bg-color);
   color: var(--tabs-item-fg-color);
+}
+
+.tab-default {
+  --tabs-item-bg-color: var(--color-background-fifty);
+  --tabs-item-fg-color: var(--color-foreground-secondary);
+  --tabs-item-fg-color-hover: var(--color-accent-primary);
+
+  height: $sz-30;
+  border-radius: $br-8;
   padding: 0 var(--sp-m);
   width: 100%;
+}
+
+.tab-slim {
+  --tabs-item-bg-color: var(--color-background-primary);
+  --tabs-item-fg-color: var(--color-foreground-secondary);
+  --tabs-item-fg-color-hover: var(--color-accent-primary);
+
+  height: $sz-27;
+  border-radius: $br-5;
+  padding: 0 var(--sp-9);
 }
 
 .selected {
@@ -87,13 +118,21 @@
   --tabs-item-fg-color-hover: var(--color-accent-primary);
 }
 
+// TAB TEXT — shared
 .tab-text {
-  @include use-typography("headline-small");
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
   min-width: 0;
+}
+
+.tab-text-default {
+  @include use-typography("headline-small");
+}
+
+.tab-text-slim {
+  @include use-typography("body-small");
 }
 
 .tab-text-and-icon {

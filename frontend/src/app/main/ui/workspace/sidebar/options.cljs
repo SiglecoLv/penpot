@@ -226,6 +226,8 @@
      (if (:can-edit permissions)
        [:> tab-switcher* {:tabs options-tabs
                           :on-change on-option-tab-change
+                          :variant "slim"
+                          :switcher-class (stl/css :tab-switcher)
                           :selected (name options-mode)
                           :class (stl/css :options-tab-switcher)}
         (case options-mode

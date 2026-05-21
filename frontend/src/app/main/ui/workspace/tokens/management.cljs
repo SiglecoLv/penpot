@@ -61,10 +61,10 @@
            (contains? active-token-sets-names name)))]
     [:div {:class (stl/css :sets-header-container)}
      [:> text* {:as "span"
-                :typography "headline-small"
+                :typography "body-small"
                 :class (stl/css :sets-header)
                 :data-testid "active-token-set-title"}
-      (tr "workspace.tokens.tokens-section-title" (ctob/get-name selected-token-set))]
+      (tr "workspace.tokens.tokens-section-title")]
      (when (and (some? selected-token-set-id)
                 (not (token-set-active? (ctob/get-name selected-token-set))))
        [:div {:class (stl/css :sets-header-status) :title (tr "workspace.tokens.inactive-set-description")}

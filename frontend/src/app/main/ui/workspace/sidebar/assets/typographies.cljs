@@ -408,7 +408,8 @@
         [:> cmm/asset-section-block* {:role :title-button}
          (when-not read-only?
            [:> icon-button* {:variant "ghost"
-                             :aria-label (tr "workspace.assets.typography.add-typography")
+                             :aria-label "Добавить типографику" #_(tr "workspace.assets.typography.add-typography")
+                             :size "s"
                              :on-click add-typography
                              :icon i/add}])])
 

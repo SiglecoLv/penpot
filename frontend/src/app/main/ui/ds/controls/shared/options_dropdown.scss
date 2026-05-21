@@ -11,7 +11,7 @@
 
 .option-list {
   --options-dropdown-icon-fg-color: var(--color-foreground-secondary);
-  --options-dropdown-bg-color: var(--color-background-tertiary);
+  --options-dropdown-bg-color: var(--select-dropdown-bg-override, var(--color-background-tertiary));
   --options-dropdown-outline-color: none;
   --options-dropdown-border-color: var(--color-background-quaternary);
 

@@ -21,7 +21,7 @@
    [:on-ref {:optional true} fn?]
    [:to {:optional true} :string] ;; renders as an anchor element
    [:variant {:optional true}
-    [:maybe [:enum "primary" "secondary" "ghost" "destructive"]]]])
+    [:maybe [:enum "primary" "secondary" "ghost" "destructive" "dark"]]]])
 
 (mf/defc button*
   {::mf/schema schema:button}
@@ -32,6 +32,7 @@
                                      :button-link (some? to)
                                      :button-primary (= variant "primary")
                                      :button-secondary (= variant "secondary")
+                                     :button-dark (= variant "dark")
                                      :button-ghost (= variant "ghost")
                                      :button-destructive (= variant "destructive"))
         props (mf/spread-props props {:class [class internal-class]

@@ -38,7 +38,7 @@
 }
 
 .topbar-btn {
-  --pathbar-icon-color: var(--color-foreground-secondary);
+  --pathbar-icon-color: var(--color-select-text);
   @extend .button-tertiary;
   height: deprecated.$s-36;
   width: deprecated.$s-36;
@@ -56,5 +56,62 @@
   .pathbar-icon {
     @extend .button-icon;
     stroke: var(--pathbar-icon-color);
+  }
+}
+
+.topbar-btn-fill {
+  --pathbar-icon-color: var(--color-select-text);
+  @extend .button-tertiary;
+  height: deprecated.$s-36;
+  width: deprecated.$s-36;
+  flex-shrink: 0;
+  background-color: transparent;
+  border-radius: deprecated.$s-8;
+  border: none;
+  margin: 0 deprecated.$s-2;
+
+  &.is-toggled {
+    --pathbar-icon-color: var(--button-radio-foreground-color-active);
+    background-color: var(--button-radio-background-color-active);
+  }
+
+  .pathbar-icon {
+    @extend .button-icon;
+    stroke: none;
+    fill: var(--pathbar-icon-color);
+  }
+
+  &:hover {
+
+    svg,
+    span svg {
+      stroke: none;
+      fill: var(--button-tertiary-foreground-color-hover);
+    }
+  }
+
+  ;
+
+  &:active {
+
+    svg,
+    span svg {
+      stroke: none;
+      fill: var(--button-tertiary-foreground-color-hover);
+    }
+  }
+
+  &:global(.disabled),
+  &[disabled],
+  &:disabled {
+    color: var(--button-foreground-color-disabled);
+    cursor: unset;
+    pointer-events: none;
+
+    svg,
+    span svg {
+      stroke: none;
+      fill: var(--button-foreground-color-disabled);
+    }
   }
 }

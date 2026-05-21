@@ -229,10 +229,10 @@
                   :on-submit on-submit}
      [:div {:class (stl/css :token-rows)}
 
-      [:> heading* {:level 2 :typography "headline-medium" :class (stl/css :form-modal-title)}
+      [:> heading* {:level 2 :typography "title-large" :class (stl/css :form-modal-title)}
        (if (= action "edit")
-         (tr "workspace.tokens.edit-token" token-type)
-         (tr "workspace.tokens.create-token" token-type))]
+         (tr "workspace.tokens.edit-token")
+         (tr "workspace.tokens.create-token"))]
 
       [:div {:class (stl/css :input-row)}
        [:> fc/form-input* {:id "token-name"

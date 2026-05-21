@@ -147,14 +147,14 @@
 
       ;; Draw Mode
       [:button {:class  (stl/css-case :is-toggled (= edit-mode :draw)
-                                      :topbar-btn true)
+                                      :topbar-btn-fill true)
                 :title (tr "workspace.path.actions.draw-nodes" (sc/get-tooltip :draw-nodes))
                 :on-click on-select-draw-mode}
        pentool-icon]
 
       ;; Edit mode
       [:button {:class (stl/css-case :is-toggled (= edit-mode :move)
-                                     :topbar-btn true)
+                                     :topbar-btn-fill true)
                 :title (tr "workspace.path.actions.move-nodes" (sc/get-tooltip :move-nodes))
                 :on-click on-select-edit-mode}
        move-icon]]
@@ -162,14 +162,14 @@
      [:div {:class (stl/css :sub-actions-group)}
       ;; Add Node
       [:button {:disabled (not (:add-node enabled-buttons))
-                :class (stl/css :topbar-btn)
+                :class (stl/css :topbar-btn-fill)
                 :title (tr "workspace.path.actions.add-node" (sc/get-tooltip :add-node))
                 :on-click on-add-node}
        add-icon]
 
       ;; Remove node
       [:button {:disabled (not (:remove-node enabled-buttons))
-                :class (stl/css :topbar-btn)
+                :class (stl/css :topbar-btn-fill)
                 :title (tr "workspace.path.actions.delete-node" (sc/get-tooltip :delete-node))
                 :on-click on-remove-node}
        remove-icon]]
@@ -177,21 +177,21 @@
      [:div {:class (stl/css :sub-actions-group)}
       ;; Merge Nodes
       [:button {:disabled (not (:merge-nodes enabled-buttons))
-                :class (stl/css :topbar-btn)
+                :class (stl/css :topbar-btn-fill)
                 :title (tr "workspace.path.actions.merge-nodes" (sc/get-tooltip :merge-nodes))
                 :on-click on-merge-nodes}
        merge-nodes-icon]
 
       ;; Join Nodes
       [:button {:disabled (not (:join-nodes enabled-buttons))
-                :class (stl/css :topbar-btn)
+                :class (stl/css :topbar-btn-fill)
                 :title (tr "workspace.path.actions.join-nodes" (sc/get-tooltip :join-nodes))
                 :on-click on-join-nodes}
        join-nodes-icon]
 
       ;; Separate Nodes
       [:button {:disabled (not (:separate-nodes enabled-buttons))
-                :class (stl/css :topbar-btn)
+                :class (stl/css :topbar-btn-fill)
                 :title (tr "workspace.path.actions.separate-nodes" (sc/get-tooltip :separate-nodes))
                 :on-click on-separate-nodes}
        separate-nodes-icon]]
@@ -199,21 +199,21 @@
      [:div {:class (stl/css :sub-actions-group)}
       ; Make Corner
       [:button {:disabled (not (:make-corner enabled-buttons))
-                :class (stl/css :topbar-btn)
+                :class (stl/css :topbar-btn-fill)
                 :title (tr "workspace.path.actions.make-corner" (sc/get-tooltip :make-corner))
                 :on-click on-make-corner}
        to-corner-icon]
 
       ;; Make Curve
       [:button {:disabled (not (:make-curve enabled-buttons))
-                :class (stl/css :topbar-btn)
+                :class (stl/css :topbar-btn-fill)
                 :title (tr "workspace.path.actions.make-curve" (sc/get-tooltip :make-curve))
                 :on-click on-make-curve}
        to-curve-icon]]
      [:div {:class (stl/css :sub-actions-group)}
       ;; Toggle snap
       [:button {:class  (stl/css-case :is-toggled snap-toggled
-                                      :topbar-btn true)
+                                      :topbar-btn-fill true)
                 :title (tr "workspace.path.actions.snap-nodes" (sc/get-tooltip :snap-nodes))
                 :on-click on-toggle-snap}
        snap-nodes-icon]]]))

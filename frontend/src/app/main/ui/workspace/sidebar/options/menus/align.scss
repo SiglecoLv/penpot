@@ -6,6 +6,7 @@
 
 @use "refactor/common-refactor.scss" as deprecated;
 @use "../../../sidebar/common/sidebar.scss" as sidebar;
+@use "ds/_utils.scss" as *;
 
 .align-options {
   @include sidebar.option-grid-structure;
@@ -29,13 +30,27 @@
 
 .align-button {
   @extend .button-tertiary;
-  height: deprecated.$s-32;
-  width: deprecated.$s-32;
+  height: deprecated.$s-30;
+  width: deprecated.$s-30;
   padding: 0;
   border-radius: deprecated.$br-8;
   svg {
     @extend .button-icon;
-    stroke: var(--icon-foreground);
+    width: px2rem(20.5);
+    height: px2rem(20.5);
+    stroke: var(--color-foreground-secondary);
+  }
+  &:hover:not(.disabled) {
+    background-color: var(--color-background-quaternary);
+    svg {
+      stroke: var(--color-accent-primary);
+    }
+  }
+  &:active:not(.disabled) {
+    background-color: var(--color-background-quaternary);
+    svg {
+      stroke: var(--color-accent-primary);
+    }
   }
   &.disabled {
     cursor: default;
@@ -43,7 +58,7 @@
       stroke: var(--button-foreground-color-disabled);
     }
     &:hover {
-      background-color: var(--panel-background-color);
+      background-color: transparent;
       svg {
         stroke: var(--button-foreground-color-disabled);
       }

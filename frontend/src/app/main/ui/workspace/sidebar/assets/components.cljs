@@ -561,7 +561,7 @@
                             :assets-count (count components)
                             :is-open is-open}
      [:> cmm/asset-section-block* {:role :title-button}
-      (when ^boolean is-open
+      #_(when ^boolean is-open
         [:div
          [:& radio-buttons {:selected (if is-listing-thumbs "grid" "list")
                             :on-change toggle-list-style
@@ -577,7 +577,8 @@
 
       (when (and (not read-only?) is-local)
         [:> icon-button* {:variant "ghost"
-                          :aria-label (tr "workspace.assets.components.add-component")
+                          :aria-label "Добавить компонент"#_(tr "workspace.assets.components.add-component")
+                          :size "s"
                           :on-click add-component
                           :icon i/add}
          [:& file-uploader {:accept dwm/accept-image-types

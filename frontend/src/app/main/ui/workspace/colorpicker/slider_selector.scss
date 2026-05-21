@@ -16,9 +16,9 @@
   }
   position: relative;
   align-self: center;
-  height: deprecated.$s-24;
+  height: deprecated.$s-26;
   inline-size: 100%;
-  border: deprecated.$s-2 solid var(--colorpicker-details-color);
+  border: deprecated.$s-3 solid var(--colorpicker-details-color);
   border-radius: deprecated.$br-6;
   background: linear-gradient(
     var(--gradient-direction),
@@ -28,8 +28,8 @@
   cursor: pointer;
 
   &.vertical {
-    width: deprecated.$s-24;
-    height: deprecated.$s-200;
+    width: deprecated.$s-26;
+    height: deprecated.$s-216;
   }
 
   &.hue {
@@ -78,18 +78,18 @@
   .handler {
     position: absolute;
     left: 50%;
-    width: calc(deprecated.$s-8 + deprecated.$s-2);
-    height: calc(deprecated.$s-24 + deprecated.$s-1);
+    width: calc(deprecated.$s-8 - deprecated.$s-1);
+    height: calc(deprecated.$s-42 + deprecated.$s-1);
     border-radius: deprecated.$br-4;
     z-index: deprecated.$z-index-1;
-    transform: translate(-4px, -3px);
+    transform: translate(-4px, -25%);
     background-color: var(--colorpicker-handlers-color);
   }
 
   &.vertical .handler {
-    height: calc(deprecated.$s-8 + deprecated.$s-2);
-    width: calc(deprecated.$s-24 + deprecated.$s-1);
-    transform: translate(-12px, 5px);
+    height: calc(deprecated.$s-8 - deprecated.$s-1);
+    width: calc(deprecated.$s-42 + deprecated.$s-1);
+    transform: translate(-21px, 5px);
   }
 }
 

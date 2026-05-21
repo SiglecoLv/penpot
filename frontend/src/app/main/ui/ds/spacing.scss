@@ -8,20 +8,32 @@
 
 $_sp-2: px2rem(2);
 $_sp-4: px2rem(4);
+$_sp-6: px2rem(6);
 $_sp-8: px2rem(8);
+$_sp-9: px2rem(9);
 $_sp-12: px2rem(12);
+$_sp-14: px2rem(14);
 $_sp-16: px2rem(16);
+$_sp-17: px2rem(17);
+$_sp-18: px2rem(18);
 $_sp-20: px2rem(20);
 $_sp-24: px2rem(24);
+$_sp-26: px2rem(26);
 $_sp-32: px2rem(32);
 
 :global(:root) {
   --sp-xxs: #{$_sp-2};
   --sp-xs: #{$_sp-4};
+  --sp-6: #{$_sp-6};
   --sp-s: #{$_sp-8};
+  --sp-9: #{$_sp-9};
   --sp-m: #{$_sp-12};
+  --sp-14: #{$_sp-14};
   --sp-l: #{$_sp-16};
+  --sp-17: #{$_sp-17};
+  --sp-18: #{$_sp-18};
   --sp-xl: #{$_sp-20};
   --sp-xxl: #{$_sp-24};
+  --sp-26: #{$_sp-26};
   --sp-xxxl: #{$_sp-32};
 }

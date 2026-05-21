@@ -53,7 +53,7 @@
    [:default-selected {:optional true} :string]
    [:empty-to-end {:optional true} [:maybe :boolean]]
    [:on-change {:optional true} fn?]
-   [:variant {:optional true} [:maybe [:enum "default" "ghost"]]]])
+   [:variant {:optional true} [:maybe [:enum "default" "ghost" "dark"]]]])
 
 (mf/defc select*
   {::mf/schema schema:select}
@@ -166,7 +166,8 @@
                      (reset! focused-id* nil)))))))
 
         props
-        (mf/spread-props props {:class [class (stl/css :select) (stl/css-case :variant-ghost (= variant "ghost"))]
+        (mf/spread-props props {:class [class (stl/css :select) (stl/css-case :variant-ghost (= variant "ghost")
+                                                                               :variant-dark (= variant "dark"))]
                                 :role "combobox"
                                 :aria-controls listbox-id
                                 :aria-haspopup "listbox"
@@ -195,7 +196,7 @@
     (mf/with-effect [options]
       (mf/set-ref-val! options-ref options))
 
-    [:div {:class (stl/css :select-wrapper)
+    [:div {:class [(stl/css :select-wrapper) (stl/css-case :variant-dark (= variant "dark"))]
            :on-click on-click
            :ref select-ref
            :on-blur on-blur}

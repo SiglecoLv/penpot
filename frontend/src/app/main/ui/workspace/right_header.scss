@@ -32,15 +32,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: deprecated.$s-28;
+  height: deprecated.$s-24;
   max-width: deprecated.$s-48;
   width: deprecated.$s-48;
   border-radius: deprecated.$br-8;
 
   .label {
     @include deprecated.bodySmallTypography;
-    height: 100%;
-    padding: deprecated.$s-8 0;
+    // height: 100%;
+    align-items: center;
+    // padding: deprecated.$s-8 0;
     color: var(--button-tertiary-foreground-color-rest);
   }
 
@@ -86,8 +87,8 @@
 
 .reset-btn {
   @extend .button-tertiary;
-  color: var(--button-tertiary-foreground-color-hover);
-  height: deprecated.$s-28;
+  color: var(--color-foreground-primary);
+  height: deprecated.$s-24;
   border-radius: deprecated.$br-8;
 }
 
@@ -131,6 +132,7 @@
   &:hover {
     background-color: transparent;
     border: none;
+    --icon-foreground: var(--button-tertiary-foreground-color-active);
   }
 
   &.selected {
@@ -160,6 +162,7 @@
   &:hover {
     background-color: transparent;
     border: none;
+    --icon-foreground: var(--button-tertiary-foreground-color-active);
   }
 
   &.selected {
@@ -230,6 +233,7 @@
   &:hover {
     background-color: transparent;
     border: none;
+    --icon-foreground: var(--button-tertiary-foreground-color-active);
   }
 }
 
