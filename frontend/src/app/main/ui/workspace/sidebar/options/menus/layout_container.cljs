@@ -1260,7 +1260,7 @@
        {:collapsable has-layout?
         :collapsed (not open?)
         :on-collapsed on-toggle-visibility
-        :title "Layout"
+        :title "Разметка"
         :class (stl/css-case :title-spacing-layout (not has-layout?))}
 
        (if (and (not multiple) (:layout values))

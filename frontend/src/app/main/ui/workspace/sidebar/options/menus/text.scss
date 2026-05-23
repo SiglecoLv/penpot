@@ -33,7 +33,7 @@
 
 .multiple-typography-button {
   @extend .button-tertiary;
-  height: deprecated.$s-32;
+  height: deprecated.$s-30;
   width: deprecated.$s-28;
   svg {
     @extend .button-icon;
@@ -50,7 +50,7 @@
 .vertical-align-options,
 .grow-options,
 .text-decoration-options {
-  height: deprecated.$s-32;
+  height: deprecated.$s-30;
 }
 
 .text-decoration-options {

@@ -32,7 +32,7 @@
 .element-options {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-s);
+  gap: var(--sp-9);
   width: 100%;
   /* FIXME: This is hacky and prone to break, we should tackle the whole layout
             of the sidebar differently */
@@ -53,7 +53,8 @@
 }
 
 .design-options {
-  padding-inline: var(--sp-m);
+  padding-inline: var(--sp-17);
+  --grid-exception-input-width: #{$sz-120};
 }
 
 .inspect {

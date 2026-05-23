@@ -21,7 +21,9 @@
 }
 
 .element-set-content {
-  @include deprecated.flexColumn;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-9);
   grid-column: span 8;
   margin: deprecated.$s-4 0 deprecated.$s-8 0;
 }
@@ -39,7 +41,7 @@
   background-color: var(--input-details-color);
   .show-options {
     @extend .button-secondary;
-    height: deprecated.$s-32;
+    height: deprecated.$s-30;
     width: deprecated.$s-28;
     border-radius: deprecated.$br-8 0 0 deprecated.$br-8;
     box-sizing: border-box;
@@ -56,7 +58,7 @@
     width: deprecated.$s-96;
     padding: 0;
     border-radius: 0;
-    height: deprecated.$s-32;
+    height: deprecated.$s-30;
     .grid-type-select {
       border-radius: 0;
       height: 100%;
@@ -87,7 +89,7 @@
     position: relative;
     border-radius: 0 deprecated.$br-8 deprecated.$br-8 0;
     .column-select {
-      height: deprecated.$s-32;
+      height: deprecated.$s-30;
       border-radius: 0 deprecated.$br-8 deprecated.$br-8 0;
       box-sizing: border-box;
       border: deprecated.$s-1 solid var(--input-border-color);
@@ -155,13 +157,17 @@
 }
 
 .grid-advanced-options {
-  @include deprecated.flexColumn;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-9);
   margin-top: deprecated.$s-4;
 }
 
 .column-row,
 .square-row {
-  @include deprecated.flexColumn;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-9);
   position: relative;
 }
 
@@ -178,7 +184,7 @@
   }
   .show-more-options {
     @extend .button-tertiary;
-    height: deprecated.$s-32;
+    height: deprecated.$s-30;
     width: deprecated.$s-32;
     svg {
       @extend .button-icon;
@@ -224,7 +230,7 @@
       @include deprecated.buttonStyle;
       display: flex;
       align-items: center;
-      height: deprecated.$s-32;
+      height: deprecated.$s-30;
       padding: 0 deprecated.$s-8;
       border-radius: deprecated.$br-6;
       color: var(--menu-foreground-color);

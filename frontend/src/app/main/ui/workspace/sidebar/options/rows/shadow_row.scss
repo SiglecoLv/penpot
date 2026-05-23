@@ -14,7 +14,7 @@
 .shadow-element {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-xs);
+  gap: var(--sp-9);
   position: relative;
 
   &:hover {
@@ -43,6 +43,8 @@
 
 .shadow-basic-button {
   border-radius: $br-8 0 0 $br-8;
+  --button-bg-color: var(--menu-background-color);
+  --button-hover-bg-color: var(--menu-background-color-hover);
 
   &.selected {
     --button-bg-color: var(--color-background-quaternary);
@@ -67,6 +69,7 @@
 
 .shadow-advanced {
   @include sidebar.option-grid-structure;
+  row-gap: var(--sp-9);
 }
 
 .shadow-advanced-row {

@@ -22,7 +22,7 @@
 
 .add-fill {
   @extend .button-tertiary;
-  height: deprecated.$s-32;
+  height: deprecated.$s-30;
   width: deprecated.$s-28;
   svg {
     @extend .button-icon;
@@ -31,16 +31,20 @@
 
 .element-content {
   grid-column: span 8;
-  @include deprecated.flexColumn;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-9);
   margin-bottom: deprecated.$s-8;
 }
 
 .selected-color-group {
-  @include deprecated.flexColumn;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-9);
 }
 
 .more-colors-btn {
   @extend .button-secondary;
   @include deprecated.uppercaseTitleTipography;
-  height: deprecated.$s-32;
+  height: deprecated.$s-30;
 }

@@ -22,7 +22,7 @@
 @mixin flexRow {
   display: flex;
   align-items: center;
-  gap: $s-10;
+  gap: $s-9;
 }
 
 @mixin buttonStyle {

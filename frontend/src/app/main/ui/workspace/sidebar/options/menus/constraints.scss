@@ -27,7 +27,7 @@
 
 .element-set-content {
   display: flex;
-  gap: deprecated.$s-4;
+  gap: var(--sp-9);
 }
 
 .constraints-widget {
@@ -259,12 +259,12 @@
 .constraints-selects {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--sp-9);
 }
 
 .horizontal-select,
 .vertical-select {
-  width: deprecated.$s-124;
+  width: var(--grid-exception-input-width);
   padding: 0;
 }
 

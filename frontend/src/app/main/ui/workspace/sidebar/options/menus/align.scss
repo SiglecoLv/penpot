@@ -10,7 +10,7 @@
 
 .align-options {
   @include sidebar.option-grid-structure;
-  height: deprecated.$s-32;
+  height: deprecated.$s-30;
 }
 .align-group-horizontal,
 .align-group-vertical {

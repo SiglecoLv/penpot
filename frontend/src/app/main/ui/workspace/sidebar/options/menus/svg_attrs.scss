@@ -49,7 +49,7 @@
 .attr-action-btn {
   @extend .button-tertiary;
   width: deprecated.$s-28;
-  height: deprecated.$s-32;
+  height: deprecated.$s-30;
   svg {
     @extend .button-icon;
   }
@@ -57,7 +57,7 @@
 
 .attr-nested-content {
   display: grid;
-  row-gap: deprecated.$s-4;
+  row-gap: var(--sp-9);
 }
 
 .attr-title {

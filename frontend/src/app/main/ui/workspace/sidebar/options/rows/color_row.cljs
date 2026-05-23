@@ -49,7 +49,7 @@
     [:div {:class (stl/css :color-bullet-wrapper)}
      [:> swatch* {:background color
                   :on-click handle-click-color
-                  :size "medium"}]]
+                  :size "small"}]]
     children]
    (when opacity
      [:div {:class (stl/css :opacity-element-wrapper)}

@@ -13,7 +13,7 @@
 .color-data {
   display: flex;
   align-items: center;
-  gap: var(--sp-xs);
+  gap: var(--sp-9);
   position: relative;
 
   &:hover {
@@ -40,7 +40,7 @@
   grid-template-columns: 1fr auto;
   align-items: center;
   flex: 1;
-  gap: var(--sp-xxs);
+  gap: var(--sp-9);
   block-size: $sz-30;
   border-radius: $br-7;
   background-color: var(--color-background-primary);
@@ -259,13 +259,14 @@
 // TOKEN ROW
 
 .token-color-wrapper {
-  --token-color-wrapper-background-color: var(--color-background-tertiary);
-  --token-color-wrapper-foreground-color: var(--color-token-foreground);
-  --token-color-wrapper-border-color: var(--color-token-border);
+  --token-color-wrapper-background-color: var(--color-background-fifty);
+  --token-color-wrapper-foreground-color: var(--color-foreground-primary);
+  --token-color-wrapper-border-color: var(--color-background-fifty);
   --token-actions-display: none;
   display: grid;
   grid-template-columns: auto 1fr auto;
-  gap: var(--sp-xs);
+  grid-column: 1 / -1;
+  gap: var(--sp-9);
   block-size: $sz-30;
   min-inline-size: 0;
   inline-size: 100%;
@@ -275,9 +276,9 @@
   border: $b-1 solid var(--token-color-wrapper-border-color);
   border-radius: $br-7;
   &:hover {
-    --token-color-wrapper-background-color: var(--color-token-background);
+    --token-color-wrapper-background-color: var(--color-background-quaternary);
     --token-color-wrapper-foreground-color: var(--color-foreground-primary);
-    --token-color-wrapper-border-color: var(--color-token-accent);
+    --token-color-wrapper-border-color: var(--color-background-quaternary);
     --token-actions-display: flex;
   }
 }
@@ -286,11 +287,11 @@
 .token-color-not-active {
   --token-color-wrapper-background-color: var(--color-background-primary);
   --token-color-wrapper-foreground-color: var(--color-foreground-secondary);
-  --token-color-wrapper-border-color: var(--color-token-border);
+  --token-color-wrapper-border-color: var(--color-background-tertiary);
   &:hover {
     --token-color-wrapper-background-color: var(--color-background-primary);
     --token-color-wrapper-foreground-color: var(--color-foreground-secondary);
-    --token-color-wrapper-border-color: var(--color-token-background);
+    --token-color-wrapper-border-color: var(--color-background-quaternary);
     --token-actions-display: flex;
   }
 }

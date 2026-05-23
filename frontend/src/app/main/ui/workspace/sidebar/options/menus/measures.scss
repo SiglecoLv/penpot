@@ -14,7 +14,7 @@
     var(--grid-exception-input-width) /* first input block */
     var(--grid-exception-input-width) /* second input block */
     var(--sp-xxxl); /* action button */
-  gap: var(--sp-xs);
+  gap: var(--sp-9);
   margin-bottom: var(--sp-s);
 }
 
@@ -28,7 +28,7 @@
   position: relative;
   grid-column: span 5;
   display: flex;
-  height: deprecated.$s-32;
+  height: deprecated.$s-30;
   padding: deprecated.$s-8;
   border-radius: deprecated.$br-8;
 
@@ -148,7 +148,7 @@
 .lock-size-btn {
   @extend .button-tertiary;
   border-radius: deprecated.$br-8;
-  height: deprecated.$s-32;
+  height: deprecated.$s-30;
   width: deprecated.$s-28;
   &.selected {
     @extend .button-icon-selected;

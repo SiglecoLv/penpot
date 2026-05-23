@@ -9,22 +9,26 @@
 @use "ds/_utils.scss" as *;
 
 .element-set-content {
-  @include sidebar.option-grid-structure;
-  height: deprecated.$s-32;
-  margin-bottom: deprecated.$s-8;
+  display: flex;
+  align-items: center;
+  height: deprecated.$s-30;
+  gap: var(--sp-9);
+  // margin-bottom: deprecated.$s-8;
   .select {
-    grid-column: span 4;
+    flex: 1;
+    min-width: 0;
     padding: 0;
   }
   .input {
     @extend .input-element;
     @include deprecated.bodySmallTypography;
-    grid-column: span 2;
+    width: deprecated.$s-60;
+    flex-shrink: 0;
   }
   .actions {
-    grid-column: span 2;
-    display: grid;
-    grid-template-columns: subgrid;
+    display: flex;
+    gap: var(--sp-9);
+    flex-shrink: 0;
   }
 
   &.hidden {
@@ -46,6 +50,7 @@
 }
 
 .numeric-input-wrapper {
-  grid-column: span 2;
+  width: deprecated.$s-60;
+  flex-shrink: 0;
   --dropdown-offset: #{px2rem(-35)};
 }
