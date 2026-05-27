@@ -181,7 +181,7 @@
             :on-click on-click
             :on-double-click on-double-click
             :on-context-menu on-context-menu}
-      [:div {:class (stl/css :page-icon)}
+      #_[:div {:class (stl/css :page-icon)}
        deprecated-icon/document]
 
       (if editing?

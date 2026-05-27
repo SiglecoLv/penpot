@@ -375,15 +375,15 @@ export async function compileTranslations() {
   }
 }
 
-async function generateSvgSprite(files, prefix) {
+async function generateSvgSprite(filesMap, prefix) {
   const spriter = new SVGSpriter({
     mode: {
       symbol: { inline: true },
     },
   });
 
-  for (let path of files) {
-    const name = `${prefix}${ph.basename(path)}`;
+  for (let [basename, path] of Object.entries(filesMap)) {
+    const name = `${prefix}${basename}`;
     const content = await fs.readFile(path, { encoding: "utf-8" });
     spriter.add(name, name, content);
   }
@@ -393,27 +393,74 @@ async function generateSvgSprite(files, prefix) {
   return resource.contents;
 }
 
+async function mergeIconsWithContrastOverrides(basePath) {
+  // Build a map of basename -> path, starting with penpot base icons
+  const iconsMap = {};
+
+  const baseFiles = await findFiles(basePath, isSvgFile);
+  for (let path of baseFiles) {
+    const name = ph.basename(path);
+    if (name.endsWith(".svg")) {
+      iconsMap[name] = path;
+    }
+  }
+
+  // Override with Contrast unchanged/ icons (penpot originals tracked by Contrast)
+  try {
+    const unchangedFiles = await findFiles("../../frontend/resources/images/icons/unchanged/", isSvgFile);
+    for (let path of unchangedFiles) {
+      const name = ph.basename(path);
+      if (name.endsWith(".svg")) {
+        iconsMap[name] = path;
+      }
+    }
+  } catch (_) {
+    // Contrast unchanged/ directory not available — skip
+  }
+
+  // Override with Contrast root-level icons (customized versions)
+  try {
+    const contrastFiles = await findFiles("../../frontend/resources/images/icons/", isSvgFile);
+    for (let path of contrastFiles) {
+      const name = ph.basename(path);
+      if (name.endsWith(".svg")) {
+        iconsMap[name] = path;
+      }
+    }
+  } catch (_) {
+    // Contrast icons directory not available — skip
+  }
+
+  return iconsMap;
+}
+
 async function generateSvgSprites() {
   await fs.mkdir("resources/public/images/sprites/symbol/", {
     recursive: true,
   });
 
-  const icons = await findFiles("resources/images/icons/", isSvgFile);
-  const iconsSprite = await generateSvgSprite(icons, "icon-");
+  const iconsMap = await mergeIconsWithContrastOverrides("resources/images/icons/");
+  const iconsSprite = await generateSvgSprite(iconsMap, "icon-");
   await fs.writeFile(
     "resources/public/images/sprites/symbol/icons.svg",
     iconsSprite,
   );
 
-  const cursors = await findFiles("resources/images/cursors/", isSvgFile);
-  const cursorsSprite = await generateSvgSprite(cursors, "cursor-");
+  const cursorsFiles = await findFiles("resources/images/cursors/", isSvgFile);
+  const cursorsMap = Object.fromEntries(
+    cursorsFiles.filter(p => p.endsWith(".svg")).map(p => [ph.basename(p), p])
+  );
+  const cursorsSprite = await generateSvgSprite(cursorsMap, "cursor-");
   await fs.writeFile(
     "resources/public/images/sprites/symbol/cursors.svg",
     cursorsSprite,
   );
 
-  const assets = await findFiles("resources/images/assets/", isSvgFile);
-  const assetsSprite = await generateSvgSprite(assets, "asset-");
+  const assetsFiles = await findFiles("resources/images/assets/", isSvgFile);
+  const assetsMap = Object.fromEntries(
+    assetsFiles.filter(p => p.endsWith(".svg")).map(p => [ph.basename(p), p])
+  );
+  const assetsSprite = await generateSvgSprite(assetsMap, "asset-");
   await fs.writeFile(
     "resources/public/images/sprites/assets.svg",
     assetsSprite,

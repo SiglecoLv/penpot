@@ -766,12 +766,12 @@
           (and is-layout-container?
                is-flex-layout?
                (not is-layout-child?))
-          "Flex board"
+          "Гибкая доска"
 
           (and is-layout-container?
                is-grid-layout?
                (not is-layout-child?))
-          "Grid board"
+          "Прямоугольная доска"
 
           (and is-layout-container?
                (not is-layout-child?))

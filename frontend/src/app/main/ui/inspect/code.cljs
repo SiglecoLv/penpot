@@ -262,7 +262,7 @@
      [:div {:class (stl/css :attributes-block)}
       [:button {:class (stl/css :download-button)
                 :on-click handle-copy-all-code}
-       "Copy all code"]]
+       "Скопировать все стили"]]
 
      #_[:div.attributes-block
         [:button.download-button {:on-click handle-open-review}

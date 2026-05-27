@@ -68,9 +68,9 @@
     }
   }
   &:hover {
-    background-color: var(--button-tertiary-background-color-focus);
+    background-color: var(--color-background-fifty);
     color: var(--button-tertiary-foreground-color-focus);
-    border: deprecated.$s-1 solid var(--button-tertiary-background-color-focus);
+    border: deprecated.$s-1 solid var(--color-background-fifty);
     .icon-btn svg {
       display: flex;
     }

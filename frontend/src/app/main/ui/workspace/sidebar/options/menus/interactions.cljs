@@ -108,7 +108,7 @@
 
     [:div {:class (stl/css-case :prototype-pill true
                                 :double (some? description))}
-     [:> icon-button* {:variant "secondary"
+     [:> icon-button* {:variant "ghost"
                        :class (stl/css :prototype-pill-button :left)
                        :aria-pressed is-left-button-active
                        :icon left-button-icon-id
@@ -130,7 +130,7 @@
           [:div {:class (stl/css :prototype-pill-name)} title]
           [:div {:class (stl/css :prototype-pill-description)} description]]])
 
-      [:> icon-button* {:variant "secondary"
+      [:> icon-button* {:variant "ghost"
                         :class (stl/css :prototype-pill-button :right)
                         :aria-pressed is-right-button-active
                         :icon right-button-icon-id
@@ -778,9 +778,9 @@
         [:div {:class (stl/css :content)}
          [:div {:class (stl/css :empty)}
           (when framed-shape?
-            [:> empty-state* {:icon i/add
+            [:> empty-state* {:icon i/big-add
                               :text (tr "workspace.options.add-interaction")}])
           [:> empty-state* {:icon i/interaction
                             :text (tr "workspace.options.select-a-shape")}]
-          [:> empty-state* {:icon i/play
+          [:> empty-state* {:icon i/big-play
                             :text (tr "workspace.options.use-play-button")}]]]])]))

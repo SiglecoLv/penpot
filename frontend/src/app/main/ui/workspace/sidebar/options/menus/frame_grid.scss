@@ -4,6 +4,10 @@
 //
 // Copyright (c) KALEIDOS INC
 
+@use "ds/_sizes.scss" as *;
+@use "ds/typography.scss" as t;
+@use "ds/_borders.scss" as *;
+@use "ds/_utils.scss" as *;
 @use "refactor/common-refactor.scss" as deprecated;
 @use "../../../sidebar/common/sidebar.scss" as sidebar;
 
@@ -32,127 +36,85 @@
   @include sidebar.option-grid-structure;
 }
 
+// Main option row: open button + type select + value
 .option-row {
   grid-column: span 6;
   display: flex;
   align-items: center;
-  gap: deprecated.$s-1;
-  border-radius: deprecated.$br-8;
-  background-color: var(--input-details-color);
-  .show-options {
-    @extend .button-secondary;
-    height: deprecated.$s-30;
-    width: deprecated.$s-28;
-    border-radius: deprecated.$br-8 0 0 deprecated.$br-8;
-    box-sizing: border-box;
-    border: deprecated.$s-1 solid var(--input-border-color);
-    svg {
-      @extend .button-icon;
-    }
-    &.selected {
-      @extend .button-icon-selected;
-    }
-  }
-  .type-select-wrapper {
-    flex-grow: 1;
-    width: deprecated.$s-96;
-    padding: 0;
-    border-radius: 0;
-    height: deprecated.$s-30;
-    .grid-type-select {
-      border-radius: 0;
-      height: 100%;
-      box-sizing: border-box;
-      border: deprecated.$s-1 solid var(--input-border-color);
-      &:hover {
-        border: deprecated.$s-1 solid var(--input-border-color-hover);
-      }
-    }
-  }
-  .grid-size {
-    @extend .asset-element;
-    width: deprecated.$s-60;
-    margin: 0;
-    padding: 0;
-    padding-left: deprecated.$s-8;
-    border-radius: 0 deprecated.$br-8 deprecated.$br-8 0;
-    .numeric-input {
-      @extend .input-base;
-      @include deprecated.bodySmallTypography;
-    }
-  }
-  .editable-select-wrapper {
-    @extend .asset-element;
-    width: deprecated.$s-60;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    border-radius: 0 deprecated.$br-8 deprecated.$br-8 0;
-    .column-select {
-      height: deprecated.$s-30;
-      border-radius: 0 deprecated.$br-8 deprecated.$br-8 0;
-      box-sizing: border-box;
-      border: deprecated.$s-1 solid var(--input-border-color);
-      .numeric-input {
-        @extend .input-base;
-        @include deprecated.bodySmallTypography;
-        margin: 0;
-        padding: 0;
-      }
-      span {
-        @include deprecated.flexCenter;
-        svg {
-          @extend .button-icon;
-        }
-      }
-    }
-  }
+  gap: px2rem(1);
 
   &.hidden {
-    .show-options {
-      @include deprecated.hiddenElement;
-      border: deprecated.$s-1 solid var(--input-border-color-disabled);
-    }
     .type-select-wrapper,
+    .grid-size,
     .editable-select-wrapper {
-      @include deprecated.hiddenElement;
-      .column-select,
-      .grid-type-select {
-        @include deprecated.hiddenElement;
-        border: deprecated.$s-1 solid var(--input-border-color-disabled);
-      }
-      .column-select {
-        @include deprecated.hiddenElement;
-        border-radius: 0 deprecated.$br-8 deprecated.$br-8 0;
-        .numeric-input {
-          @include deprecated.hiddenElement;
-        }
-      }
+      opacity: 0.4;
+      pointer-events: none;
     }
-    .grid-size {
-      @include deprecated.hiddenElement;
-      border: deprecated.$s-1 solid var(--input-border-color-disabled);
-      .icon {
-        stroke: var(--input-foreground-color-disabled);
-      }
-      .numeric-input {
-        color: var(--input-foreground-color-disabled);
-      }
+  }
+}
+
+.grid-open-button {
+  border-radius: $br-8 0 0 $br-8;
+  --button-bg-color: var(--menu-background-color);
+  --button-hover-bg-color: var(--menu-background-color-hover);
+
+  &.selected {
+    --button-bg-color: var(--color-background-quaternary);
+    --button-fg-color: var(--color-accent-primary);
+  }
+}
+
+.type-select-wrapper {
+  flex-grow: 1;
+  padding: 0;
+  block-size: $sz-30;
+}
+
+.grid-type-select {
+  border-radius: 0;
+  block-size: 100%;
+}
+
+.grid-size {
+  @extend .input-element;
+  @include t.use-typography("body-small");
+  flex: 0 0 px2rem(60);
+  border-radius: 0 $br-8 $br-8 0;
+}
+
+.editable-select-wrapper {
+  flex: 0 0 px2rem(60);
+  block-size: $sz-30;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 $br-8 $br-8 0;
+
+  .column-select {
+    block-size: $sz-30;
+    border-radius: 0 $br-8 $br-8 0;
+    box-sizing: border-box;
+    border: none;
+
+    .numeric-input {
+      @extend .input-base;
+      @include t.use-typography("body-small");
+      margin: 0;
+      padding: 0;
     }
-    .actions {
-      .hidden-btn,
-      .lock-btn {
-        background-color: transparent;
-        svg {
-          stroke: var(--input-foreground-color-disabled);
-        }
+
+    span {
+      display: flex;
+      align-items: center;
+      svg {
+        @extend .button-icon;
       }
     }
   }
 }
 
 .actions {
-  @include deprecated.flexRow;
+  display: grid;
+  grid-template-columns: subgrid;
   grid-column: span 2;
 }
 
@@ -174,63 +136,53 @@
 .advanced-row {
   position: relative;
   display: flex;
-  gap: deprecated.$s-4;
+  gap: var(--sp-9);
+  align-items: center;
+
   .orientation-select-wrapper {
-    width: deprecated.$s-92;
+    inline-size: px2rem(92);
     padding: 0;
   }
+
   .color-wrapper {
-    width: deprecated.$s-156;
+    flex: 1;
   }
-  .show-more-options {
-    @extend .button-tertiary;
-    height: deprecated.$s-30;
-    width: deprecated.$s-32;
-    svg {
-      @extend .button-icon;
-    }
-    &.selected {
-      @extend .button-icon-selected;
-    }
-  }
-  .height {
-    @extend .input-element;
-    @include deprecated.bodySmallTypography;
-    .icon-text {
-      padding-top: deprecated.$s-1;
-    }
-  }
+
+  .height,
   .gutter,
   .margin {
     @extend .input-element;
-    @include deprecated.bodySmallTypography;
-    .icon {
-      &.rotated svg {
-        transform: rotate(90deg);
-      }
+    @include t.use-typography("body-small");
+  }
+
+  .icon {
+    &.rotated svg {
+      transform: rotate(90deg);
     }
   }
 
   .more-options {
     @include deprecated.menuShadow;
-    @include deprecated.flexColumn;
+    display: flex;
+    flex-direction: column;
     position: absolute;
     top: calc(deprecated.$s-2 + deprecated.$s-28);
     right: 0;
-    width: deprecated.$s-156;
-    max-height: deprecated.$s-300;
+    inline-size: deprecated.$s-156;
+    max-block-size: deprecated.$s-300;
     padding: deprecated.$s-2;
     margin: 0 0 deprecated.$s-40 0;
-    margin-top: deprecated.$s-4;
+    margin-block-start: deprecated.$s-4;
     border-radius: deprecated.$br-8;
     z-index: deprecated.$z-index-4;
     overflow-y: auto;
     background-color: var(--menu-background-color);
+
     .option-btn {
       @include deprecated.buttonStyle;
       display: flex;
       align-items: center;
-      height: deprecated.$s-30;
+      block-size: deprecated.$s-30;
       padding: 0 deprecated.$s-8;
       border-radius: deprecated.$br-6;
       color: var(--menu-foreground-color);
@@ -243,14 +195,28 @@
   }
 }
 
+.grid-add-remove-button {
+  --button-fg-color: #535353;
+}
+
+.grid-more-options-button {
+  flex-shrink: 0;
+
+  &.selected {
+    --button-bg-color: var(--color-background-quaternary);
+    --button-fg-color: var(--color-accent-primary);
+  }
+}
+
 .second-row {
   @extend .dropdown-wrapper;
   left: unset;
   right: 0;
-  width: deprecated.$s-108;
+  inline-size: deprecated.$s-108;
+
   .btn-options {
     @include deprecated.buttonStyle;
     @extend .dropdown-element-base;
-    width: 100%;
+    inline-size: 100%;
   }
 }

@@ -40,6 +40,10 @@
   gap: var(--sp-9);
 }
 
+.stroke-add-remove-button {
+  --button-fg-color: #535353;
+}
+
 .stroke-multiple-label {
   @include t.use-typography("body-small");
   display: flex;

@@ -56,6 +56,10 @@
 }
 
 .icon-button-options {
+  .gray {
+    --button-fg-color: var(--color-foreground-third)
+  }
+
   --button-bg-color: transparent;
   --button-fg-color: var(--color-foreground-secondary);
 

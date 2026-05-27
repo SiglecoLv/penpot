@@ -333,8 +333,10 @@
 .input-label {
   @include headlineSmallTypography;
   @include flexCenter;
-  width: $s-20;
-  padding-left: $s-8;
+  justify-content: flex-start;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  padding-inline-start: var(--sp-9);
   height: $s-30;
   color: var(--input-foreground-color);
 }
@@ -347,6 +349,7 @@
   background-color: var(--input-background-color);
   border: $s-1 solid var(--input-background-color);
   color: var(--input-foreground-color);
+  padding-inline-end: var(--sp-9);
   span,
   label {
     @extend .input-label;
@@ -464,16 +467,16 @@
 
 .checkbox-icon {
   @include flexCenter;
-  width: $s-16;
-  height: $s-16;
-  min-width: $s-16;
-  min-height: $s-16;
+  width: $s-15;
+  height: $s-15;
+  min-width: $s-15;
+  min-height: $s-15;
   background-color: var(--input-checkbox-background-color-rest);
-  border: $s-1 solid var(--input-checkbox-border-color-rest);
+  // border: $s-1 solid var(--input-checkbox-border-color-rest);
   border-radius: $br-4;
   svg {
-    width: $s-16;
-    height: $s-16;
+    width: $s-15;
+    height: $s-15;
     display: none;
     stroke: var(--input-checkbox-inactive-foreground-color);
   }
@@ -772,7 +775,7 @@
   gap: $s-4;
   height: $s-30;
   :global(.attr-label) {
-    @include bodySmallTypography;
+    @include bodyMediumTypography;
     @include twoLineTextEllipsis;
     width: $s-92;
     margin: auto 0;

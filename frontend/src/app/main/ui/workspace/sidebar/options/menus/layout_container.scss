@@ -49,16 +49,20 @@
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: subgrid;
-  margin-block-end: var(--sp-m);
+  // margin-block-end: var(--sp-m);
   margin-block-start: var(--sp-xs);
 }
 
 .align-row {
   grid-column: span 3;
+  background-color: #2A2B2B;
+  border-radius: $br-8;
 }
 
 .direction-row-flex {
   grid-column: span 4;
+  background-color: #2A2B2B;
+  border-radius: $br-8;
 }
 
 // TODO: Replace this buttons with DS buttons
@@ -78,6 +82,7 @@
 
 .second-row,
 .third-row {
+  margin-top: var(--sp-9);
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: subgrid;
@@ -87,6 +92,8 @@
 .align-content-row,
 .justify-content-row {
   grid-column: span 6;
+  background-color: #2A2B2B;
+  border-radius: $br-8;
 }
 
 .forth-row {
@@ -174,10 +181,11 @@
 .gap-row,
 .padding-row {
   grid-column: 1 / -1;
+  margin-top: var(--sp-9);
 }
 
 .first-row {
-  margin-block-end: var(--sp-s);
+  // margin-block-end: var(--sp-s);
   display: grid;
   grid-template-columns: subgrid;
 }
@@ -384,7 +392,7 @@
   z-index: var(--z-index-dropdown);
   overflow-y: auto;
   overflow-x: hidden;
-  background-color: var(--color-background-tertiary);
+  background-color: var(--color-background-quaternary);
   color: var(--color-foreground-primary);
   border: $b-2 solid var(--color-background-quaternary);
   gap: var(--sp-xs);
@@ -408,12 +416,21 @@
   grid-column: span 2;
 }
 
+.direction-row-grid {
+  background-color: #2A2B2B;
+  border-radius: $br-8;
+}
+
 .align-grid-row {
   grid-column: span 3;
+  background-color: #2A2B2B;
+  border-radius: $br-8;
 }
 
 .justify-grid-row {
   grid-column: 1 / span 6;
+  background-color: #2A2B2B;
+  border-radius: $br-8;
 }
 
 .gap-row,
@@ -431,4 +448,8 @@
   grid-template-columns: subgrid;
   grid-column: 1 / -1;
   align-items: center;
+}
+
+.layout-add-remove-btn {
+  --button-fg-color: #535353;
 }

@@ -164,29 +164,14 @@
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: deprecated.$s-4;
+  gap: var(--sp-9);
 }
 
-.clip-content,
-.show-in-viewer {
-  .clip-content-input {
-    display: none;
+.clip-toggle-button {
+  &.selected {
+    --button-bg-color: var(--color-background-quaternary);
+    --button-fg-color: var(--color-accent-primary);
   }
-}
-
-.clip-content-label {
-  @extend .button-tertiary;
-  height: var(--sp-xxxl);
-  width: var(--sp-xxxl);
-  border-radius: deprecated.$br-8;
-}
-
-.selected {
-  @extend .button-icon-selected;
-}
-
-.checkbox-button {
-  @extend .button-icon;
 }
 
 // TODO: Add a proper variable to this sizing

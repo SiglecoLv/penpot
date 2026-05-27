@@ -22,7 +22,7 @@ msgstr "Проверьте свою электронную почту"
 #: src/app/main/ui/auth/register.cljs:277
 #, unused
 msgid "auth.check-your-email"
-msgstr "Перейдите по ссылке в электронном письме, чтобы начать работу с Penpot."
+msgstr "Перейдите по ссылке в электронном письме, чтобы начать работу с Контраст."
 
 #: src/app/main/ui/auth/recovery.cljs:67
 msgid "auth.confirm-password"
@@ -66,8 +66,8 @@ msgstr "Вход"
 
 #: src/app/main/ui/auth/login.cljs:274
 msgid "auth.login-tagline"
-msgstr ""
-"Penpot — это бесплатный инструмент для дизайна с открытым исходным кодом, "
+msgstr "Контраст — бесплатный инструмент для дизайна с открытым исходным кодом для совместной работы дизайнеров и разработчиков"
+"Контраст — это бесплатный инструмент для дизайна с открытым исходным кодом, "
 "созданный для совместной работы с дизайном и кодом"
 
 #: src/app/main/ui/auth/login.cljs:231
@@ -144,7 +144,7 @@ msgstr "Ещё нет аккаунта?"
 
 #: src/app/main/ui/auth/register.cljs:351
 msgid "auth.register-account-tagline"
-msgstr ""
+msgstr "Сообщите нам, как нас называть на дашборде и в письмах."
 "Сообщите нам, как следует к вам обращаться, на панели управления и в "
 "электронных письмах."
 
@@ -160,7 +160,7 @@ msgstr "Создать аккаунт"
 #, unused
 msgid "auth.register-tagline"
 msgstr ""
-"С бесплатным аккаунтом Penpot можно создавать неограниченное количество "
+"С бесплатным аккаунтом Контраст можно создавать неограниченное количество "
 "команд и сотрудничать с другими дизайнерами и разработчиками над любым "
 "количеством проектов. "
 
@@ -176,7 +176,7 @@ msgstr "Решение с открытым исходным кодом для с
 #: src/app/main/ui/auth/register.cljs:51
 #, markdown
 msgid "auth.terms-and-privacy-agreement"
-msgstr ""
+msgstr "Я согласен с [условиями использования](%s) и [политикой конфиденциальности](%s)."
 "Я согласен с [условиями обслуживания](%s) и [политикой "
 "конфиденциальности](%s)."
 
@@ -209,7 +209,7 @@ msgstr "Этот токен не существует или был удален
 
 #: src/app/main/ui/workspace/colorpicker/color_tokens.cljs:35
 msgid "color-token.empty-state"
-msgstr ""
+msgstr "Нет доступных цветовых токенов. Проверьте активные наборы/темы или добавьте новые токены."
 "Нет доступных токенов цвета. Проверьте активные наборы/темы или добавьте "
 "новые токены."
 
@@ -219,7 +219,7 @@ msgstr "Опубликовать"
 
 #: src/app/main/ui/viewer/share_link.cljs:304, src/app/main/ui/viewer/share_link.cljs:315
 msgid "common.share-link.all-users"
-msgstr "Все пользователи Penpot"
+msgstr "Все пользователи Контраст"
 
 #: src/app/main/ui/viewer/share_link.cljs:204
 msgid "common.share-link.confirm-deletion-link-description"
@@ -296,7 +296,7 @@ msgstr "Управление командой"
 #: src/app/main/ui/dashboard/projects.cljs:92
 msgid "dasboard.team-hero.text"
 msgstr ""
-"Penpot предназначен для команд. Приглашайте участников к совместной работе "
+"Контраст предназначен для команд. Приглашайте участников к совместной работе "
 "над проектами и файлами"
 
 #: src/app/main/ui/dashboard/projects.cljs:90
@@ -306,7 +306,7 @@ msgstr "Объединяйтесь!"
 #: src/app/main/ui/dashboard/projects.cljs
 #, unused
 msgid "dasboard.tutorial-hero.info"
-msgstr "Изучите основы в Penpot весело с этим практическим руководством."
+msgstr "Изучите основы в Контраст весело с этим практическим руководством."
 
 #: src/app/main/ui/dashboard/projects.cljs
 #, unused
@@ -321,7 +321,7 @@ msgstr "Практическое руководство"
 #: src/app/main/ui/dashboard/projects.cljs
 #, unused
 msgid "dasboard.walkthrough-hero.info"
-msgstr "Прогуляйтесь по возможностям Penpot и познакомьтесь с основными функциями."
+msgstr "Прогуляйтесь по возможностям Контраст и познакомьтесь с основными функциями."
 
 #: src/app/main/ui/dashboard/projects.cljs
 #, unused
@@ -394,7 +394,7 @@ msgid "dashboard.access-tokens.personal.description"
 msgstr ""
 "Личные токены доступа функционируют как альтернатива нашей системе "
 "аутентификации по логину/паролю и могут использоваться для предоставления "
-"приложению доступа к внутреннему API Penpot"
+"приложению доступа к внутреннему API Контраст"
 
 #: src/app/main/ui/settings/access_tokens.cljs:142
 msgid "dashboard.access-tokens.token-will-expire"
@@ -430,7 +430,7 @@ msgstr "Закрепить эту версию"
 
 #: src/app/main/ui/components/context_menu_a11y.cljs:300, src/app/main/ui/dashboard/sidebar.cljs:638
 msgid "dashboard.default-team-name"
-msgstr "Ваш Penpot"
+msgstr "Ваш Контраст"
 
 #: src/app/main/ui/dashboard/sidebar.cljs:495
 msgid "dashboard.delete-team"
@@ -438,7 +438,7 @@ msgstr "Удалить команду"
 
 #: src/app/main/ui/dashboard/file_menu.cljs:328, src/app/main/ui/workspace/main_menu.cljs:690
 msgid "dashboard.download-binary-file"
-msgstr "Скачать файл Penpot (.penpot)"
+msgstr "Скачать файл Контраст (.penpot)"
 
 #: src/app/main/ui/dashboard/file_menu.cljs:321, src/app/main/ui/workspace/main_menu.cljs:712
 #, unused
@@ -519,7 +519,7 @@ msgstr "Начать создавать удивительные вещи"
 
 #: src/app/main/ui/dashboard/file_menu.cljs:280
 msgid "dashboard.export-binary-multi"
-msgstr "Скачать файлы Penpot (.penpot) (%s)"
+msgstr "Скачать файлы Контраст (.penpot) (%s)"
 
 #: src/app/main/ui/workspace/main_menu.cljs:698
 msgid "dashboard.export-frames"
@@ -531,7 +531,7 @@ msgstr "Экспорт в формате PDF"
 
 #, unused
 msgid "dashboard.export-multi"
-msgstr "Экспорт файлов Penpot (%s)"
+msgstr "Экспорт файлов Контраст (%s)"
 
 #: src/app/main/ui/exports/assets.cljs:108
 msgid "dashboard.export-multiple.selected"
@@ -549,7 +549,7 @@ msgstr ""
 
 #: src/app/main/ui/exports/assets.cljs:183
 msgid "dashboard.export-shapes.how-to-link"
-msgstr "Информация о настройке экспорта в Penpot."
+msgstr "Информация о настройке экспорта в Контраст."
 
 #: src/app/main/ui/exports/assets.cljs:178
 msgid "dashboard.export-shapes.no-elements"
@@ -589,7 +589,7 @@ msgstr "Пользовательских шрифтов пока нет."
 
 #: src/app/main/ui/dashboard/fonts.cljs:459
 msgid "dashboard.fonts.empty-placeholder-viewer-sub"
-msgstr ""
+msgstr "После того как участник проекта загрузит пользовательский шрифт, он отобразится здесь."
 "Как только участник проекта загрузит собственный шрифт, он будет отображен "
 "здесь."
 
@@ -614,8 +614,8 @@ msgstr ""
 msgid "dashboard.fonts.hero-text2"
 msgstr ""
 "Вам следует загружать только собственные шрифты, или у которых есть "
-"лицензия на использование в Penpot. Больше информации в разделе \"Content "
-"rights\" в [Условиях использования Penpot](https://penpot.app/terms.html). "
+"лицензия на использование в Контраст. Больше информации в разделе \"Content "
+"rights\" в [Условиях использования Контраст](https://penpot.app/terms.html). "
 "Также можете прочитать о [лицензировании "
 "шрифтов](https://www.typography.com/faq)."
 
@@ -636,7 +636,7 @@ msgstr ""
 
 #: src/app/main/ui/dashboard/import.cljs:464, src/app/main/ui/dashboard/project_menu.cljs:109
 msgid "dashboard.import"
-msgstr "Импорт файлов Penpot"
+msgstr "Импорт файлов Контраст"
 
 #: src/app/main/ui/dashboard/import.cljs:293, src/app/worker/import.cljs:121, src/app/worker/import.cljs:124
 msgid "dashboard.import.analyze-error"
@@ -744,7 +744,7 @@ msgstr "Библиотеки и шаблоны"
 
 #: src/app/main/ui/dashboard/templates.cljs:267
 msgid "dashboard.libraries-and-templates.description"
-msgstr ""
+msgstr "Здесь представлены библиотеки и шаблоны, которые можно добавить в проект"
 "Здесь вы найдете библиотеки и шаблоны, которые вы можете добавить в свой "
 "проект"
 
@@ -927,11 +927,11 @@ msgstr "Выберите тему"
 
 #: src/app/main/ui/settings/options.cljs:68
 msgid "dashboard.select-ui-theme.dark"
-msgstr "Темный Penpot (по умолчанию)"
+msgstr "Темный Контраст (по умолчанию)"
 
 #: src/app/main/ui/settings/options.cljs:69
 msgid "dashboard.select-ui-theme.light"
-msgstr "Светлый Penpot"
+msgstr "Светлый Контраст"
 
 #: src/app/main/ui/settings/options.cljs:70
 msgid "dashboard.select-ui-theme.system"
@@ -1079,7 +1079,7 @@ msgstr "Безграничное творчество"
 
 #: src/app/main/ui/dashboard/sidebar.cljs:1069
 msgid "dashboard.upgrade-plan.penpot-free"
-msgstr "Penpot Бесплатный"
+msgstr "Контраст Бесплатный"
 
 #: src/app/main/ui/dashboard/team.cljs:1115
 msgid "dashboard.webhooks.active"
@@ -1109,7 +1109,7 @@ msgstr "Вебхук успешно создан."
 msgid "dashboard.webhooks.description"
 msgstr ""
 "Вебхуки - это простой способ уведомлять другие веб-сайты и приложения о тех "
-"или иных событиях в Penpot. Мы отправим POST-запрос на каждый из указанных "
+"или иных событиях в Контраст. Мы отправим POST-запрос на каждый из указанных "
 "вами URL-адресов."
 
 #: src/app/main/ui/dashboard/team.cljs:1265
@@ -1138,7 +1138,7 @@ msgstr "Ваше имя"
 
 #: src/app/main/ui/dashboard/file_menu.cljs:40, src/app/main/ui/dashboard/fonts.cljs:42, src/app/main/ui/dashboard/libraries.cljs:56, src/app/main/ui/dashboard/projects.cljs:355, src/app/main/ui/dashboard/search.cljs:48, src/app/main/ui/dashboard/sidebar.cljs:312, src/app/main/ui/dashboard/team.cljs:537, src/app/main/ui/dashboard/team.cljs:983, src/app/main/ui/dashboard/team.cljs:1251, src/app/main/ui/dashboard/team.cljs:1298
 msgid "dashboard.your-penpot"
-msgstr "Ваш Penpot"
+msgstr "Ваш Контраст"
 
 #: src/app/main/ui/alert.cljs:35
 msgid "ds.alert-ok"
@@ -1223,12 +1223,12 @@ msgstr "В комментарии произошла ошибка"
 #: src/app/main/errors.cljs:302
 msgid "errors.deprecated"
 msgstr ""
-"Извините! Это старый файл, использующий устаревший тип ресурсов Penpot, и "
+"Извините! Это старый файл, использующий устаревший тип ресурсов Контраст, и "
 "вы не можете его открыть."
 
 #: src/app/main/errors.cljs:303
 msgid "errors.deprecated.contact.before"
-msgstr "Хоть Penpot больше не поддерживает этот тип Ресурсов, вы можете"
+msgstr "Хоть Контраст больше не поддерживает этот тип Ресурсов, вы можете"
 
 #: src/app/main/errors.cljs:304
 msgid "errors.deprecated.contact.text"
@@ -1416,7 +1416,7 @@ msgstr "Обнаружена несовместимая функция «%s»"
 
 #: src/app/main/ui/dashboard/sidebar.cljs:373, src/app/main/ui/dashboard/team.cljs:393
 msgid "errors.team-leave.insufficient-members"
-msgstr ""
+msgstr "Недостаточно участников для выхода из команды, возможно, вы хотите удалить её."
 "Недостаточно участников, чтобы покинуть команду, вероятно, вы хотите её "
 "удалить."
 
@@ -1439,7 +1439,7 @@ msgstr "Невозможно дублировать неизвестный на�
 
 #: src/app/main/data/workspace/tokens/library_edit.cljs:337
 msgid "errors.token-set-exists-on-drop"
-msgstr ""
+msgstr "Невозможно завершить перетаскивание: набор с таким именем уже существует по данному пути."
 "Невозможно завершить перенос, набор с таким именем уже существует по "
 "указанному пути."
 
@@ -1523,7 +1523,7 @@ msgstr ""
 
 #: src/app/main/ui/settings/feedback.cljs:149
 msgid "feedback.discourse-title"
-msgstr "Сообщество Penpot"
+msgstr "Сообщество Контраст"
 
 #: src/app/main/ui/settings/feedback.cljs:143
 msgid "feedback.other-ways-contact"
@@ -1806,9 +1806,9 @@ msgstr "Варианты свойств"
 
 #: src/app/main/ui/inspect/right_sidebar.cljs:234
 msgid "inspect.empty.help"
-msgstr ""
+msgstr "Если вы хотите узнать больше об инспекторе дизайна, посетите центр помощи Контраст"
 "Если вы хотите узнать больше о осмотре дизайна, посетите справочный центр "
-"Penpot"
+"Контраст"
 
 #: src/app/main/ui/inspect/right_sidebar.cljs:232
 msgid "inspect.empty.select"
@@ -1917,7 +1917,7 @@ msgstr "Сочетания клавиш"
 
 #: src/app/main/ui/dashboard/sidebar.cljs:1138
 msgid "labels.about-penpot"
-msgstr "О Penpot"
+msgstr "О Контраст"
 
 #: src/app/main/data/common.cljs:90, src/app/main/ui/dashboard/import.cljs:530
 msgid "labels.accept"
@@ -2034,7 +2034,7 @@ msgstr "Продолжить с"
 
 #: src/app/main/ui/viewer/login.cljs:69
 msgid "labels.continue-with-penpot"
-msgstr "Вы можете продолжить с аккаунтом Penpot"
+msgstr "Вы можете продолжить с аккаунтом Контраст"
 
 #: src/app/main/ui/components/copy_button.cljs:41
 msgid "labels.copy"
@@ -2290,7 +2290,7 @@ msgstr "Далее"
 
 #: src/app/main/ui/dashboard/comments.cljs:122, src/app/main/ui/workspace/comments.cljs:162
 msgid "labels.no-comments-available"
-msgstr ""
+msgstr "Всё просмотрено! Новые уведомления о комментариях появятся здесь."
 "Вы ничего не пропустили! Здесь будут появляться уведомления о новых "
 "комментариях."
 
@@ -2364,7 +2364,7 @@ msgstr "Ожидание"
 
 #: src/app/main/ui/dashboard/sidebar.cljs:973
 msgid "labels.penpot-changelog"
-msgstr "Журнал изменений Penpot"
+msgstr "Журнал изменений Контраст"
 
 #: src/app/main/ui/dashboard/sidebar.cljs:846
 msgid "labels.pinned-projects"
@@ -2663,7 +2663,7 @@ msgstr "Подтвердить новую эл. почту"
 
 #: src/app/main/ui/settings/change_email.cljs:97
 msgid "modals.change-email.info"
-msgstr ""
+msgstr "Мы отправим письмо на ваш текущий адрес \"%s\" для подтверждения личности."
 "Мы отправим эл. письмо для подтверждения личности на текущую эл. почту "
 "\"%s\"."
 
@@ -2929,7 +2929,7 @@ msgstr "Эл. почты, разделённые запятой"
 
 #: src/app/main/ui/dashboard/team.cljs:229
 msgid "modals.invite-member.repeated-invitation"
-msgstr ""
+msgstr "Некоторые участники уже есть в команде. Мы пригласим остальных."
 "Некоторые электронные письма отправлены от текущих членов команды. Их "
 "приглашения не будут отправлены."
 
@@ -3112,7 +3112,7 @@ msgstr "Эта страница не существует"
 
 #: src/app/main/data/common.cljs:89
 msgid "notifications.by-code.maintenance"
-msgstr ""
+msgstr "Техническое обслуживание: мы временно недоступны в течение нескольких минут."
 "Технический перерыв: сервис будет недоступен короткое время в течение 5 "
 "минут."
 
@@ -3144,13 +3144,13 @@ msgstr "Письмо с подтверждением отправлено на %
 msgid "onboarding-v2.before-start.desc1"
 msgstr ""
 "Вы должны знать, что существует множество ресурсов, которые помогут вам "
-"начать работу с Penpot, например, руководство пользователя и наш канал на "
+"начать работу с Контраст, например, руководство пользователя и наш канал на "
 "Youtube."
 
 #, unused
 msgid "onboarding-v2.before-start.desc2"
 msgstr ""
-"Подробная информация о том, как пользоваться Penpot. От создания прототипов "
+"Подробная информация о том, как пользоваться Контраст. От создания прототипов "
 "до организации или обмена проектами."
 
 #, unused
@@ -3159,7 +3159,7 @@ msgstr "Руководство пользователя"
 
 #, unused
 msgid "onboarding-v2.before-start.desc3"
-msgstr ""
+msgstr "Вы можете смотреть наши туториалы и туториалы от сообщества."
 "Вы можете посмотреть наши руководства и руководства, созданные нашим "
 "сообществом."
 
@@ -3174,12 +3174,12 @@ msgstr "Прежде чем начать"
 #: src/app/main/ui/onboarding/newsletter.cljs:68
 msgid "onboarding-v2.newsletter.desc"
 msgstr ""
-"Подпишитесь на рассылку Penpot, чтобы всегда быть в курсе развития продукта "
+"Подпишитесь на рассылку Контраст, чтобы всегда быть в курсе развития продукта "
 "и новостей."
 
 #: src/app/main/ui/onboarding/newsletter.cljs:88
 msgid "onboarding-v2.newsletter.news"
-msgstr "Присылайте мне новости о Penpot (записи в блоге, видеоуроки, стримы...)."
+msgstr "Присылайте мне новости о Контраст (записи в блоге, видеоуроки, стримы...)."
 
 #: src/app/main/ui/onboarding/newsletter.cljs:96
 msgid "onboarding-v2.newsletter.privacy1"
@@ -3199,15 +3199,15 @@ msgstr "Присылать мне обновления продукта (нов�
 #, unused
 msgid "onboarding-v2.welcome.desc1"
 msgstr ""
-"Penpot — проект с открытым исходным кодом, созданный Kaleidos и "
+"Контраст — проект с открытым исходным кодом, созданный Kaleidos и "
 "сообществом, где многие люди уже помогают друг другу. Каждый может начать "
 "сотрудничество:"
 
 #, unused
 msgid "onboarding-v2.welcome.desc2"
 msgstr ""
-"Общественное пространство, где можно узнавать, делиться и обсуждать Penpot, "
-"его настоящее и будущее со всем сообществом и основной командой Penpot."
+"Общественное пространство, где можно узнавать, делиться и обсуждать Контраст, "
+"его настоящее и будущее со всем сообществом и основной командой Контраст."
 
 #, unused
 msgid "onboarding-v2.welcome.desc2.title"
@@ -3225,7 +3225,7 @@ msgstr "Руководство по участию в проекте"
 
 #: src/app/main/ui/onboarding/team_choice.cljs:241
 msgid "onboarding-v2.welcome.title"
-msgstr "Добро пожаловать в Penpot!"
+msgstr "Добро пожаловать в Контраст!"
 
 #: src/app/main/ui/onboarding/team_choice.cljs:254
 #, unused
@@ -3250,7 +3250,7 @@ msgstr "Вы сможете пригласить позже"
 
 #: src/app/main/ui/onboarding/team_choice.cljs:177
 msgid "onboarding.choice.team-up.create-team-desc"
-msgstr ""
+msgstr "После того как вы дадите команде название, вы сможете пригласить людей."
 "После добавления названия команды, вы сможете пригласить людей "
 "присоединиться."
 
@@ -3304,7 +3304,7 @@ msgstr "Политика конфиденциальности."
 
 #: src/app/main/ui/onboarding/newsletter.cljs:65
 msgid "onboarding.newsletter.title"
-msgstr "Хотите получать новости Penpot?"
+msgstr "Хотите получать новости Контраст?"
 
 #: src/app/main/ui/onboarding/questions.cljs:108
 msgid "onboarding.questions.lets-get-started"
@@ -3320,7 +3320,7 @@ msgstr "Просто исследую"
 
 #: src/app/main/ui/onboarding/questions.cljs:246
 msgid "onboarding.questions.reasons.fit"
-msgstr "Анализ того, подходит ли Penpot для моей команды"
+msgstr "Анализ того, подходит ли Контраст для моей команды"
 
 #: src/app/main/ui/onboarding/questions.cljs:252
 msgid "onboarding.questions.reasons.testing"
@@ -3348,16 +3348,16 @@ msgstr "Вайрфрейминг"
 
 #: src/app/main/ui/onboarding/questions.cljs:116
 msgid "onboarding.questions.step1.question1"
-msgstr "В каких целях вы планируете использовать Penpot?"
+msgstr "В каких целях вы планируете использовать Контраст?"
 
 #: src/app/main/ui/onboarding/questions.cljs:273
 msgid "onboarding.questions.step1.question2"
-msgstr "Что привело вас сегодня в Penpot?"
+msgstr "Что привело вас сегодня в Контраст?"
 
 #: src/app/main/ui/onboarding/questions.cljs:112
 msgid "onboarding.questions.step1.subtitle"
 msgstr ""
-"Расскажите нам немного о себе, чтобы мы могли заставить Penpot работать на "
+"Расскажите нам немного о себе, чтобы мы могли заставить Контраст работать на "
 "вас. Ваши ответы помогут нам определить приоритетность новых функций и "
 "укажут вам правильное направление для начала работы."
 
@@ -3393,7 +3393,7 @@ msgstr "С чего бы вы хотели начать?"
 #: src/app/main/ui/onboarding/questions.cljs:428
 #, unused
 msgid "onboarding.questions.step5.title"
-msgstr "Как вы узнали о Penpot?"
+msgstr "Как вы узнали о Контраст?"
 
 #: src/app/main/ui/onboarding/questions.cljs:233
 msgid "onboarding.questions.team-size.11-30"
@@ -3438,7 +3438,7 @@ msgstr "Создать команду"
 #: src/app/main/ui/onboarding/team_choice.cljs:31
 msgid "onboarding.team-modal.create-team-desc"
 msgstr ""
-"Команда позволяет вам сотрудничать с другими пользователями Penpot, "
+"Команда позволяет вам сотрудничать с другими пользователями Контраст, "
 "работающими над одними файлами и проектами."
 
 #: src/app/main/ui/onboarding/team_choice.cljs:36
@@ -3475,7 +3475,7 @@ msgstr "Заняться дизайном"
 
 #, unused
 msgid "onboarding.welcome.alt"
-msgstr "Penpot"
+msgstr "Контраст"
 
 #: src/app/main/ui/auth/recovery.cljs:88
 msgid "profile.recovery.go-to-login"
@@ -4179,7 +4179,7 @@ msgstr "Оплата после пробного периода. Кредитн�
 
 #: src/app/main/ui/settings/subscription.cljs:533
 msgid "subscription.settings.member-since"
-msgstr "Участник Penpot с: %s"
+msgstr "Участник Контраст с: %s"
 
 #: src/app/main/ui/settings/subscription.cljs:50
 msgid "subscription.settings.recommended"
@@ -4216,31 +4216,31 @@ msgstr "Если вы хотите увеличить этот лимит, [об
 
 #: src/app/main/ui/dashboard/files.cljs:181
 msgid "title.dashboard.files"
-msgstr "%s - Penpot"
+msgstr "%s - Контраст"
 
 #: src/app/main/ui/dashboard/fonts.cljs:46
 msgid "title.dashboard.font-providers"
-msgstr "Поставщики шрифтов - %s - Penpot"
+msgstr "Поставщики шрифтов - %s - Контраст"
 
 #: src/app/main/ui/dashboard/fonts.cljs:45
 msgid "title.dashboard.fonts"
-msgstr "Шрифты - %s - Penpot"
+msgstr "Шрифты - %s - Контраст"
 
 #: src/app/main/ui/dashboard/projects.cljs:357
 msgid "title.dashboard.projects"
-msgstr "Проекты - %s - Penpot"
+msgstr "Проекты - %s - Контраст"
 
 #: src/app/main/ui/dashboard/search.cljs:50
 msgid "title.dashboard.search"
-msgstr "Поиск - %s - Penpot"
+msgstr "Поиск - %s - Контраст"
 
 #: src/app/main/ui/dashboard/libraries.cljs:58
 msgid "title.dashboard.shared-libraries"
-msgstr "Общие библиотеки - %s - Penpot"
+msgstr "Общие библиотеки - %s - Контраст"
 
 #: src/app/main/ui/auth/verify_token.cljs:70, src/app/main/ui/auth.cljs:34
 msgid "title.default"
-msgstr "Penpot — свобода в дизайне для команд"
+msgstr "Контраст — свобода в дизайне для команд"
 
 #: src/app/main/ui/settings/access_tokens.cljs:278
 msgid "title.settings.access-tokens"
@@ -4248,47 +4248,47 @@ msgstr "Профиль - токены доступа"
 
 #: src/app/main/ui/settings/feedback.cljs:161
 msgid "title.settings.feedback"
-msgstr "Оставить отзыв - Penpot"
+msgstr "Оставить отзыв - Контраст"
 
 #: src/app/main/ui/settings/notifications.cljs:45
 msgid "title.settings.notifications"
-msgstr "Уведомления - Penpot"
+msgstr "Уведомления - Контраст"
 
 #: src/app/main/ui/settings/options.cljs:83
 msgid "title.settings.options"
-msgstr "Настройки - Penpot"
+msgstr "Настройки - Контраст"
 
 #: src/app/main/ui/settings/password.cljs:105
 msgid "title.settings.password"
-msgstr "Пароль - Penpot"
+msgstr "Пароль - Контраст"
 
 #: src/app/main/ui/settings/profile.cljs:124
 msgid "title.settings.profile"
-msgstr "Профиль - Penpot"
+msgstr "Профиль - Контраст"
 
 #: src/app/main/ui/dashboard/team.cljs:981
 msgid "title.team-invitations"
-msgstr "Приглашения - %s - Penpot"
+msgstr "Приглашения - %s - Контраст"
 
 #: src/app/main/ui/dashboard/team.cljs:535
 msgid "title.team-members"
-msgstr "Участники - %s - Penpot"
+msgstr "Участники - %s - Контраст"
 
 #: src/app/main/ui/dashboard/team.cljs:1296
 msgid "title.team-settings"
-msgstr "Настройки - %s - Penpot"
+msgstr "Настройки - %s - Контраст"
 
 #: src/app/main/ui/dashboard/team.cljs:1249
 msgid "title.team-webhooks"
-msgstr "Вебхуки - %s - Penpot"
+msgstr "Вебхуки - %s - Контраст"
 
 #: src/app/main/ui/viewer.cljs:423
 msgid "title.viewer"
-msgstr "%s - Режим просмотра - Penpot"
+msgstr "%s - Режим просмотра - Контраст"
 
 #: src/app/main/ui/workspace.cljs:237
 msgid "title.workspace"
-msgstr "%s - Penpot"
+msgstr "%s - Контраст"
 
 #: src/app/main/ui.cljs:138
 #, unused
@@ -4413,7 +4413,7 @@ msgstr "Создать группу"
 
 #: src/app/main/ui/workspace/sidebar/assets/groups.cljs:152
 msgid "workspace.assets.create-group-hint"
-msgstr ""
+msgstr "Ваши элементы будут названы автоматически как"
 "Вашим элементам будет автоматически присвоено название «название "
 "группы/название элемента»"
 
@@ -5223,7 +5223,11 @@ msgstr "Высота"
 
 #: src/app/main/ui/workspace/sidebar/options.cljs:201
 msgid "workspace.options.inspect"
-msgstr "Осмотр"
+msgstr "Просмотр"
+
+#: src/app/main/ui/inspect/right_sidebar.cljs:238
+msgid "inspect.empty.more"
+msgstr "Больше информации"
 
 #: src/app/main/ui/workspace/sidebar/options/menus/interactions.cljs:438
 msgid "workspace.options.interaction-action"
@@ -7356,3 +7360,1059 @@ msgstr "Автосохранённые версии будут хранитьс�
 #, unused
 msgid "workspace.viewport.click-to-close-path"
 msgstr "Нажмите для замыкания контура"
+
+msgid "comments.mentions.not-found"
+msgstr "Пользователи для @%s не найдены"
+
+msgid "dashboard-restore-file-confirmation.description"
+msgstr "Вы собираетесь восстановить %s."
+
+msgid "dashboard-restore-file-confirmation.title"
+msgstr "Восстановить файл"
+
+msgid "dashboard.clear-trash-button"
+msgstr "Очистить корзину"
+
+msgid "dashboard.create-new-org"
+msgstr "+ Создать организацию"
+
+msgid "dashboard.delete-file-forever-confirmation.description"
+msgstr "Вы уверены, что хотите навсегда удалить %s? Это необратимое действие."
+
+msgid "dashboard.delete-files-success-notification"
+msgstr "%s файлов успешно удалено."
+
+msgid "dashboard.delete-forever-confirmation.title"
+msgstr "Удалить навсегда"
+
+msgid "dashboard.delete-project-button"
+msgstr "Удалить проект"
+
+msgid "dashboard.delete-success-notification"
+msgstr "%s успешно удалён."
+
+msgid "dashboard.deleted.empty-state-description"
+msgstr "Корзина пуста. Удалённые файлы и проекты появятся здесь."
+
+msgid "dashboard.deleted.will-be-deleted-at"
+msgstr "Будет удалён %s"
+
+msgid "dashboard.empty-project.explore"
+msgstr "Найти для добавления"
+
+msgid "dashboard.errors.error-on-delete-file"
+msgstr "Произошла ошибка при удалении файла %s."
+
+msgid "dashboard.errors.error-on-delete-files"
+msgstr "Произошла ошибка при удалении файлов."
+
+msgid "dashboard.errors.error-on-delete-project"
+msgstr "Произошла ошибка при удалении проекта %s."
+
+msgid "dashboard.errors.error-on-restore-file"
+msgstr "Произошла ошибка при восстановлении файла %s."
+
+msgid "dashboard.errors.error-on-restore-files"
+msgstr "Произошла ошибка при восстановлении файлов."
+
+msgid "dashboard.errors.error-on-restoring-project"
+msgstr "Произошла ошибка при восстановлении проекта %s и его файлов."
+
+msgid "dashboard.file-menu.delete-files-permanently-option"
+msgstr "Удалить файл"
+
+msgid "dashboard.file-menu.restore-files-option"
+msgstr "Восстановить файл"
+
+msgid "dashboard.progress-notification.deleting-files"
+msgstr "Удаление файлов…"
+
+msgid "dashboard.progress-notification.restoring-files"
+msgstr "Восстановление файлов…"
+
+msgid "dashboard.progress-notification.slow-delete"
+msgstr "Удаление неожиданно затянулось"
+
+msgid "dashboard.progress-notification.slow-restore"
+msgstr "Восстановление неожиданно затянулось"
+
+msgid "dashboard.restore-all-confirmation.description"
+msgstr "Вы собираетесь восстановить все проекты и файлы. Это может занять некоторое время."
+
+msgid "dashboard.restore-all-confirmation.title"
+msgstr "Восстановить все проекты и файлы"
+
+msgid "dashboard.restore-all-deleted-button"
+msgstr "Восстановить всё"
+
+msgid "dashboard.restore-files-success-notification"
+msgstr "%s файлов успешно восстановлено."
+
+msgid "dashboard.restore-project-button"
+msgstr "Восстановить проект"
+
+msgid "dashboard.restore-project-confirmation.description"
+msgstr "Вы собираетесь восстановить проект %s и все файлы в нём."
+
+msgid "dashboard.restore-project-confirmation.title"
+msgstr "Восстановить проект"
+
+msgid "dashboard.restore-success-notification"
+msgstr "%s успешно восстановлен."
+
+msgid "dashboard.trash-info-text-part1"
+msgstr "Удалённые файлы хранятся в корзине в течение"
+
+msgid "dashboard.trash-info-text-part2"
+msgstr " %s дней. "
+
+msgid "dashboard.trash-info-text-part3"
+msgstr "После этого они будут безвозвратно удалены."
+
+msgid "modals.import-library-tokens.title"
+msgstr "Импортировать токены из библиотеки?"
+
+msgid "modals.import-library-tokens.import"
+msgstr "Импортировать токены"
+
+msgid "ds.inputs.token-field.no-active-token-option"
+msgstr "{%s} не входит ни в один активный набор или имеет недопустимое значение."
+
+msgid "ds.inputs.token-field.no-active-color.token-option"
+msgstr "Этот токен не входит ни в один активный набор или имеет недопустимое значение."
+
+msgid "errors.deprecated.contact.after"
+msgstr "чтобы мы могли помочь вам."
+
+msgid "errors.internal-assertion-error"
+msgstr "Внутренняя ошибка утверждения"
+
+msgid "errors.internal-worker-error"
+msgstr "Что-то пошло не так в веб-воркере."
+
+msgid "errors.unexpected-exception"
+msgstr "Непредвиденная ошибка: %s"
+
+msgid "errors.webgl-context-lost.desc-message"
+msgstr "WebGL перестал работать. Пожалуйста, перезагрузите страницу для восстановления."
+
+msgid "errors.webgl-context-lost.main-message"
+msgstr "Упс! Контекст холста потерян"
+
+msgid "files-download-modal.title"
+msgstr "Скачать файлы"
+
+msgid "inspect.attributes.image.preview"
+msgstr "Предварительный просмотр изображения заливки фигуры"
+
+msgid "inspect.color-space-label"
+msgstr "Выбрать цветовое пространство"
+
+msgid "inspect.tabs.styles.copy-shorthand"
+msgstr "Копировать сокращённое CSS-значение в буфер обмена"
+
+msgid "integrations.access-tokens.create"
+msgstr "Создать новый токен доступа"
+
+msgid "integrations.access-tokens.empty.no-access-tokens"
+msgstr "У вас пока нет токенов."
+
+msgid "integrations.access-tokens.personal"
+msgstr "Персональные токены доступа"
+
+msgid "integrations.copy-to-clipboard"
+msgstr "Копировать в буфер обмена"
+
+msgid "integrations.create-access-token.title"
+msgstr "Создать токен доступа"
+
+msgid "integrations.create-access-token.title.created"
+msgstr "Токен доступа создан"
+
+msgid "integrations.delete-token.accept"
+msgstr "Удалить токен"
+
+msgid "integrations.delete-token.message"
+msgstr "Вы уверены, что хотите удалить этот токен?"
+
+msgid "integrations.delete-token.title"
+msgstr "Удалить токен"
+
+msgid "integrations.expiration-180-days"
+msgstr "180 дней"
+
+msgid "integrations.expiration-30-days"
+msgstr "30 дней"
+
+msgid "integrations.expiration-60-days"
+msgstr "60 дней"
+
+msgid "integrations.expiration-90-days"
+msgstr "90 дней"
+
+msgid "integrations.expiration-never"
+msgstr "Никогда"
+
+msgid "integrations.expired-on"
+msgstr "Истёк %s"
+
+msgid "integrations.expires-on"
+msgstr "Истекает %s"
+
+msgid "integrations.no-expiration"
+msgstr "Без срока действия"
+
+msgid "integrations.expiration-date.label"
+msgstr "Дата истечения"
+
+msgid "integrations.generate-mcp-key.title"
+msgstr "Создать MCP-ключ"
+
+msgid "integrations.generate-mcp-key.title.created"
+msgstr "MCP-ключ создан"
+
+msgid "integrations.info.mcp-client-config"
+msgstr "Добавьте эту конфигурацию в ваш MCP-клиент (например, ~/​.mcp.json)."
+
+msgid "integrations.info.mcp-server"
+msgstr "MCP-сервер Контраст позволяет MCP-клиентам взаимодействовать напрямую с дизайн-файлами Контраст."
+
+msgid "integrations.info.non-recuperable"
+msgstr "Этот уникальный токен невозможно восстановить. Если вы его потеряете, потребуется создать новый."
+
+msgid "integrations.mcp-server.title"
+msgstr "MCP-сервер"
+
+msgid "integrations.mcp-server.title.beta"
+msgstr "Бета"
+
+msgid "integrations.mcp-server.description"
+msgstr "MCP-сервер Контраст позволяет MCP-клиентам взаимодействовать напрямую с дизайн-файлами Контраст."
+
+msgid "integrations.mcp-server.status"
+msgstr "Статус"
+
+msgid "integrations.mcp-server.status.disabled"
+msgstr "Отключён"
+
+msgid "integrations.mcp-server.status.enabled"
+msgstr "Включён"
+
+msgid "integrations.mcp-server.status.expired.0"
+msgstr "MCP-ключ, используемый для подключения к MCP-серверу, истёк. Соединение не может быть установлено."
+
+msgid "integrations.mcp-server.status.expired.1"
+msgstr "Пожалуйста, повторно создайте MCP-ключ и обновите конфигурацию клиента новым ключом."
+
+msgid "integrations.mcp-server.mcp-keys.copy"
+msgstr "Копировать ссылку"
+
+msgid "integrations.mcp-server.mcp-keys.help"
+msgstr "Как настроить MCP-клиенты"
+
+msgid "integrations.mcp-server.mcp-keys.info"
+msgstr "Это URL сервера для настройки MCP-клиента для подключения к MCP-серверу Контраст."
+
+msgid "integrations.mcp-server.mcp-keys.regenerate"
+msgstr "Создать новый MCP-ключ"
+
+msgid "integrations.mcp-server.mcp-keys.title"
+msgstr "MCP-ключ"
+
+msgid "integrations.mcp-server.mcp-keys.tootip"
+msgstr "MCP-ключ необходим для настройки MCP-клиента"
+
+msgid "integrations.name.label"
+msgstr "Название"
+
+msgid "integrations.name.placeholder"
+msgstr "Название поможет понять, для чего используется токен"
+
+msgid "integrations.notification.success.copied"
+msgstr "Токен скопирован"
+
+msgid "integrations.notification.success.created"
+msgstr "Токен успешно создан"
+
+msgid "integrations.notification.success.copied-link"
+msgstr "Ссылка скопирована в буфер обмена"
+
+msgid "integrations.notification.success.mcp-server-disabled"
+msgstr "MCP-сервер отключён"
+
+msgid "integrations.notification.success.mcp-server-enabled"
+msgstr "MCP-сервер включён"
+
+msgid "integrations.regenerate-mcp-key.info"
+msgstr "Создание нового ключа немедленно аннулирует текущий. Все приложения, использующие его, перестанут работать."
+
+msgid "integrations.regenerate-mcp-key.title"
+msgstr "Создать новый MCP-ключ"
+
+msgid "integrations.regenerate-mcp-key.title.created"
+msgstr "MCP-ключ создан заново"
+
+msgid "integrations.title"
+msgstr "Интеграции"
+
+msgid "integrations.token-will-expire"
+msgstr "Токен истечёт %s"
+
+msgid "integrations.token-will-not-expire"
+msgstr "Срок действия токена не ограничен"
+
+msgid "labels.community-contributions"
+msgstr "Сообщество и вклад"
+
+msgid "labels.computed"
+msgstr "Атрибуты"
+
+msgid "labels.contact-support"
+msgstr "Связаться с поддержкой"
+
+msgid "labels.copyright-period"
+msgstr "Kaleidos © 2019-настоящее время"
+
+msgid "labels.deleted"
+msgstr "Удалён"
+
+msgid "labels.download"
+msgstr "Скачать %s"
+
+msgid "labels.download-simple"
+msgstr "Скачать"
+
+msgid "labels.integrations"
+msgstr "Интеграции"
+
+msgid "labels.internal-error.desc-message-first"
+msgstr "Что-то пошло не так."
+
+msgid "labels.internal-error.desc-message-second"
+msgstr "Вы можете повторить операцию или обратиться в поддержку для сообщения об ошибке."
+
+msgid "labels.learning-center"
+msgstr "Центр обучения"
+
+msgid "labels.lock"
+msgstr "Заблокировать"
+
+msgid "labels.login"
+msgstr "Войти"
+
+msgid "labels.mention"
+msgstr "Упомянуть"
+
+msgid "labels.mixed-values"
+msgstr "Смешанные"
+
+msgid "labels.no-invitations-gather-people"
+msgstr "Соберите команду и создавайте великие вещи вместе."
+
+msgid "labels.ok"
+msgstr "Ок"
+
+msgid "labels.options"
+msgstr "Настройки"
+
+msgid "labels.penpot-hub"
+msgstr "Контраст hub"
+
+msgid "labels.post"
+msgstr "Опубликовать"
+
+msgid "labels.recent"
+msgstr "Недавние"
+
+msgid "labels.reference"
+msgstr "Ссылка"
+
+msgid "labels.refresh"
+msgstr "Обновить"
+
+msgid "labels.reload-page"
+msgstr "Перезагрузить страницу"
+
+msgid "labels.replies"
+msgstr "ответы"
+
+msgid "labels.replies.new"
+msgstr "новые ответы"
+
+msgid "labels.reply"
+msgstr "ответ"
+
+msgid "labels.reply.new"
+msgstr "новый ответ"
+
+msgid "labels.reply.thread"
+msgstr "Ответить"
+
+msgid "labels.resend"
+msgstr "Отправить повторно"
+
+msgid "labels.restore"
+msgstr "Восстановить"
+
+msgid "labels.show"
+msgstr "Показать"
+
+msgid "labels.stroke"
+msgstr "Обводка"
+
+msgid "labels.svg"
+msgstr "SVG"
+
+msgid "labels.switch"
+msgstr "Переключить"
+
+msgid "labels.text"
+msgstr "Текст"
+
+msgid "labels.typography"
+msgstr "Типографика"
+
+msgid "labels.unknown-error"
+msgstr "Неизвестная ошибка"
+
+msgid "labels.unlock"
+msgstr "Разблокировать"
+
+msgid "labels.variant"
+msgstr "Вариант"
+
+msgid "labels.version-notes"
+msgstr "Заметки к версии %s"
+
+msgid "labels.visibility"
+msgstr "Видимость"
+
+msgid "loader.tips.01.message"
+msgstr "Поддерживайте согласованность дизайна и упрощайте обновления во всех проектах."
+
+msgid "loader.tips.01.title"
+msgstr "Переиспользуемые компоненты"
+
+msgid "loader.tips.02.message"
+msgstr "Работайте с командой в реальном времени, мгновенно обменивайтесь отзывами."
+
+msgid "loader.tips.02.title"
+msgstr "Совместная работа в реальном времени"
+
+msgid "loader.tips.03.message"
+msgstr "Проектируйте гибко с помощью знакомых CSS-подобных инструментов управления макетом."
+
+msgid "loader.tips.03.title"
+msgstr "Макеты как в CSS"
+
+msgid "loader.tips.04.message"
+msgstr "Получайте CSS и SVG-код прямо из ваших дизайнов."
+
+msgid "loader.tips.04.title"
+msgstr "Экспорт в код"
+
+msgid "loader.tips.05.message"
+msgstr "Делитесь ресурсами и стилями для поддержания согласованности."
+
+msgid "loader.tips.05.title"
+msgstr "Библиотеки дизайна"
+
+msgid "loader.tips.06.message"
+msgstr "Воплощайте идеи в жизнь с анимациями и переходами."
+
+msgid "loader.tips.06.title"
+msgstr "Интерактивные прототипы"
+
+msgid "loader.tips.07.message"
+msgstr "Контраст использует SVG и CSS для бесшовной разработки."
+
+msgid "loader.tips.07.title"
+msgstr "Веб-стандартные форматы"
+
+msgid "loader.tips.08.message"
+msgstr "Ускоряйте работу с помощью удобных горячих клавиш, например Shift + A для автомакета."
+
+msgid "loader.tips.08.title"
+msgstr "Горячие клавиши"
+
+msgid "loader.tips.09.message"
+msgstr "Выберите тему оформления по своему вкусу."
+
+msgid "loader.tips.09.title"
+msgstr "Тёмный и светлый режим"
+
+msgid "loader.tips.10.message"
+msgstr "Расширяйте Контраст с помощью плагинов сообщества для дополнительных функций."
+
+msgid "loader.tips.10.title"
+msgstr "Поддержка плагинов"
+
+msgid "not-found.desc-message.error"
+msgstr "Ошибка 404"
+
+msgid "not-found.login.sent-recovery"
+msgstr "Мы отправили письмо для восстановления на"
+
+msgid "not-found.login.sent-recovery-check"
+msgstr "Проверьте почту и нажмите на ссылку для создания нового пароля."
+
+msgid "not-found.login.signup-free"
+msgstr "Зарегистрироваться бесплатно"
+
+msgid "not-found.login.start-using"
+msgstr "И начните использовать Контраст уже через несколько секунд!"
+
+msgid "not-found.made-with-love"
+msgstr "Создано с ЛЮБОВЬЮ и открытым исходным кодом"
+
+msgid "not-found.no-permission.already-requested.file"
+msgstr "Вы уже запросили доступ к этому файлу."
+
+msgid "not-found.no-permission.already-requested.project"
+msgstr "Вы уже запросили доступ к этому проекту."
+
+msgid "not-found.no-permission.ask"
+msgstr "ЗАПРОСИТЬ ДОСТУП"
+
+msgid "not-found.no-permission.done.success"
+msgstr "Ваш запрос успешно отправлен!"
+
+msgid "not-found.no-permission.file"
+msgstr "У вас нет доступа к этому файлу."
+
+msgid "not-found.no-permission.go-dashboard"
+msgstr "Перейти в ваш Контраст"
+
+msgid "not-found.no-permission.if-approves"
+msgstr "Если владелец разрешит, вас пригласят в команду."
+
+msgid "not-found.no-permission.penpot-file"
+msgstr "Файл Контраст"
+
+msgid "not-found.no-permission.project"
+msgstr "У вас нет доступа к этому проекту."
+
+msgid "not-found.no-permission.project-name"
+msgstr "ПРОЕКТ"
+
+msgid "not-found.no-permission.you-can-ask.file"
+msgstr "Чтобы получить доступ к файлу, обратитесь к владельцу команды."
+
+msgid "not-found.no-permission.you-can-ask.project"
+msgstr "Чтобы получить доступ к проекту, обратитесь к владельцу команды."
+
+msgid "notifications.invitation-deleted"
+msgstr "Приглашение успешно удалено"
+
+msgid "onboarding.questions.referer.article"
+msgstr "Статья (блог, пост, рассылка)"
+
+msgid "onboarding.questions.referer.search"
+msgstr "Поисковик (Google, Yahoo, Bing)"
+
+msgid "onboarding.questions.referer.social"
+msgstr "Социальные сети (X, LinkedIn, FB и др.)"
+
+msgid "shortcuts.copy-props"
+msgstr "Копировать свойства"
+
+msgid "shortcuts.create-component-variant"
+msgstr "Создать компонент / вариант"
+
+msgid "shortcuts.paste-props"
+msgstr "Вставить свойства"
+
+msgid "shortcuts.plugins"
+msgstr "Менеджер плагинов"
+
+msgid "subscription.dashboard.power-up.subscribe"
+msgstr "Подписаться"
+
+msgid "subscription.dashboard.power-up.trial.bottom-description"
+msgstr "Нравится пробный период? Получите полный доступ навсегда.[Подписаться|target:self](%s)"
+
+msgid "subscription.dashboard.power-up.unlimited.cta"
+msgstr "Узнать подробнее"
+
+msgid "subscription.dashboard.power-up.unlimited.top-description"
+msgstr "Дополнительные редакторы, хранилище, автосохранение, резервное копирование и многое другое."
+
+msgid "subscription.dashboard.unlimited-members-extra-editors-cta-title"
+msgstr "Приглашение людей в рамках тарифа Unlimited"
+
+msgid "subscription.dashboard.upgrade-plan.power-up"
+msgstr "Улучшить план"
+
+msgid "subscription.labels"
+msgstr "Подписка"
+
+msgid "subscription.settings.add-payment-to-continue"
+msgstr "Добавьте способ оплаты, чтобы продолжить после пробного периода"
+
+msgid "subscription.settings.benefits.all-professional-benefits"
+msgstr "Все преимущества тарифа Professional и:"
+
+msgid "subscription.settings.benefits.all-unlimited-benefits"
+msgstr "Все преимущества тарифа Unlimited и:"
+
+msgid "subscription.settings.editors"
+msgstr "(× %s редактора)"
+
+msgid "subscription.settings.enterprise"
+msgstr "Enterprise"
+
+msgid "subscription.settings.enterprise-trial"
+msgstr "Enterprise (пробный)"
+
+msgid "subscription.settings.enterprise.autosave"
+msgstr "90-дневные автосохранения и восстановление файлов"
+
+msgid "subscription.settings.enterprise.capped-bill"
+msgstr "Фиксированная ежемесячная оплата"
+
+msgid "subscription.settings.enterprise.unlimited-storage-benefit"
+msgstr "Неограниченное хранилище"
+
+msgid "subscription.settings.manage-your-subscription"
+msgstr "Управление подпиской"
+
+msgid "subscription.settings.management-dialog.step-2-add-payment-button"
+msgstr "Добавить платёжные данные"
+
+msgid "subscription.settings.management-dialog.step-2-skip-button"
+msgstr "Пропустить и начать пробный период"
+
+msgid "subscription.settings.management-dialog.step-2-title"
+msgstr "Помогите нам расти и упростите ваш пробный период"
+
+msgid "subscription.settings.management.dialog.editors"
+msgstr "Редакторы"
+
+msgid "subscription.settings.management.dialog.editors-explanation"
+msgstr "(Владельцы, администраторы и редакторы. Читатели не считаются редакторами)"
+
+msgid "subscription.settings.management.dialog.price-month"
+msgstr "**$%s**/месяц"
+
+msgid "subscription.settings.management.dialog.title"
+msgstr "Применить %s к вашим командам"
+
+msgid "subscription.settings.more-information"
+msgstr "Дополнительная информация"
+
+msgid "subscription.settings.other-plans"
+msgstr "Другие тарифы"
+
+msgid "subscription.settings.price-editor-month"
+msgstr "редактор в месяц"
+
+msgid "subscription.settings.price-organization-month"
+msgstr "организация в месяц"
+
+msgid "subscription.settings.professional"
+msgstr "Professional"
+
+msgid "subscription.settings.professional.autosave-benefit"
+msgstr "7-дневные автосохранения и восстановление файлов"
+
+msgid "subscription.settings.professional.storage-benefit"
+msgstr "10 ГБ хранилища"
+
+msgid "subscription.settings.professional.teams-editors-benefit"
+msgstr "Неограниченное количество команд. До 8 редакторов в ваших командах."
+
+msgid "subscription.settings.section-plan"
+msgstr "Ваша подписка"
+
+msgid "subscription.settings.start-trial"
+msgstr "Начать бесплатный пробный период"
+
+msgid "subscription.settings.subscribe"
+msgstr "Подписаться"
+
+msgid "subscription.settings.success.dialog.thanks"
+msgstr "Спасибо, что выбрали тариф Контраст %s!"
+
+msgid "subscription.settings.sucess.dialog.footer"
+msgstr "Наслаждайтесь вашим тарифом!"
+
+msgid "subscription.settings.sucess.dialog.title"
+msgstr "Вы на тарифе %s!"
+
+msgid "subscription.settings.support-us-since"
+msgstr "Вы поддерживаете нас с этим тарифом с: %s"
+
+msgid "subscription.settings.try-it-free"
+msgstr "Попробуйте бесплатно в течение 14 дней"
+
+msgid "subscription.settings.unlimited.bill"
+msgstr "Ограниченная ежемесячная оплата $175"
+
+msgid "subscription.settings.unlimited.storage-benefit"
+msgstr "25 ГБ хранилища"
+
+msgid "subscription.workspace.header.menu.option.power-up"
+msgstr "Улучшить тариф"
+
+msgid "team.invitations-selected"
+msgstr "1 приглашение выбрано"
+
+msgid "title.settings.integrations"
+msgstr "Интеграции - Контраст"
+
+msgid "viewer.header.edit-in-workspace"
+msgstr "Редактировать в рабочей области"
+
+msgid "workspace.assets.colors.add-color"
+msgstr "Добавить цвет"
+
+msgid "workspace.assets.component-group-options"
+msgstr "Настройки группы компонентов"
+
+msgid "workspace.assets.components.add-component"
+msgstr "Добавить компонент"
+
+msgid "workspace.assets.components.num-variants"
+msgstr "%s вариантов"
+
+msgid "workspace.assets.grid-view"
+msgstr "Сетка"
+
+msgid "workspace.assets.list-view"
+msgstr "Список"
+
+msgid "workspace.assets.manage-library"
+msgstr "Управление библиотекой"
+
+msgid "workspace.assets.typography.add-typography"
+msgstr "Добавить типографику"
+
+msgid "workspace.colorpicker.color-tokens"
+msgstr "Цветовые токены"
+
+msgid "workspace.component.swap.loop-error"
+msgstr "Компоненты не могут быть вложены сами в себя."
+
+msgid "workspace.debug.title"
+msgstr "Инструменты отладки"
+
+msgid "workspace.header.menu.mcp.plugin.status.connect"
+msgstr "Подключить"
+
+msgid "workspace.header.menu.mcp.plugin.status.disconnect"
+msgstr "Отключить"
+
+msgid "workspace.header.menu.mcp.server.status.enabled"
+msgstr "Управление (Статус: включён)"
+
+msgid "workspace.header.menu.mcp.server.status.disabled"
+msgstr "Управление (Статус: отключён)"
+
+msgid "workspace.header.menu.option.mcp"
+msgstr "MCP-сервер"
+
+msgid "workspace.header.menu.toggle-system-theme"
+msgstr "Переключить на системную тему"
+
+msgid "workspace.header.share"
+msgstr "Поделиться"
+
+msgid "workspace.layout-grid.editor.padding.bottom"
+msgstr "Нижний отступ"
+
+msgid "workspace.layout-grid.editor.padding.horizontal"
+msgstr "Горизонтальный отступ"
+
+msgid "workspace.layout-grid.editor.padding.left"
+msgstr "Левый отступ"
+
+msgid "workspace.layout-grid.editor.padding.right"
+msgstr "Правый отступ"
+
+msgid "workspace.layout-grid.editor.padding.top"
+msgstr "Верхний отступ"
+
+msgid "workspace.layout-grid.editor.padding.vertical"
+msgstr "Вертикальный отступ"
+
+msgid "workspace.libraries.colors"
+msgstr "1 цвет"
+
+msgid "workspace.libraries.components"
+msgstr "1 компонент"
+
+msgid "workspace.libraries.connected-to"
+msgstr "Подключено к"
+
+msgid "workspace.libraries.empty.add-some"
+msgstr "Или добавьте некоторые из них для пробы:"
+
+msgid "workspace.libraries.empty.no-libraries"
+msgstr "В вашей команде нет общих библиотек, вы можете найти"
+
+msgid "workspace.libraries.empty.some-templates"
+msgstr "некоторые шаблоны здесь"
+
+msgid "workspace.libraries.graphics"
+msgstr "1 графика"
+
+msgid "workspace.libraries.more-templates"
+msgstr "Вы можете найти "
+
+msgid "workspace.libraries.typography"
+msgstr "1 типографика"
+
+msgid "workspace.notification-pill.detail"
+msgstr "Подробнее"
+
+msgid "workspace.options.blur-options.add-blur"
+msgstr "Добавить размытие"
+
+msgid "workspace.options.blur-options.toggle-blur"
+msgstr "Переключить размытие"
+
+msgid "workspace.options.component.unlinked"
+msgstr "Не связан"
+
+msgid "workspace.options.component.variant.duplicated.copy.locate"
+msgstr "Найти конфликтующие варианты"
+
+msgid "workspace.options.component.variant.duplicated.group.locate"
+msgstr "Найти дублированные варианты"
+
+msgid "workspace.options.component.variant.duplicated.group.title"
+msgstr "Некоторые варианты имеют одинаковые свойства и значения"
+
+msgid "workspace.options.component.variant.malformed.group.locate"
+msgstr "Найти недопустимые варианты"
+
+msgid "workspace.options.component.variant.malformed.group.title"
+msgstr "Некоторые варианты имеют недопустимые имена"
+
+msgid "workspace.options.component.variant.malformed.locate"
+msgstr "Найти недопустимые варианты"
+
+msgid "workspace.options.component.variant.malformed.single.all"
+msgstr "Эти варианты имеют недопустимые имена."
+
+msgid "workspace.options.component.variant.malformed.single.one"
+msgstr "Этот вариант имеет недопустимое имя."
+
+msgid "workspace.options.component.variant.malformed.single.some"
+msgstr "Некоторые из этих вариантов имеют недопустимые имена."
+
+msgid "workspace.options.component.variant.malformed.structure.example"
+msgstr "[свойство]=[значение], [свойство]=[значение]"
+
+msgid "workspace.options.component.variant.malformed.structure.title"
+msgstr "Попробуйте использовать следующую структуру:"
+
+msgid "workspace.options.component.variants-help-modal.rule1"
+msgstr "Имеют одинаковое название."
+
+msgid "workspace.options.component.variants-help-modal.rule2"
+msgstr "Являются одним типом."
+
+msgid "workspace.options.component.variants-help-modal.rule2.detail"
+msgstr "Прямоугольники, эллипсы, пути и булевы операции считаются одним типом."
+
+msgid "workspace.options.component.variants-help-modal.rule3"
+msgstr "Имеют одинаковый уровень иерархии."
+
+msgid "workspace.options.component.variants-help-modal.rule3.detail"
+msgstr "Группы, доски и макеты считаются эквивалентными."
+
+msgid "workspace.options.component.variants-help-modal.title"
+msgstr "Как варианты остаются связанными"
+
+msgid "workspace.options.export.add-export"
+msgstr "Добавить экспорт"
+
+msgid "workspace.options.fill.add-fill"
+msgstr "Добавить заливку"
+
+msgid "workspace.options.fit-content"
+msgstr "Подогнать доску под контент"
+
+msgid "workspace.options.flows.remove-flow"
+msgstr "Удалить поток"
+
+msgid "workspace.options.guides.add-guide"
+msgstr "Добавить направляющую"
+
+msgid "workspace.options.guides.remove-guide"
+msgstr "Удалить направляющую"
+
+msgid "workspace.options.guides.toggle-guide"
+msgstr "Переключить направляющую"
+
+msgid "workspace.options.interactions.add-interaction"
+msgstr "Добавить взаимодействие"
+
+msgid "workspace.options.interactions.remove-interaction"
+msgstr "Удалить взаимодействие"
+
+msgid "workspace.options.layer-options.toggle-layer"
+msgstr "Переключить видимость слоя"
+
+msgid "workspace.options.more-token-colors"
+msgstr "Больше цветовых токенов"
+
+msgid "workspace.options.radius.hide-all-corners"
+msgstr "Свернуть независимые радиусы"
+
+msgid "workspace.options.radius.show-single-corners"
+msgstr "Показать независимые радиусы"
+
+msgid "workspace.options.shadow-options.add-shadow"
+msgstr "Добавить тень"
+
+msgid "workspace.options.shadow-options.toggle-shadow"
+msgstr "Переключить тень"
+
+msgid "workspace.options.size.lock"
+msgstr "Заблокировать пропорции"
+
+msgid "workspace.options.size.unlock"
+msgstr "Разблокировать пропорции"
+
+msgid "workspace.options.stroke.add-stroke"
+msgstr "Добавить обводку"
+
+msgid "workspace.plugins.error.need-editor"
+msgstr "Для использования этого плагина необходимы права редактора"
+
+msgid "workspace.plugins.permissions-update.title"
+msgstr "ОБНОВИТЬ ЭТОТ ПЛАГИН"
+
+msgid "workspace.plugins.permissions.allow-download"
+msgstr "Запускать загрузку файлов."
+
+msgid "workspace.plugins.permissions.allow-localstorage"
+msgstr "Хранить данные в браузере."
+
+msgid "workspace.plugins.permissions.comment-read"
+msgstr "Читать ваши комментарии и ответы."
+
+msgid "workspace.plugins.permissions.comment-write"
+msgstr "Читать и изменять ваши комментарии и отвечать от вашего имени."
+
+msgid "workspace.plugins.permissions.content-read"
+msgstr "Читать содержимое файлов, к которым есть доступ у пользователей."
+
+msgid "workspace.plugins.permissions.content-write"
+msgstr "Читать и изменять содержимое файлов, к которым есть доступ у пользователей."
+
+msgid "workspace.plugins.permissions.library-read"
+msgstr "Читать ваши библиотеки и ресурсы."
+
+msgid "workspace.plugins.permissions.library-write"
+msgstr "Читать и изменять ваши библиотеки и ресурсы."
+
+msgid "workspace.plugins.permissions.title"
+msgstr "ПЛАГИН «%s» ХОЧЕТ ПОЛУЧИТЬ ДОСТУП К:"
+
+msgid "workspace.plugins.permissions.user-read"
+msgstr "Читать информацию профиля текущего пользователя."
+
+msgid "workspace.plugins.try-out.cancel"
+msgstr "НЕ СЕЙЧАС"
+
+msgid "workspace.plugins.try-out.title"
+msgstr "ПЛАГИН «%s» УСТАНОВЛЕН ДЛЯ ВАШЕГО ПОЛЬЗОВАТЕЛЯ!"
+
+msgid "workspace.plugins.try-out.try"
+msgstr "ПОПРОБОВАТЬ ПЛАГИН"
+
+msgid "workspace.shape.menu.add-layout"
+msgstr "Добавить макет"
+
+msgid "workspace.shape.menu.add-variant"
+msgstr "Создать вариант"
+
+msgid "workspace.shape.menu.add-variant-property"
+msgstr "Добавить новое свойство"
+
+msgid "workspace.shape.menu.combine-as-variants"
+msgstr "Объединить как варианты"
+
+msgid "workspace.shape.menu.copy-css"
+msgstr "Копировать как CSS"
+
+msgid "workspace.shape.menu.copy-css-nested"
+msgstr "Копировать как CSS (вложенные слои)"
+
+msgid "workspace.shape.menu.copy-props"
+msgstr "Копировать свойства"
+
+msgid "workspace.shape.menu.copy-svg"
+msgstr "Копировать как SVG"
+
+msgid "workspace.shape.menu.copy-text"
+msgstr "Копировать как текст"
+
+msgid "workspace.shape.menu.paste-props"
+msgstr "Вставить свойства"
+
+msgid "workspace.shape.menu.copy-as-image"
+msgstr "Копировать как изображение"
+
+msgid "workspace.clipboard.copying"
+msgstr "Копирование изображения…"
+
+msgid "workspace.clipboard.image-copied"
+msgstr "Изображение скопировано в буфер обмена"
+
+msgid "workspace.clipboard.image-copy-failed"
+msgstr "Ошибка копирования изображения"
+
+msgid "workspace.shape.menu.remove-layout"
+msgstr "Удалить макет"
+
+msgid "workspace.shape.menu.remove-variant-property"
+msgstr "Удалить свойство"
+
+msgid "workspace.shape.menu.remove-variant-property.last-property"
+msgstr "Вариант должен иметь хотя бы одно свойство"
+
+msgid "workspace.shape.menu.restore-variant"
+msgstr "Восстановить вариант"
+
+msgid "workspace.sidebar.layers.filter"
+msgstr "Фильтр"
+
+msgid "workspace.toolbar.debug"
+msgstr "Инструменты отладки"
+
+msgid "workspace.toolbar.frame-first-time"
+msgstr "Создать доску. Нажмите и перетащите, чтобы задать размер. (%s)"
+
+msgid "workspace.versions.autosaved.entry"
+msgstr "%s автосохранённых версий"
+
+msgid "workspace.versions.autosaved.version"
+msgstr "Автосохранено %s"
+
+msgid "workspace.versions.expand-snapshot"
+msgstr "Развернуть снимки"
+
+msgid "workspace.versions.filter.user"
+msgstr "Версии %s"
+
+msgid "workspace.versions.locked-by-other"
+msgstr "Эта версия заблокирована пользователем %s и не может быть изменена"
+
+msgid "workspace.versions.snapshot-menu"
+msgstr "Открыть меню снимка"
+
+msgid "workspace.versions.tooltip.locked-version"
+msgstr "Заблокированная версия — только создатель может её изменить"
+
+msgid "workspace.versions.version-menu"
+msgstr "Открыть меню версий"
+
+msgid "integrations.access-tokens.empty.add-one"
+msgstr "Нажмите кнопку"
+
+msgid "subscription.settings.management.dialog.currently-editors-title"
+msgstr "В настоящее время у вас есть %s человек в ваших командах с правом редактирования."

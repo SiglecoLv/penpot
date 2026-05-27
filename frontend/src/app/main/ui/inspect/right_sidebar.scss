@@ -96,9 +96,9 @@
 }
 
 .inspect-tab-switcher-label {
-  @include use-typography("body-medium");
+  @include use-typography("body-small");
   color: var(--color-foreground-primary);
-  flex: 0 1 40%;
+  flex: 0 1 50%;
 }
 
 .inspect-tab-switcher-controls {
@@ -120,7 +120,7 @@
 
 .inspect-tab-switcher-controls-tab {
   // 110px is the minimum size of the switcher to avoid text ellipsis on the options
-  flex: 0 0 110px;
+  flex: 0 0 81px;
 }
 
 .inspect-content {

@@ -67,46 +67,61 @@
   grid-column: span 2;
 }
 
+.shadow-add-remove-button {
+  --button-fg-color: #535353;
+}
+
+// Advanced options — flex layout with two rows
 .shadow-advanced {
-  @include sidebar.option-grid-structure;
-  row-gap: var(--sp-9);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-9);
 }
 
 .shadow-advanced-row {
-  display: grid;
-  grid-column: 1 / -1;
-  grid-template-columns: subgrid;
+  display: flex;
+  gap: var(--sp-9);
+  align-items: center;
 }
 
+// Row 1: X (45px), Y (45px), color (flex:1)
 .shadow-advanced-offset-x,
-.shadow-advanced-blur,
-.shadow-advanced-spread,
 .shadow-advanced-offset-y {
   // TODO remove this input by changing the input to DS component
   @extend .input-element;
   @include t.use-typography("body-small");
+  flex: 0 0 px2rem(45);
+}
+
+// Row 2: blur (110px), spread (flex:1)
+.shadow-advanced-blur {
+  // TODO remove this input by changing the input to DS component
+  @extend .input-element;
+  @include t.use-typography("body-small");
+  flex: 0 0 px2rem(110);
   .shadow-advanced-label {
-    padding-inline-start: var(--sp-s);
-    inline-size: px2rem(60);
+    // inline-size: px2rem(60);
   }
 }
 
-.shadow-advanced-offset-x {
-  grid-column: span 2;
-}
-
-.shadow-advanced-blur {
-  grid-column: span 3;
-}
-
 .shadow-advanced-spread {
-  grid-column: span 3;
-}
-
-.shadow-advanced-offset-y {
-  grid-column: span 2;
+  // TODO remove this input by changing the input to DS component
+  @extend .input-element;
+  @include t.use-typography("body-small");
+  flex: 1;
+  .shadow-advanced-label {
+    // inline-size: px2rem(60);
+  }
 }
 
 .shadow-advanced-color {
-  grid-column: span 6;
+  flex: 1;
+
+  .color-info {
+    gap: px2rem(2);
+  }
+
+  .opacity-element-wrapper {
+    // inline-size: px2rem(53);
+  }
 }

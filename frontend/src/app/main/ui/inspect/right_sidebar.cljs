@@ -170,10 +170,11 @@
                            :aria-label (tr "inspect.color-space-label")
                            :options color-spaces
                            :default-selected "hex"
-                           :variant "ghost"
+                           :variant "dark"
                            :on-change handle-change-color-space}]]
              [:div {:class (stl/css :inspect-tab-switcher-controls-tab)}
               [:> select* {:options tabs
+                           :variant "dark"
                            :aria-label (tr "inspect.tabs-switcher-label")
                            :default-selected (name @section)
                            :on-change handle-change-tab}]]]]

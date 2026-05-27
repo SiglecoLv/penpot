@@ -6,6 +6,7 @@
 
 @use "ds/_utils.scss" as *;
 
+$_font-weight-small: 400;
 $_font-weight-regular: 500;
 $_font-weight-medium: 500;
 
@@ -13,6 +14,7 @@ $_font-lineheight-dense: 1;
 $_font-lineheight-compact: 1;
 $_font-lineheight-normal: 1;
 
+$_fs-10: px2rem(10);
 $_fs-12: px2rem(12);
 $_fs-14: px2rem(14);
 $_fs-16: px2rem(16);
@@ -104,6 +106,14 @@ $_fs-36: px2rem(36);
   font-size: $_fs-14;
 }
 
+@mixin _font-style-body-tiny {
+  font-family: 'Tilda Sans', system-ui, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: $_font-weight-small;
+  line-height: $_font-lineheight-compact;
+  font-size: $_fs-10;
+}
+
 @mixin _font-style-code-font {
   font-family: "Roboto Mono", monospace;
   font-optical-sizing: auto;
@@ -133,6 +143,8 @@ $_fs-36: px2rem(36);
     @include _font-style-body-medium;
   } @else if $typography-name == "body-small" {
     @include _font-style-body-small;
+  } @else if $typography-name == "body-tiny" {
+    @include _font-style-body-tiny;
   } @else if $typography-name == "code-font" {
     @include _font-style-code-font;
   } @else {

@@ -295,7 +295,7 @@
       @include deprecated.flexCenter;
       width: px2rem(15);
       height: px2rem(15);
-      border-radius: deprecated.$br-6;
+      border-radius: deprecated.$br-4;
       background-color: var(--color-background-fifty);
 
       &.checked {

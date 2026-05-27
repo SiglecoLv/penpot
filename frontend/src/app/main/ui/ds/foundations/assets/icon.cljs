@@ -15,6 +15,7 @@
 
 (def ^:icon-id absolute "absolute")
 (def ^:icon-id add "add")
+(def ^:icon-id big-add "big-add")
 (def ^:icon-id align-bottom "align-bottom")
 (def ^:icon-id align-content-column-around "align-content-column-around")
 (def ^:icon-id align-content-column-between "align-content-column-between")
@@ -222,6 +223,7 @@
 (def ^:icon-id picker "picker")
 (def ^:icon-id pin "pin")
 (def ^:icon-id play "play")
+(def ^:icon-id big-play "big-play")
 (def ^:icon-id puzzle "puzzle")
 (def ^:icon-id rectangle "rectangle")
 (def ^:icon-id reload "reload")

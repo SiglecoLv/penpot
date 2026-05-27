@@ -84,7 +84,7 @@
 
 @mixin headlineSmallTypography {
   font-family: 'Tilda Sans', system-ui, sans-serif;
-  font-size: $fs-12;
+  font-size: $fs-14;
   line-height: 1.2;
   // text-transform: uppercase;
   font-weight: $fw500;
@@ -92,15 +92,15 @@
 
 @mixin bodyLargeTypography {
   font-family: 'Tilda Sans', system-ui, sans-serif;
-  font-size: $fs-16;
+  font-size: $fs-18;
   line-height: 1.5;
   font-weight: $fw500;
 }
 
 @mixin bodyMediumTypography {
   font-family: 'Tilda Sans', system-ui, sans-serif;
-  font-size: $fs-14;
-  line-height: 1.4;
+  font-size: $fs-16;
+  line-height: 1;
   font-weight: $fw500;
 }
 
@@ -113,7 +113,7 @@
 
 @mixin codeTypography {
   font-family: "robotomono", monospace;
-  font-size: $fs-12;
+  font-size: $fs-14;
   font-weight: $fw500;
   line-height: 1.2;
 }

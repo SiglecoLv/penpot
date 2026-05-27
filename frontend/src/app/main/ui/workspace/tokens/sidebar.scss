@@ -27,11 +27,13 @@
   scrollbar-gutter: stable;
   position: relative;
   padding-block-end: var(--sp-l);
+  padding-right: var(--sp-9);
 }
 
 .tokens-section-wrapper {
   height: 100%;
   padding-left: var(--sp-26);
+  padding-right: var(--sp-9);
   overflow-y: auto;
   scrollbar-gutter: stable;
 }
