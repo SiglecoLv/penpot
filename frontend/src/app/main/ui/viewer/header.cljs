@@ -262,7 +262,7 @@
        [:span {:class (stl/css :icon)} deprecated-icon/arrow]]]]))
 
 (def ^:private penpot-logo-icon
-  (deprecated-icon/icon-xref :penpot-logo-icon (stl/css :logo-icon)))
+  (deprecated-icon/icon-xref :contrast-logo-max-icon (stl/css :logo-icon)))
 
 
 (mf/defc header

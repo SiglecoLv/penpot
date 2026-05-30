@@ -117,8 +117,8 @@
 
   svg {
     fill: var(--icon-foreground);
-    width: var(--sp-xxl);
-    height: var(--sp-xxl);
+    width: deprecated.$s-48;
+    height: deprecated.$s-40;
   }
 }
 
