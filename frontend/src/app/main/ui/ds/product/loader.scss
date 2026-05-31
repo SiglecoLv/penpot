@@ -85,15 +85,3 @@
 .loader-line {
   animation: line-pencil 0.8s infinite linear;
 }
-
-.loader-spin {
-  animation: spin 2s linear infinite;
-  transform-box: fill-box;
-  transform-origin: 50% 50%;
-}
-
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
-}
