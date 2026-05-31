@@ -9,51 +9,50 @@
 .radio-btn-wrapper {
   @include deprecated.flexCenter;
   border-radius: deprecated.$br-8;
-  height: deprecated.$s-30;
-  background-color: transparent;
+  height: deprecated.$s-32;
+  background-color: var(--input-background-color);
   gap: deprecated.$s-4;
 }
 
 .radio-icon {
+  --radio-icon-border-color: var(--radio-btn-border-color);
+
   @include deprecated.buttonStyle;
   @include deprecated.flexCenter;
   @include deprecated.focusRadio;
-  height: deprecated.$s-30;
+  height: deprecated.$s-32;
   flex-grow: 1;
   border-radius: deprecated.$s-8;
   box-sizing: border-box;
-  align-items: center;
+  border: deprecated.$br-2 solid var(--radio-icon-border-color);
 
   input {
     display: none;
   }
   svg {
-    fill: none;
-    stroke-width: 1px;
-    stroke: var(--color-foreground-secondary);
+    @extend .button-icon;
+    stroke: var(--radio-btn-foreground-color);
   }
   .title-name {
     @include deprecated.uppercaseTitleTipography;
-    color: var(--color-foreground-secondary);
+    color: var(--radio-btn-foreground-color);
   }
   &:hover {
-    background-color: var(--color-background-quaternary);
     svg {
-      stroke: var(--color-accent-primary);
-    }
-    .title-name {
-      color: var(--color-accent-primary);
+      stroke: var(--radio-btn-foreground-color-selected);
     }
   }
 }
 
 .checked {
-  background-color: var(--color-background-quaternary);
+  --radio-icon-border-color: var(--radio-btn-border-color-selected);
+
+  background-color: var(--radio-btn-background-color-selected);
   svg {
-    stroke: var(--color-accent-primary);
+    stroke: var(--radio-btn-foreground-color-selected);
   }
   .title-name {
-    color: var(--color-accent-primary);
+    color: var(--radio-btn-foreground-color-selected);
   }
 }
 

@@ -40,9 +40,6 @@
 (def ^:private go-settings-options
   #(st/emit! (rt/nav :settings-options)))
 
-(def ^:private go-settings-license
-  #(st/emit! (rt/nav :settings-license)))
-
 (def ^:private go-settings-subscription
   #(st/emit! (rt/nav :settings-subscription)))
 
@@ -67,7 +64,6 @@
   (let [profile?       (= section :settings-profile)
         password?      (= section :settings-password)
         options?       (= section :settings-options)
-        license?       (= section :settings-license)
         feedback?      (= section :settings-feedback)
         subscription?  (= section :settings-subscription)
         integrations?  (= section :settings-integrations)
@@ -96,7 +92,7 @@
              :on-click go-settings-profile}
         [:span {:class (stl/css :element-title)} (tr "labels.profile")]]
 
-       #_[:li {:class (stl/css-case :current password?
+       [:li {:class (stl/css-case :current password?
                                   :settings-item true)
              :on-click go-settings-password}
         [:span {:class (stl/css :element-title)} (tr "labels.password")]]
@@ -111,12 +107,6 @@
              :on-click go-settings-options
              :data-testid "settings-profile"}
         [:span {:class (stl/css :element-title)} (tr "labels.settings")]]
-
-       [:li {:class (stl/css-case :current license?
-                                  :settings-item true)
-             :on-click go-settings-license
-             :data-testid "settings-license"}
-        [:span {:class (stl/css :element-title)} "Лицензия"]]
 
        (when (contains? cf/flags :subscriptions)
          [:li {:class (stl/css-case :current subscription?

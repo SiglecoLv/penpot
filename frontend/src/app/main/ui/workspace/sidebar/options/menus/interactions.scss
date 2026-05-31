@@ -9,7 +9,6 @@
 @use "ds/_utils.scss" as *;
 @use "ds/mixins.scss" as *;
 @use "ds/typography.scss" as t;
-@use "refactor/common-refactor" as deprecated;
 @use "../../../sidebar/common/sidebar.scss" as sidebar;
 
 .wrapper {
@@ -61,10 +60,10 @@
 .prototype-pill {
   display: flex;
   align-items: center;
-  // gap: px2rem(1);
+  gap: px2rem(1);
   border-radius: $br-8;
   padding: var(--sp-s) var(--sp-m);
-  block-size: $sz-36;
+  block-size: $sz-32;
   padding: 0;
 
   &.double {
@@ -80,20 +79,12 @@
 }
 
 .prototype-pill-button {
-  background-color: var(--color-background-fifty);
-  height: $sz-36;
-  width: $sz-36;
   &.left {
-    --button-width: $sz-36;
-    --button-height: $sz-36;
     border-end-end-radius: 0;
     border-start-end-radius: 0;
-    border-right: 1px solid var(--color-border-secondary);;
   }
 
   &.right {
-    --button-width: $sz-36;
-    --button-height: $sz-36;
     border-start-start-radius: 0;
     border-end-start-radius: 0;
   }
@@ -112,7 +103,7 @@
   align-items: center;
   block-size: 100%;
   padding: 0 var(--sp-s);
-  background-color: var(--color-background-fifty);
+  background-color: var(--color-background-tertiary);
   color: var(--color-foreground-primary);
 }
 
@@ -132,8 +123,7 @@
   margin: var(--sp-xxs) 0;
   padding: 0 0 0 var(--sp-s);
   margin: 0;
-  height: var(deprecated.$s-36);
-  background-color: var(--color-background-fifty);
+  background-color: var(--color-background-tertiary);
   color: var(--color-foreground-primary);
   display: grid;
   inline-size: 100%;
@@ -146,7 +136,7 @@
   }
 
   &:focus {
-    background-color: transparent;
+    background-color: var(--color-background-tertiary);
   }
 }
 
@@ -159,7 +149,7 @@
 .prototype-pill-description {
   @include t.use-typography("body-small");
   @include textEllipsis;
-  color: var(--color-accent-primary);
+  color: var(--color-foreground-secondary);
 }
 
 .interaction-row {

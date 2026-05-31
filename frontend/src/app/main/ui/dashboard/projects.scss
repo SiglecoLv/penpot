@@ -102,7 +102,7 @@
 .info,
 .recent-files-row-title-info {
   @include t.use-typography("body-medium");
-  color: var(--color-foreground-third);
+  color: var(--title-foreground-color);
   @media (max-width: 760px) {
     display: none;
   }
@@ -126,6 +126,7 @@
 .add-icon,
 .menu-icon {
   @extend .button-icon;
+  stroke: var(--icon-foreground);
 }
 
 .grid-container {

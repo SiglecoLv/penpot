@@ -33,7 +33,6 @@
    [app.util.i18n :refer [tr]]
    [app.util.modules :as mod]
    [app.util.theme :as theme]
-   [app.extensions :as extensions]
    [beicon.v2.core :as rx]
    [rumext.v2 :as mf]))
 
@@ -54,16 +53,6 @@
 
 (def workspace-page*
   (mf/lazy #(mod/load 'app.main.ui.workspace/workspace-page*)))
-
-(defn load-extension-pages
-  []
-  (reduce-kv
-    (fn [m k [f v]]
-      (assoc m k [f (mf/lazy #(mod/load v))]))
-    {}
-    extensions/pages))
-
-(def extension-pages* (load-extension-pages))
 
 (mf/defc workspace-legacy-redirect*
   {::mf/props :obj
@@ -206,7 +195,6 @@
        (:settings-profile
         :settings-password
         :settings-options
-        :settings-license
         :settings-feedback
         :settings-subscription
         :settings-integrations
@@ -377,9 +365,7 @@
        :frame-preview
        [:& frame-preview/frame-preview]
 
-       (let [[f page] (get extension-pages* section)]
-         (when page
-           [:> page (f route profile)])))]))
+       nil)]))
 
 (mf/defc app
   []

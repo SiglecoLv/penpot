@@ -47,7 +47,7 @@
   (:value (nth options (rotate-index-backward index length))))
 
 (mf/defc select
-  [{:keys [default-value options class dropdown-class is-open? on-change on-pointer-enter-option on-pointer-leave-option disabled data-direction variant]}]
+  [{:keys [default-value options class dropdown-class is-open? on-change on-pointer-enter-option on-pointer-leave-option disabled data-direction]}]
   (let [label-index   (mf/with-memo [options]
                         (into {} (map as-key-value) options))
 
@@ -175,8 +175,7 @@
              :role "combobox"
              :class (dm/str (stl/css-case :custom-select true
                                           :disabled disabled
-                                          :icon (some? current-icon-ref)
-                                          :dark (= variant "dark"))
+                                          :icon (some? current-icon-ref))
                             " " class)}
        (when (and current-icon current-icon-ref)
          [:span {:class (stl/css :current-icon)} current-icon-ref])

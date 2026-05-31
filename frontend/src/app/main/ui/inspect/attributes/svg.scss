@@ -35,7 +35,7 @@
 }
 
 .attributes-subtitle {
-  @include use-typography("body-small");
+  @include use-typography("headline-small");
   display: flex;
   justify-content: space-between;
   block-size: $sz-32;

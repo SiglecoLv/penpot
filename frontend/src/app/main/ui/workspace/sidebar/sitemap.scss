@@ -73,7 +73,7 @@
     align-items: center;
     height: deprecated.$s-32;
     width: 100%;
-    padding: 0 deprecated.$s-12 0 deprecated.$s-26;
+    padding: 0 deprecated.$s-12 0 0;
     transition: none;
     color: var(--layer-row-foreground-color);
     .page-name {
@@ -218,8 +218,7 @@
 }
 
 .title-spacing-sitemap {
-  padding-right: deprecated.$s-20;
-  padding-inline-start: deprecated.$s-22;
+  padding-inline-start: deprecated.$s-8;
   margin-block-start: deprecated.$s-8;
   margin-block-end: deprecated.$s-4;
 }

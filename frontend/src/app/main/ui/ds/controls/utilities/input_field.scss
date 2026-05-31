@@ -10,11 +10,11 @@
 @use "ds/colors.scss" as *;
 
 .input-wrapper {
-  --input-bg-color: var(--color-background-fifty);
+  --input-bg-color: var(--color-background-tertiary);
   --input-fg-color: var(--color-foreground-primary);
   --input-icon-color: var(--color-foreground-secondary);
   --input-outline-color: none;
-  --input-height: #{$sz-30};
+  --input-height: #{$sz-32};
   --input-margin: unset;
 
   display: inline-flex;
@@ -22,7 +22,6 @@
   align-items: center;
   position: relative;
   inline-size: 100%;
-  block-size: var(--input-height);
 
   background: var(--input-bg-color);
   border-radius: $br-8;
@@ -34,7 +33,7 @@
   }
 
   &:has(*:focus-visible) {
-    --input-bg-color: none;
+    --input-bg-color: var(--color-background-primary);
     --input-outline-color: var(--color-accent-primary);
   }
 

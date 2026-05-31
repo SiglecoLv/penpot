@@ -24,13 +24,12 @@
    [:tooltip-placement {:optional true}
     [:maybe [:enum "top" "bottom" "left" "right" "top-right" "bottom-right" "bottom-left" "top-left"]]]
    [:variant {:optional true}
-    [:maybe [:enum "primary" "secondary" "ghost" "destructive" "action" "options"]]]
-   [:icon-fill-based {:optional true} :boolean]])
+    [:maybe [:enum "primary" "secondary" "ghost" "destructive" "action"]]]])
 
 (mf/defc icon-button*
   {::mf/schema schema:icon-button
    ::mf/memo true}
-  [{:keys [class icon size icon-class variant aria-label children tooltip-placement tooltip-class icon-fill-based] :rest props}]
+  [{:keys [class icon icon-class variant aria-label children tooltip-placement tooltip-class] :rest props}]
   (let [variant
         (d/nilv variant "primary")
 
@@ -43,8 +42,7 @@
                       :icon-button-secondary (identical? variant "secondary")
                       :icon-button-ghost (identical? variant "ghost")
                       :icon-button-action (identical? variant "action")
-                      :icon-button-destructive (identical? variant "destructive")
-                      :icon-button-options (identical? variant "options"))
+                      :icon-button-destructive (identical? variant "destructive"))
 
         props
         (mf/spread-props props
@@ -56,5 +54,5 @@
                   :placement tooltip-placement
                   :id tooltip-id}
      [:> :button props
-      [:> icon* {:icon-id icon :aria-hidden true :class icon-class :size size :fill-based icon-fill-based}]
+      [:> icon* {:icon-id icon :aria-hidden true :class icon-class}]
       children]]))

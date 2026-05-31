@@ -69,7 +69,7 @@
 }
 
 .plan-section-title {
-  @include t.use-typography("body-small");
+  @include t.use-typography("headline-small");
   color: var(--color-foreground-primary);
 }
 

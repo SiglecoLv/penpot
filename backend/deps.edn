@@ -71,10 +71,9 @@
  :paths ["../../backend/src" "src" "resources" "target/classes"]
  :aliases
  {:contrast
-  {:extra-paths ["../../backend/src"]
-   :extra-deps  {org.clojars.abhinav/snitch {:mvn/version "0.1.16"}
-                 nrepl/nrepl                {:mvn/version "1.6.0"}
-                 cider/cider-nrepl          {:mvn/version "0.58.0"}}}
+  {:extra-deps {org.clojars.abhinav/snitch {:mvn/version "0.1.16"}
+                nrepl/nrepl                {:mvn/version "1.6.0"}
+                cider/cider-nrepl          {:mvn/version "0.58.0"}}}
 
   :dev
   {:extra-deps

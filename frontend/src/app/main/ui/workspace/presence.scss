@@ -35,8 +35,8 @@
   @include t.use-typography("body-small");
   display: grid;
   place-content: center;
-  height: $sz-30;
-  width: $sz-30;
+  height: $sz-24;
+  width: $sz-24;
   border-radius: $br-circle;
   margin-inline-start: calc(-1 * var(--sp-xs));
 

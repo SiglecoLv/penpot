@@ -245,7 +245,7 @@
        [:span {:class (stl/css :hint)} hint])]))
 
 (mf/defc select
-  [{:keys [options disabled form default dropdown-class select-class variant] :as props
+  [{:keys [options disabled form default dropdown-class select-class] :as props
     :or {default ""}}]
   (let [input-name (get props :name)
         form       (or form (mf/use-ctx form-ctx))
@@ -263,7 +263,6 @@
        :options options
        :class select-class
        :dropdown-class dropdown-class
-       :variant variant
        :on-change handle-change}]]))
 
 (mf/defc radio-buttons

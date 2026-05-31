@@ -172,7 +172,7 @@
         (let [pages   (-> (dsh/lookup-file-data state)
                           (get :pages-index))
               unames  (cfh/get-used-names pages)
-              name    (cfh/generate-unique-name "Страница" unames :immediate-suffix? true)
+              name    (cfh/generate-unique-name "Page" unames :immediate-suffix? true)
               changes (-> (pcb/empty-changes it)
                           (pcb/add-empty-page id name))]
 

@@ -5,21 +5,6 @@
 // Copyright (c) KALEIDOS INC
 
 @use "refactor/common-refactor.scss" as deprecated;
-@use "ds/_utils.scss" as *;
-
-// ─────────────────────────────────────────────────────────────────────────────
-// CONSTRAINTS WIDGET — 94×94 px
-//
-//  Grid (3×3):
-//    cols/rows: 22px │ 50px │ 22px  = 94px
-//    areas:  top top top
-//            left center right
-//            bottom bottom bottom
-//
-//  Each button holds a .resalted-area strip:
-//    horizontal (top/bottom/centerv): 40×5 default → 44×9 hover bg + 40×5 accent
-//    vertical   (left/right/centerh): 5×40 default →  9×44 hover bg + 5×40 accent
-// ─────────────────────────────────────────────────────────────────────────────
 
 .element-set {
   margin: 0;
@@ -27,20 +12,20 @@
 
 .element-set-content {
   display: flex;
-  gap: var(--sp-9);
+  gap: deprecated.$s-4;
 }
 
 .constraints-widget {
   background-color: var(--constraint-widget-background-color);
   display: grid;
-  grid-template-columns: px2rem(22) px2rem(50) px2rem(22);
-  grid-template-rows: px2rem(22) px2rem(50) px2rem(22);
+  grid-template-columns: deprecated.$s-24 deprecated.$s-60 deprecated.$s-24;
+  grid-template-rows: deprecated.$s-24 deprecated.$s-60 deprecated.$s-24;
   grid-template-areas:
     "top top top"
     "left center right"
     "bottom bottom bottom";
-  height: px2rem(94);
-  width: px2rem(94);
+  height: deprecated.$s-108;
+  width: deprecated.$s-108;
   border-radius: deprecated.$br-8;
 }
 
@@ -52,7 +37,6 @@
   @include deprecated.flexCenter;
   grid-area: top;
 }
-
 .constraint-btn,
 .constraint-btn-special,
 .constraint-btn-rotated {
@@ -60,217 +44,92 @@
   @include deprecated.flexCenter;
   width: 100%;
   height: 100%;
+  --resalted-area-background-color: var(--button-constraint-background-color-rest);
+  --resalted-area-border-color: none;
+  &.active {
+    --resalted-area-border-color: var(--button-constraint-border-color-hover);
+    --resalted-area-background-color: var(--button-constraint-background-color-hover);
+  }
+  &:hover,
+  &:focus-visible {
+    --resalted-area-border-color: var(--button-constraint-border-color-hover);
+    --resalted-area-background-color: var(--button-constraint-background-color-hover);
+  }
 }
-
-// ─────────────────────────────────────────────────────────────────────────────
-// STRIP VISUAL (.resalted-area)
-//
-//  The <span> itself becomes the hover-background rect.
-//  ::after is the inner pill (always 40×5 or 5×40).
-// ─────────────────────────────────────────────────────────────────────────────
 
 .resalted-area {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  // Default horizontal size; overridden to 5×40 in vertical button zones.
-  width: px2rem(40);
-  height: px2rem(5);
-  border-radius: px2rem(2.5);
-  background-color: transparent;
-  outline: none;
+  width: deprecated.$s-32;
+  height: deprecated.$s-3;
+  border-radius: deprecated.$br-8;
+  background-color: var(--resalted-area-background-color);
+  outline: deprecated.$s-4 solid var(--resalted-area-border-color);
   padding: 0;
   margin: 0;
-  transition: width 0.1s ease, height 0.1s ease, border-radius 0.1s ease, background-color 0.1s ease;
-
-  // Inner pill — always the same size as the default strip dimensions.
-  &::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: px2rem(40);
-    height: px2rem(5);
-    border-radius: px2rem(2.5);
-    background-color: var(--color-foreground-secondary);
-    pointer-events: none;
-    transition: background-color 0.1s ease;
-  }
 }
-
-// ─────────────────────────────────────────────────────────────────────────────
-// HORIZONTAL STRIPS — top / bottom / centerv buttons (.constraint-btn alone)
-// ─────────────────────────────────────────────────────────────────────────────
-
-.constraint-btn {
-  &:hover .resalted-area,
-  &.active .resalted-area,
-  &:focus-visible .resalted-area {
-    width: px2rem(44);
-    height: px2rem(9);
-    border-radius: px2rem(4.5);
-    background-color: var(--color-background-quaternary);
-
-    &::after {
-      background-color: var(--color-accent-primary);
-    }
-  }
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// CONSTRAINTS-TOP — grid-area: top (inherits from shared rule above)
-// ─────────────────────────────────────────────────────────────────────────────
-// (no extra rules needed)
-
-// ─────────────────────────────────────────────────────────────────────────────
-// CONSTRAINTS-LEFT — vertical strip
-// ─────────────────────────────────────────────────────────────────────────────
 
 .constraints-left {
   grid-area: left;
-
   .constraint-btn-rotated {
-    width: px2rem(22);
-    height: px2rem(50);
-
+    height: deprecated.$s-60;
+    width: deprecated.$s-24;
     .resalted-area {
-      width: px2rem(5);
-      height: px2rem(40);
-      border-radius: px2rem(2.5);
-
-      &::after {
-        width: px2rem(5);
-        height: px2rem(40);
-      }
-    }
-
-    &:hover .resalted-area,
-    &.active .resalted-area,
-    &:focus-visible .resalted-area {
-      width: px2rem(9);
-      height: px2rem(44);
-      border-radius: px2rem(4.5);
-      background-color: var(--color-background-quaternary);
-
-      &::after {
-        background-color: var(--color-accent-primary);
-      }
+      height: deprecated.$s-32;
+      width: deprecated.$s-3;
     }
   }
 }
-
-// ─────────────────────────────────────────────────────────────────────────────
-// CONSTRAINTS-CENTER — 50×50 inner frame; centerv (horizontal) + centerh (vertical)
-// ─────────────────────────────────────────────────────────────────────────────
 
 .constraints-center {
   grid-area: center;
   position: relative;
   background-color: var(--constraint-center-area-background-color);
   border-radius: deprecated.$br-8;
-
-  // centerv button — horizontal strip, full width × top-zone height
   .constraint-btn {
-    width: px2rem(50);
-    height: px2rem(22);
+    width: deprecated.$s-60;
+    height: deprecated.$s-24;
+    .resalted-area {
+      width: deprecated.$s-32;
+      height: deprecated.$s-3;
+    }
   }
-
-  // centerh button — vertical strip, positioned absolutely in center
   .constraint-btn-special {
     position: absolute;
-    width: px2rem(22);
-    height: px2rem(50);
-
+    height: deprecated.$s-60;
+    width: deprecated.$s-24;
     .resalted-area {
-      width: px2rem(5);
-      height: px2rem(40);
-
-      &::after {
-        width: px2rem(5);
-        height: px2rem(40);
-      }
-    }
-
-    &:hover .resalted-area,
-    &.active .resalted-area,
-    &:focus-visible .resalted-area {
-      width: px2rem(9);
-      height: px2rem(44);
-      border-radius: px2rem(4.5);
-      background-color: var(--color-background-quaternary);
-
-      &::after {
-        background-color: var(--color-accent-primary);
-      }
+      height: deprecated.$s-32;
+      width: deprecated.$s-3;
     }
   }
 }
-
-// ─────────────────────────────────────────────────────────────────────────────
-// CONSTRAINTS-RIGHT — vertical strip
-// ─────────────────────────────────────────────────────────────────────────────
 
 .constraints-right {
   grid-area: right;
-
   .constraint-btn-rotated {
-    width: px2rem(22);
-    height: px2rem(50);
-
+    height: deprecated.$s-72;
+    width: deprecated.$s-24;
     .resalted-area {
-      width: px2rem(5);
-      height: px2rem(40);
-
-      &::after {
-        width: px2rem(5);
-        height: px2rem(40);
-      }
-    }
-
-    &:hover .resalted-area,
-    &.active .resalted-area,
-    &:focus-visible .resalted-area {
-      width: px2rem(9);
-      height: px2rem(44);
-      border-radius: px2rem(4.5);
-      background-color: var(--color-background-quaternary);
-
-      &::after {
-        background-color: var(--color-accent-primary);
-      }
+      height: deprecated.$s-32;
+      width: deprecated.$s-3;
     }
   }
 }
-
-// ─────────────────────────────────────────────────────────────────────────────
-// CONSTRAINTS-BOTTOM — grid-area: bottom (horizontal strip, same as top)
-// ─────────────────────────────────────────────────────────────────────────────
 
 .constraints-bottom {
   grid-area: bottom;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SELECT DROPDOWNS
-// ─────────────────────────────────────────────────────────────────────────────
-
 .constraints-selects {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-9);
+  gap: 4px;
 }
 
 .horizontal-select,
 .vertical-select {
-  width: var(--grid-exception-input-width);
+  width: deprecated.$s-124;
   padding: 0;
 }
-
-// ─────────────────────────────────────────────────────────────────────────────
-// CHECKBOX (fix-when-scrolling)
-// ─────────────────────────────────────────────────────────────────────────────
 
 .checkbox {
   display: flex;
@@ -278,7 +137,6 @@
   margin-bottom: deprecated.$s-8;
   margin-top: deprecated.$s-8;
   padding-left: 0;
-
   input {
     margin: 0;
   }
@@ -290,14 +148,12 @@
     gap: deprecated.$s-2;
     cursor: pointer;
     color: var(--input-checkbox-text-foreground-color);
-
     .check-mark {
       @include deprecated.flexCenter;
-      width: px2rem(15);
-      height: px2rem(15);
-      border-radius: deprecated.$br-4;
-      background-color: var(--color-background-fifty);
-
+      width: deprecated.$s-16;
+      height: deprecated.$s-16;
+      border-radius: deprecated.$br-6;
+      background-color: var(--input-checkbox-inactive-background-color);
       &.checked {
         background-color: var(--input-checkbox-background-color-active);
         svg {
@@ -305,11 +161,9 @@
           stroke: var(--input-details-color);
         }
       }
-
       &:hover {
         border-color: var(--input-checkbox-border-color-hover);
       }
-
       &:focus {
         border-color: var(--input-checkbox-border-color-focus);
       }

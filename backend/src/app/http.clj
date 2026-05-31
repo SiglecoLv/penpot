@@ -31,8 +31,7 @@
    [reitit.middleware :as rr]
    [yetti.adapter :as yt]
    [yetti.request :as yreq]
-   [yetti.response :as-alias yres]
-   [app.extensions :as extensions]))
+   [yetti.response :as-alias yres]))
 
 (declare router-handler)
 
@@ -165,19 +164,16 @@
 (defmethod ig/init-key ::router
   [_ cfg]
   (rr/router
-   [["" {:middleware (into [[mw/server-timing]
-                            [sec/sec-fetch-metadata]
-                            [mw/params]
-                            [mw/format-response]
-                            [mw/auth {:bearer (partial session/decode-token cfg)
-                                      :cookie (partial session/decode-token cfg)
-                                      :token  (partial actoken/decode-token cfg)}]
-                            [mw/parse-request]
-                            [mw/errors errors/handle]
-                            [mw/restrict-methods]]
-                           (extensions/middlewares cfg))}
-
-     (extensions/routes cfg)
+   [["" {:middleware [[mw/server-timing]
+                      [sec/sec-fetch-metadata]
+                      [mw/params]
+                      [mw/format-response]
+                      [mw/auth {:bearer (partial session/decode-token cfg)
+                                :cookie (partial session/decode-token cfg)
+                                :token  (partial actoken/decode-token cfg)}]
+                      [mw/parse-request]
+                      [mw/errors errors/handle]
+                      [mw/restrict-methods]]}
 
      (::mtx/routes cfg)
      (::assets/routes cfg)

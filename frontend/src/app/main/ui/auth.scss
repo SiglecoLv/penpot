@@ -10,35 +10,28 @@
   position: relative;
   align-items: center;
   background: var(--panel-background-color);
-  // display: grid;
+  display: grid;
   gap: deprecated.$s-32;
-  // grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   height: 100%;
   padding: deprecated.$s-32;
   width: 100%;
   overflow: auto;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .login-illustration {
-    display: none;
-  } 
+  @media (max-width: 992px) {
+    display: flex;
+    justify-content: center;
+  }
 
-  // @media (max-width: 992px) {
-  //   display: flex;
-  //   justify-content: center;
-  // }
+  &.register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  // &.register {
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-
-  //   .login-illustration {
-  //     display: none;
-  //   }  
-  // }
+    .login-illustration {
+      display: none;
+    }
+  }
 }
 
 .logo-container {
@@ -71,7 +64,7 @@
   grid-template-rows: 1fr auto;
   gap: deprecated.$s-24;
   height: fit-content;
-  max-width: deprecated.$s-745;
+  max-width: deprecated.$s-412;
   padding-block-end: deprecated.$s-8;
   position: relative;
   width: 100%;

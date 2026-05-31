@@ -77,7 +77,7 @@
   padding: var(--sp-xxs);
   margin-inline-end: var(--sp-xxs);
   border-radius: $br-8;
-  background-color: var(--button-secondary-background-color-rest);
+  background-color: var(--color-background-tertiary);
 
   &:hover {
     background-color: var(--color-background-quaternary);
@@ -99,7 +99,7 @@
 
 .component-item-list-input {
   border-radius: $br-8;
-  height: $sz-30;
+  height: $sz-32;
 }
 
 .component-item-list-label {

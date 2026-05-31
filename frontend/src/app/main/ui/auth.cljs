@@ -17,7 +17,6 @@
    [app.main.ui.icons :as deprecated-icon]
    [app.util.dom :as dom]
    [app.util.i18n :as i18n :refer [tr]]
-   [app.extensions :as extensions]
    [rumext.v2 :as mf]))
 
 (mf/defc auth*
@@ -42,10 +41,8 @@
                     :auth-section true
                     :register is-register)}
      [:h1 {:class (stl/css :logo-container)}
-      [:a {:href "#/" :title "Penpot" :class (stl/css :logo-btn)}
-       deprecated-icon/contrast-logo]]
-     
-     #_[:div {:class (stl/css :login-illustration)}
+      [:a {:href "#/" :title "Penpot" :class (stl/css :logo-btn)} deprecated-icon/logo]]
+     [:div {:class (stl/css :login-illustration)}
       [:img {:src "images/registration-illustration.png"}]]
 
      [:section {:class (stl/css :auth-content)}
@@ -67,10 +64,7 @@
         [:& recovery-request-page]
 
         :auth-recovery
-        [:& recovery-page {:params params}]
-
-        (when-let [page-handler (get extensions/ui-sections section)]
-          [:& page-handler {:params params}]))
+        [:& recovery-page {:params params}])
 
       (when (= section :auth-register)
         [:& terms-register])]]))

@@ -29,7 +29,7 @@ $assets-button-width: deprecated.$s-28;
   padding-inline-end: 0;
   margin-bottom: deprecated.$s-4;
   border-radius: deprecated.$br-8;
-  background-color: var(--button-secondary-background-color-rest);
+  background-color: var(--assets-item-background-color);
   cursor: pointer;
 
   &.selected {

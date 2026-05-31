@@ -34,7 +34,7 @@
                                        :on-context-menu on-context-menu})]
     [:div {:class (stl/css :layer-button-wrapper)}
      [:> "button" button-props
-      [:div {:class (stl/css :layer-button-content)} 
+      [:div {:class (stl/css :layer-button-content)}
        (when is-expandable
          (if expanded
            [:> icon* {:icon-id i/arrow-down :class (stl/css :folder-node-icon)}]

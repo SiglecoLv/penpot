@@ -31,12 +31,12 @@
 }
 
 .title {
-  // @include t.use-typography("body-small");
+  @include t.use-typography("headline-small");
   color: var(--title-color);
 }
 
 .title-only {
-  @include t.use-typography("body-small");
+  @include t.use-typography("headline-small");
   --title-bar-title-margin: #{deprecated.$s-8};
   color: var(--title-color);
   margin-inline-start: var(--title-bar-title-margin);
@@ -52,9 +52,6 @@
 
 .icon {
   color: var(--arrow-icon-color);
-  svg: {
-    color: var(--arrow-icon-color);
-  }
 }
 
 .title-wrapper {

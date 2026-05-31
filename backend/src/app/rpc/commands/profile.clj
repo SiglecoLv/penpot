@@ -441,8 +441,10 @@
 
 (declare ^:private get-owned-teams)
 
-(defn delete-profile
-  [{:keys [::db/conn] :as cfg} profile-id]
+(sv/defmethod ::delete-profile
+  {::doc/added "1.0"
+   ::db/transaction true}
+  [{:keys [::db/conn] :as cfg} {:keys [::rpc/profile-id] :as params}]
   (let [teams      (get-owned-teams conn profile-id)
         deleted-at (ct/now)]
 
@@ -470,12 +472,6 @@
 
     (-> (rph/wrap nil)
         (rph/with-transform (session/delete-fn cfg)))))
-
-(sv/defmethod ::delete-profile
-  {::doc/added "1.0"
-   ::db/transaction true}
-  [cfg {:keys [::rpc/profile-id] :as params}]
-  (delete-profile cfg profile-id))
 
 (def sql:get-subscription-editors
   "SELECT DISTINCT

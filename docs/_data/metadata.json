@@ -3,7 +3,7 @@
   "url": "https://docs.penpot.app/",
   "description": "Design freedom for teams.",
   "feed": {
-    "subtitle": "Contrast: design freedom for teams.",
+    "subtitle": "Penpot: design freedom for teams.",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
     "id": "https://docs.penpot.app/"
@@ -13,7 +13,7 @@
     "url": "https://docs.penpot.app/feed/feed.json"
   },
   "author": {
-    "name": "Contrast",
+    "name": "Penpot",
     "email": "hello@penpot.app",
     "url": "https://penpot.app"
   },

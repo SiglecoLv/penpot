@@ -17,11 +17,6 @@
   margin-inline-end: var(--sp-m);
 }
 
-.tab-switcher {
-    border-top: 1px solid var(--color-border-secondary);
-    border-bottom: 1px solid var(--color-border-secondary);
-}
-
 .content-class {
   overflow-y: auto;
   overflow-x: hidden;
@@ -32,7 +27,7 @@
 .element-options {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-9);
+  gap: var(--sp-s);
   width: 100%;
   /* FIXME: This is hacky and prone to break, we should tackle the whole layout
             of the sidebar differently */
@@ -53,8 +48,7 @@
 }
 
 .design-options {
-  padding-inline: var(--sp-17);
-  --grid-exception-input-width: #{$sz-120};
+  padding-inline: var(--sp-m);
 }
 
 .inspect {
@@ -62,8 +56,6 @@
 }
 
 .options-tab-switcher {
-  --tabs-nav-padding-inline-start: var(--sp-26);
-  --tabs-nav-padding-inline-end: var(--sp-26);
-  --tabs-nav-padding-block-end: var(--sp-6);
-  --tabs-nav-padding-block-start: var(--sp-6);
+  --tabs-nav-padding-inline-start: var(--sp-m);
+  --tabs-nav-padding-inline-end: var(--sp-m);
 }

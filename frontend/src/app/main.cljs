@@ -77,9 +77,12 @@
             (rx/filter dp/profile-deleted-event?)
             (rx/map da/logged-out))
 
-       ;; Contrast: initialize routes before profile fetch so the router is
-       ;; available when profile fetch fails with 402 (no active license).
-       (rx/of (rt/init-routes))
+       ;; Once profile is fetched, initialize all penpot application
+       ;; routes
+       (->> stream
+            (rx/filter dp/profile-fetched?)
+            (rx/take 1)
+            (rx/map #(rt/init-routes)))
 
        ;; Once profile fetched and the current user is authenticated,
        ;; proceed to initialize the websockets connection.

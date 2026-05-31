@@ -20,11 +20,11 @@
 // ============================================================
 //
 // Left sidebar
-$left-sidebar-width: px2rem(328);
+$left-sidebar-width: px2rem(318);
 $left-sidebar-width-max: $sz-500;
 
 // Right sidebar
-$right-sidebar-width: px2rem(327);
+$right-sidebar-width: px2rem(318);
 $right-sidebar-width-max: px2rem(768);
 
 // ============================================================
@@ -35,12 +35,12 @@ $right-sidebar-width-max: px2rem(768);
 // Useful for consistent layout alignment across components.
 //
 
-$column-width: px2rem(28); // width of each grid column
-$column-gap: var(--sp-9); // spacing between columns
+$column-width: $sz-32; // width of each grid column
+$column-gap: var(--sp-xs); // spacing between columns
 $column-number: 8; // total number of columns
 
 //      |___|-|___|-|___|-|___|-|___|-|___|-|___|-|___|
-//   -> 8 columns (28px each) + 7 gaps (9px each) = 287px
+//   -> 8 columns (32px each) + 7 gaps (4px each) = 284px
 
 // Derived widths
 $options-width: calc(#{$column-width} * #{$column-number} + #{$column-gap} * calc(#{$column-number} - 1));
@@ -76,10 +76,13 @@ $seven-column-width: calc(
 //   But one block (grid-exception-input) doesn’t fit perfectly:
 //        |__________________|-|__________________|-|___|
 //
-// Input block width — set to 120px to match across all option menus.
-// Layout: [120px] [9px gap] [120px] [9px gap] [32px button] = 290px
+// We calculate the width of that grid-exception-input as:
+//
+//   - 3.5 columns of base grid width
+//   - + 3 inter-column gaps
+//   - − half a gap (because it’s visually shared with the next block)
 
-$grid-exception-input-width: #{px2rem(120)};
+$grid-exception-input-width: calc(#{$sz-32} * 3.5 + 3 * var(--sp-xs) - (var(--sp-xs) / 2));
 
 // ============================================================
 // CSS VARIABLES (exposed for runtime use)

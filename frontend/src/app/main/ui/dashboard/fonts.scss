@@ -47,7 +47,7 @@
 }
 
 .installed-fonts-header {
-  @include t.use-typography("body-small");
+  @include t.use-typography("headline-small");
   align-items: center;
   color: var(--color-foreground-secondary);
   display: flex;

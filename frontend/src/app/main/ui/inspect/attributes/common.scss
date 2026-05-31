@@ -40,7 +40,7 @@
 }
 
 .image-format {
-  @include use-typography("body-small");
+  @include use-typography("headline-small");
   block-size: $sz-32;
   padding: var(--sp-s) 0;
   color: var(--color-foreground-secondary);

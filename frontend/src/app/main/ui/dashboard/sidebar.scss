@@ -56,7 +56,7 @@
 }
 
 .sidebar-section-title {
-  @include t.use-typography("body-small");
+  @include t.use-typography("headline-small");
   padding: 0 var(--sp-s) var(--sp-s) var(--sp-xxl);
   color: var(--color-foreground-secondary);
 }
@@ -71,7 +71,7 @@
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  height: $sz-59;
+  height: $sz-48;
   width: 100%;
   border-radius: $br-8;
   border: $b-1 solid var(--menu-background-color);
@@ -117,8 +117,8 @@
 
   svg {
     fill: var(--icon-foreground);
-    width: deprecated.$s-48;
-    height: deprecated.$s-40;
+    width: var(--sp-xxl);
+    height: var(--sp-xxl);
   }
 }
 
@@ -132,7 +132,7 @@
 .arrow-icon {
   @extend .button-icon;
   transform: rotate(90deg);
-  color: var(--color-foreground-secondary);
+  stroke: var(--icon-foreground);
 }
 
 .switch-options {
@@ -147,7 +147,7 @@
 
 .menu-icon {
   @extend .button-icon;
-  // stroke: var(--icon-foreground);
+  stroke: var(--icon-foreground);
 }
 
 // DROPDOWNS
@@ -167,9 +167,9 @@
 .team-dropdown-item {
   @extend .menu-item-base;
   display: grid;
-  grid-template-columns: var(--sp-xxxl) 1fr auto;
+  grid-template-columns: var(--sp-xxl) 1fr auto;
   gap: var(--sp-s);
-  height: $sz-48;
+  height: $sz-40;
 }
 
 .action {
@@ -184,8 +184,8 @@
 
 .icon-wrapper {
   @include deprecated.flexCenter;
-  width: var(--sp-xxxl);
-  height: var(--sp-xxxl);
+  width: var(--sp-xxl);
+  height: var(--sp-xxl);
   margin-right: var(--sp-m);
   border-radius: 50%;
   background-color: var(--sidebar-icon-backgroun-color);
@@ -195,7 +195,7 @@
   @extend .button-icon;
   width: var(--sp-xxl);
   height: var(--sp-xxl);
-  color: var(--sidebar-action-icon-color);
+  stroke: var(--sidebar-action-icon-color);
 }
 
 .team-separator {
@@ -316,12 +316,12 @@
   border: $b-1 solid transparent;
   margin: 0 var(--sp-l);
   border-radius: $br-8;
-  background-color: #2A2B2B;
+  background-color: var(--search-bar-input-background-color);
 }
 
 .input-text {
   @include t.use-typography("title-small");
-  height: $sz-36;
+  height: $sz-40;
   width: 100%;
   padding: $sz-6 var(--sp-m);
   margin: 0;
@@ -370,7 +370,7 @@
   grid-template-columns: 1fr auto;
   padding: var(--sp-m) var(--sp-l);
   border-top: $b-1 solid var(--panel-border-color);
-  background-color: var(--color-background-quaternary);
+  background-color: var(--profile-section-background-color);
   cursor: pointer;
 }
 

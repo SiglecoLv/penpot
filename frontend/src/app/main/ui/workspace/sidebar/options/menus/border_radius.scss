@@ -11,7 +11,7 @@
 .radius {
   display: grid;
   grid-template-columns: subgrid;
-  gap: var(--sp-9);
+  gap: var(--sp-xs);
 }
 
 .radius-1 {
@@ -22,7 +22,7 @@
 .radius-4 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--sp-9);
+  gap: var(--sp-xs);
 }
 
 .small-input {

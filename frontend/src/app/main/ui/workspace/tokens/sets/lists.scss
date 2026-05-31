@@ -15,7 +15,7 @@
 
 .empty-sets-wrapper {
   padding: deprecated.$s-12;
-  padding-inline-start: deprecated.$s-29;
+  padding-inline-start: deprecated.$s-24;
   color: var(--color-foreground-secondary);
 }
 
@@ -129,11 +129,6 @@
   padding: deprecated.$s-12;
   color: var(--color-foreground-secondary);
 }
-
-.empty-state-message {
-  color: var(--color-foreground-third);
-}
-
 .selected-set {
   background-color: var(--layer-row-background-color-selected);
   color: var(--layer-row-foreground-color-selected);

@@ -22,12 +22,11 @@
   background-color: var(--layer-background-color);
   border: $b-2 solid transparent;
   color: var(--layer-foreground-color);
-  padding-left: 14px;
 
   &.highlight,
   &:hover {
-    --layer-background-color: var(--color-background-primary);
-    --shadow-color: var(--color-background-primary);
+    --layer-background-color: var(--color-background-secondary);
+    --shadow-color: var(--color-background-secondary);
     --context-hover-color: var(--layer-row-foreground-color-hover);
     --context-hover-opacity: 1;
     --layer-foreground-color: var(--layer-row-foreground-color-hover);

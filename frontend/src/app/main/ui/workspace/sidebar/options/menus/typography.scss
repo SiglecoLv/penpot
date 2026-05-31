@@ -10,10 +10,10 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: deprecated.$s-30;
+  height: deprecated.$s-32;
   width: 100%;
   border-radius: deprecated.$br-8;
-  background-color: var(--button-secondary-background-color-rest);
+  background-color: var(--assets-item-background-color);
   color: var(--assets-item-name-foreground-color-hover);
   &:hover,
   &:focus-within {
@@ -31,12 +31,10 @@
     .element-set-actions-button,
     .menu-btn {
       @extend .button-tertiary;
-      height: deprecated.$s-16;
-      width: deprecated.$s-30;
+      height: deprecated.$s-32;
+      width: deprecated.$s-28;
       svg {
-        height: deprecated.$s-16;
-        width: deprecated.$s-16;
-        @extend .button-icon-fill;
+        @extend .button-icon;
       }
       &:active {
         background-color: transparent;
@@ -68,7 +66,7 @@
 .typography-sample {
   @include deprecated.flexCenter;
   min-width: deprecated.$s-24;
-  height: deprecated.$s-30;
+  height: deprecated.$s-32;
   color: var(--assets-item-name-foreground-color);
 }
 
@@ -93,12 +91,12 @@
   @include deprecated.bodySmallTypography;
   display: flex;
   align-items: center;
-  height: deprecated.$s-30;
+  height: deprecated.$s-32;
   width: 100%;
   border-radius: deprecated.$br-8;
   border: deprecated.$s-1 solid transparent;
   box-sizing: border-box;
-  background-color: var(--button-secondary-background-color-rest);
+  background-color: var(--assets-item-background-color);
   margin-bottom: deprecated.$s-4;
   padding: deprecated.$s-8 deprecated.$s-0 deprecated.$s-8 deprecated.$s-12;
 
@@ -155,7 +153,7 @@
     display: grid;
     grid-template-columns: deprecated.$s-24 auto 1fr deprecated.$s-28;
     flex: 1;
-    height: deprecated.$s-30;
+    height: deprecated.$s-32;
     width: 100%;
     padding: 0 0 0 deprecated.$s-12;
     background-color: var(--assets-item-background-color-hover);
@@ -164,7 +162,7 @@
       @include deprecated.flexCenter;
       min-width: deprecated.$s-24;
       font-size: deprecated.$fs-16;
-      height: deprecated.$s-30;
+      height: deprecated.$s-32;
       padding: 0;
       color: var(--assets-item-name-foreground-color-hover);
     }
@@ -190,7 +188,7 @@
     .action-btn {
       @extend .button-tertiary;
       width: deprecated.$s-28;
-      height: deprecated.$s-30;
+      height: deprecated.$s-32;
       svg {
         @extend .button-icon;
       }
@@ -203,7 +201,7 @@
   .info-row {
     display: grid;
     grid-template-columns: 50% 50%;
-    height: deprecated.$s-30;
+    height: deprecated.$s-32;
     --calculated-width: calc(var(--right-sidebar-width) - deprecated.$s-48);
     padding-left: deprecated.$s-2;
     .info-label {
@@ -226,7 +224,7 @@
     @include deprecated.uppercaseTitleTipography;
     @extend .button-secondary;
     width: 100%;
-    height: deprecated.$s-30;
+    height: deprecated.$s-32;
     border-radius: deprecated.$br-8;
     &:hover {
       background-color: var(--button-secondary-background-color-hover);
@@ -290,7 +288,7 @@
       width: deprecated.$s-60;
       margin: 0;
       padding: 0;
-      // border: deprecated.$s-1 solid var(--input-border-color);
+      border: deprecated.$s-1 solid var(--input-border-color);
       position: relative;
 
       .icon {
@@ -316,12 +314,6 @@
       .line-height,
       .letter-spacing {
         @extend .input-element;
-        border: none;
-        &:hover {
-          border: none;
-        }
-        height: deprecated.$s-30;
-        background-color: var(--button-secondary-background-color-rest);
         @include deprecated.bodySmallTypography;
         .icon {
           @include deprecated.flexCenter;
@@ -336,10 +328,9 @@
       @extend .asset-element;
       width: fit-content;
       padding: 0;
-      --input-background-color: --button-secondary-background-color-rest
-      background-color: var(--button-secondary-background-color-rest);
+      background-color: var(--radio-btns-background-color);
       &:hover {
-        background-color: var(--input-background-color-hover);
+        background-color: var(--radio-btns-background-color);
       }
     }
   }
@@ -348,7 +339,7 @@
 .font-size-select {
   @include deprecated.removeInputStyle;
   @include deprecated.bodySmallTypography;
-  height: deprecated.$s-30;
+  height: deprecated.$s-32;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -468,10 +459,4 @@
   .selected {
     padding-inline-end: 0;
   }
-}
-
-.font-variant-select {
-  border: none;
-  height: deprecated.$s-30;
-  background-color: var(--button-secondary-background-color-rest);
 }

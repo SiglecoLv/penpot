@@ -22,7 +22,7 @@
 
 .element-set-content {
   @include sidebar.option-grid-structure;
-  row-gap: var(--sp-9);
+  gap: var(--sp-xs);
 }
 
 .multiple-exports {
@@ -79,9 +79,5 @@
   @extend .button-secondary;
   @include deprecated.uppercaseTitleTipography;
   grid-column: 1 / span 9;
-  height: deprecated.$s-30;
-}
-
-.exports-add-remove-btn {
-  --button-fg-color: #535353;
+  height: deprecated.$s-32;
 }

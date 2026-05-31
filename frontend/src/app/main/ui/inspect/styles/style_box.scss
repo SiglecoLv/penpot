@@ -24,7 +24,7 @@
 
   padding-block: var(--sp-s);
   padding-inline: var(--sp-m);
-  // background-color: var(--low-emphasis-background);
+  background-color: var(--low-emphasis-background);
 
   border-block-end: 2px solid var(--box-border-color);
 }
@@ -48,7 +48,7 @@
 }
 
 .panel-title {
-  @include use-typography("body-small");
+  @include use-typography("headline-small");
   flex: 1;
   color: var(--title-color);
   padding-block: var(--title-padding);

@@ -44,7 +44,7 @@
 }
 
 .block-label {
-  @include t.use-typography("body-small");
+  @include t.use-typography("headline-small");
   color: var(--color-foreground-secondary);
 }
 
@@ -161,7 +161,7 @@
 }
 
 .table-header {
-  @include t.use-typography("body-small");
+  @include t.use-typography("headline-small");
   display: grid;
   align-items: center;
   grid-template-columns: 43% 1fr px2rem(108) var(--sp-m);

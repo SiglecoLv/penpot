@@ -482,7 +482,7 @@
 
      [:div
       [:> text* {:as "h3"
-                 :typography t/body-small
+                 :typography t/headline-small
                  :class (stl/css :color-primary)}
        (tr "integrations.mcp-server.status")]
 
@@ -514,7 +514,7 @@
      (when (some? mcp-key)
        [:div {:class (stl/css :mcp-server-key)}
         [:> text* {:as "h3"
-                   :typography t/body-small
+                   :typography t/headline-small
                    :class (stl/css :color-primary)}
          (tr "integrations.mcp-server.mcp-keys.title")]
 

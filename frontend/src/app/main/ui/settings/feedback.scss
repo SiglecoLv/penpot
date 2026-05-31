@@ -34,7 +34,7 @@
   }
 
   .field-label {
-    @include t.use-typography("body-small");
+    @include t.use-typography("headline-small");
     block-size: $sz-32;
     color: var(--color-foreground-primary);
     margin-block-end: var(--sp-l);
@@ -58,7 +58,7 @@
   }
 
   .link {
-    @include t.use-typography("body-small");
+    @include t.use-typography("headline-small");
     color: var(--color-accent-tertiary);
     margin-block-end: var(--sp-s);
   }

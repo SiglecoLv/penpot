@@ -34,7 +34,6 @@
                                                nitrate-sidebar*
                                                show-subscription-dashboard-banner?
                                                subscription-sidebar*]]
-   [app.main.ui.settings.license :refer [license-sidebar*]]
    [app.main.ui.dashboard.team-form]
    [app.main.ui.ds.buttons.button :refer [button*]]
    [app.main.ui.ds.foundations.assets.icon :refer [icon*] :as i]
@@ -313,7 +312,7 @@
        [:> dropdown-menu-item* {:on-click    on-team-click
                                 :data-value  (:default-team-id profile)
                                 :class       (stl/css :team-dropdown-item)}
-        [:span {:class (stl/css :penpot-icon)} deprecated-icon/contrast-logo-icon]
+        [:span {:class (stl/css :penpot-icon)} deprecated-icon/logo-icon]
 
         [:span {:class (stl/css :team-text)} (tr "dashboard.your-penpot")]
         (when (= (:default-team-id profile) (:id team))
@@ -661,7 +660,7 @@
        (cond
          (:is-default team)
          [:div {:class (stl/css :team-name)}
-          [:span {:class (stl/css :penpot-icon)} deprecated-icon/contrast-logo-icon]
+          [:span {:class (stl/css :penpot-icon)} deprecated-icon/logo-icon]
           [:span {:class (stl/css :team-text)} (tr "dashboard.default-team-name")]]
 
          (and (contains? cf/flags :subscriptions)
@@ -1093,7 +1092,6 @@
          (if (show-subscription-dashboard-banner? profile)
            [:> dashboard-cta* {:profile profile}]
            [:> subscription-sidebar* {:profile profile}])))
-     [:> license-sidebar* ]
 
      ;; TODO remove this block when subscriptions is full implemented
      (when (contains? cf/flags :subscriptions-old)

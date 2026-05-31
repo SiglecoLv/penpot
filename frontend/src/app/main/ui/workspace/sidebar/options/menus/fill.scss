@@ -27,7 +27,7 @@
 
   display: flex;
   flex-direction: column;
-  gap: var(--sp-9);
+  gap: var(--sp-m);
   margin: var(--sp-xs) 0 var(--sp-s) 0;
 }
 
@@ -43,7 +43,7 @@
   align-items: center;
   flex-grow: 1;
   border-radius: $br-8;
-  block-size: $sz-30;
+  block-size: $sz-32;
   padding: var(--sp-s);
   background-color: var(--color-background-tertiary);
   color: var(--color-foreground-primary);
@@ -60,53 +60,4 @@
       stroke: var(--color-background-primary);
     }
   }
-}
-
-.fill-checkbox {
-  display: flex;
-  align-items: center;
-  margin-bottom: deprecated.$s-8;
-  margin-top: deprecated.$s-8;
-  padding-left: 0;
-
-  input {
-    margin: 0;
-  }
-
-  label {
-    @include deprecated.bodySmallTypography;
-    display: flex;
-    align-items: center;
-    gap: deprecated.$s-2;
-    cursor: pointer;
-    color: var(--input-checkbox-text-foreground-color);
-
-    .check-mark {
-      @include deprecated.flexCenter;
-      width: px2rem(15);
-      height: px2rem(15);
-      border-radius: deprecated.$br-4;
-      background-color: var(--color-background-fifty);
-
-      &.checked {
-        background-color: var(--input-checkbox-background-color-active);
-        svg {
-          @extend .button-icon-small;
-          stroke: var(--input-details-color);
-        }
-      }
-
-      &:hover {
-        border-color: var(--input-checkbox-border-color-hover);
-      }
-
-      &:focus {
-        border-color: var(--input-checkbox-border-color-focus);
-      }
-    }
-  }
-}
-
-.fill-add-remove-btn {
-  --button-fg-color: #535353;
 }

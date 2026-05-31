@@ -25,12 +25,12 @@
 
 .flex-element-menu {
   @include sidebar.option-grid-structure;
-  row-gap: var(--sp-9);
+  gap: var(--sp-xs);
 }
 
 .behaviour-menu {
   display: grid;
-  column-gap: var(--sp-9);
+  column-gap: var(--sp-xs);
   grid-template-columns: auto auto;
 }
 
@@ -48,7 +48,7 @@
 
 .row {
   display: flex;
-  gap: var(--sp-9);
+  gap: var(--sp-xs);
 }
 
 .position-row,
@@ -71,13 +71,13 @@
     var(--grid-exception-input-width) /* first input block */
     var(--grid-exception-input-width) /* second input block */
     var(--sp-xxxl); /* action button */
-  gap: var(--sp-9);
+  gap: var(--sp-xs);
 }
 
 .margin-mode {
   @extend .button-tertiary;
   grid-column: 3;
-  height: deprecated.$s-30;
+  height: deprecated.$s-32;
   svg {
     @extend .button-icon;
   }
@@ -88,7 +88,7 @@
 
 .margin-simple {
   display: grid;
-  gap: var(--sp-9);
+  gap: var(--sp-xs);
   grid-template-columns: subgrid;
   .vertical-margin,
   .horizontal-margin {
@@ -114,7 +114,7 @@
 .margin-multiple {
   display: grid;
   grid-template-columns: subgrid;
-  gap: var(--sp-9);
+  gap: var(--sp-xs);
 }
 
 .top-margin,
@@ -155,7 +155,7 @@
     var(--grid-exception-input-width) /* first input block */
     var(--grid-exception-input-width) /* second input block */
     var(--sp-xxxl); /* action button */
-  gap: var(--sp-9);
+  gap: var(--sp-xs);
 }
 
 .horizontal-fill,

@@ -27,4 +27,4 @@
       (when (some? children)
         [:span {:class (stl/css :label-text)} children])
       (when is-optional
-        [:span {:class (stl/css :label-optional)} "(необязательно)"])]]))
+        [:span {:class (stl/css :label-optional)} "(Optional)"])]]))
