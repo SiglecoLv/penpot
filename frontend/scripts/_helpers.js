@@ -345,6 +345,25 @@ export async function compileTranslations() {
     const data = gettext.po.parse(content, "utf-8");
     const trdata = data.translations[""];
 
+    // Contrast overrides: merge translations from ../../frontend/resources/translations/
+    // Entries with non-empty msgstr in the Contrast file override penpot's defaults.
+    const contrastPoPath = `../../frontend/resources/translations/${filename}`;
+    try {
+      const contrastContent = await fs.readFile(contrastPoPath, { encoding: "utf-8" });
+      const contrastData = gettext.po.parse(contrastContent, "utf-8");
+      const contrastTrdata = contrastData.translations[""];
+      for (let key of Object.keys(contrastTrdata)) {
+        if (key === "") continue;
+        const msgs = contrastTrdata[key].msgstr;
+        const hasTranslation = msgs.some((m) => m && m.trim() !== "");
+        if (hasTranslation) {
+          trdata[key] = contrastTrdata[key];
+        }
+      }
+    } catch (_) {
+      // Contrast translation file not available — skip silently
+    }
+
     for (let key of Object.keys(trdata)) {
       if (key === "") continue;
       const comments = trdata[key].comments || {};
