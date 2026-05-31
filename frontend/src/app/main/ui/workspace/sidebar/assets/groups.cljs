@@ -78,7 +78,6 @@
 
        [:div {:class (stl/css :title-menu)}
         [:> icon-button* {:variant "ghost"
-                          :size "s"
                           :aria-label (tr "workspace.assets.component-group-options")
                           :on-click on-context-menu
                           :icon i/menu}]]])))

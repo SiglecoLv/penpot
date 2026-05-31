@@ -54,12 +54,12 @@
 (mf/defc collapse-button*
   {::mf/private true}
   []
-  [:> icon-button* {:variant "ghost"
-                    :aria-label (tr "workspace.sidebar.collapse")
-                    :on-click toggle-collapse-left-sidebar
-                    :fill-based true
-                    :size "ml"
-                    :icon i/sidebar-toggle}])
+  ;; NOTE: This custom button may be replace by an action button when this variant is designed
+  [:button {:class (stl/css :collapse-sidebar-button)
+            :on-click toggle-collapse-left-sidebar}
+   [:> icon* {:icon-id i/arrow
+              :size "s"
+              :aria-label (tr "workspace.sidebar.collapse")}]])
 
 (mf/defc collapsed-button*
   {::mf/memo true
@@ -188,8 +188,7 @@
       [:> left-header* {:file file
                         :layout layout
                         :project project
-                        :class (stl/css :left-header)
-                        :action-button tabs-action-button}]
+                        :class (stl/css :left-header)}]
 
       [:div {:on-pointer-down on-pointer-down
              :on-lost-pointer-capture on-lost-pointer-capture
@@ -209,7 +208,9 @@
                             :default "layers"
                             :selected (name section)
                             :on-change on-tab-change
-                            :class (stl/css :left-sidebar-tabs)}
+                            :class (stl/css :left-sidebar-tabs)
+                            :action-button-position "start"
+                            :action-button tabs-action-button}
 
           (case section
             :assets

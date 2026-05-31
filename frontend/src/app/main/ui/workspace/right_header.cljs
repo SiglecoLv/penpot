@@ -97,14 +97,14 @@
              :on-click on-zoom-fit}
         (tr "workspace.header.zoom-fit-all")
         [:span {:class (stl/css :shortcuts)}
-         #_(for [sc (scd/split-sc (sc/get-tooltip :fit-all))]
+         (for [sc (scd/split-sc (sc/get-tooltip :fit-all))]
            [:span {:class (stl/css :shortcut-key)
                    :key (str "zoom-fit-" sc)} sc])]]
        [:li {:class (stl/css :zoom-option)
              :on-click on-zoom-selected}
         (tr "workspace.header.zoom-selected")
         [:span {:class (stl/css :shortcuts)}
-         #_(for [sc (scd/split-sc (sc/get-tooltip :zoom-selected))]
+         (for [sc (scd/split-sc (sc/get-tooltip :zoom-selected))]
            [:span {:class (stl/css :shortcut-key)
                    :key (str "zoom-selected-" sc)} sc])]]]]]))
 

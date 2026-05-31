@@ -251,26 +251,26 @@
      [:div {:class (stl/css :actions)}
       (cond
         (or (= :multiple hidden?) (not hidden?))
-        [:> icon-button* {:variant "options"
+        [:> icon-button* {:variant "ghost"
                           :aria-label (tr "workspace.options.layer-options.toggle-layer")
                           :on-click handle-set-hidden
                           :icon i/shown}]
 
         :else
-        [:> icon-button* {:variant "options"
+        [:> icon-button* {:variant "ghost"
                           :aria-label (tr "workspace.options.layer-options.toggle-layer")
                           :on-click handle-set-visible
                           :icon i/hide}])
 
       (cond
         (or (= :multiple blocked?) (not blocked?))
-        [:> icon-button* {:variant "options"
+        [:> icon-button* {:variant "ghost"
                           :aria-label (tr "workspace.shape.menu.lock")
                           :on-click handle-set-blocked
                           :icon i/unlock}]
 
         :else
-        [:> icon-button* {:variant "options"
+        [:> icon-button* {:variant "ghost"
                           :aria-label (tr "workspace.shape.menu.unlock")
                           :on-click handle-set-unblocked
                           :icon i/lock}])]]))

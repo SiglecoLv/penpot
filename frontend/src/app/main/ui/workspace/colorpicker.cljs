@@ -411,7 +411,6 @@
           [:div {:class (stl/css :select)}
            [:& select
             {:default-value selected-mode
-             :variant "dark"
              :options options
              :on-change handle-change-mode}]])
 
@@ -495,8 +494,7 @@
             [:div {:class (stl/css :colorpicker-tabs)}
              [:> tab-switcher* {:tabs tabs
                                 :selected active-color-tab
-                                :on-change on-change-tab
-                                :switcher-class (stl/css :tab-switcher)}
+                                :on-change on-change-tab}
               (if picking-color?
                 [:div {:class (stl/css :picker-detail-wrapper)}
                  [:div {:class (stl/css :center-circle)}]

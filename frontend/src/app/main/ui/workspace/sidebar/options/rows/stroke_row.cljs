@@ -257,7 +257,7 @@
         [:& select {:default-value (:stroke-cap-start stroke)
                     :options stroke-caps-options
                     :on-change on-caps-start-change}]
-        [:> icon-button* {:variant "options"
+        [:> icon-button* {:variant "secondary"
                           :aria-label (tr "labels.switch")
                           :on-click on-cap-switch
                           :icon i/switch}]

@@ -368,7 +368,7 @@
                 :title (str color-name)}
           (str color-name)]
          [:> icon-button*
-          {:variant "options"
+          {:variant "ghost"
            :class (stl/css :detach-btn)
            :aria-label (tr "settings.detach")
            :on-click detach-value
@@ -427,12 +427,12 @@
                            :on-change on-color-change}]]])
 
      (when (some? on-remove)
-       [:> icon-button* {:variant "options"
+       [:> icon-button* {:variant "ghost"
                          :aria-label (tr "settings.remove-color")
                          :on-click on-remove'
                          :icon i/remove}])
      (when select-only
-       [:> icon-button* {:variant "options"
+       [:> icon-button* {:variant "ghost"
                          :aria-label (tr "settings.select-this-color")
                          :on-click handle-select
                          :icon i/move}])]))

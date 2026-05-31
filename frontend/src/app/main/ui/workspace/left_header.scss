@@ -29,8 +29,8 @@
 .project-tree {
   position: relative;
   flex-grow: 1;
-  // height: deprecated.$s-32;
-  // min-height: deprecated.$s-32;
+  height: deprecated.$s-32;
+  min-height: deprecated.$s-32;
   max-width: calc(100% - deprecated.$s-64);
 }
 

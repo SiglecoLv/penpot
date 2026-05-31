@@ -503,8 +503,7 @@
        [:> cmm/asset-section-block* {:role :title-button}
         (when-not read-only?
           [:> icon-button* {:variant "ghost"
-                            :aria-label "Добавить цвет"#_(tr "workspace.assets.colors.add-color")
-                            :size "s"
+                            :aria-label (tr "workspace.assets.colors.add-color")
                             :on-click add-color-clicked
                             :icon i/add}])])
 

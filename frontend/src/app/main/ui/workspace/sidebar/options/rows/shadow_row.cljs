@@ -138,7 +138,7 @@
      [:*
       [:div {:class (stl/css :shadow-basic)}
        [:div {:class (stl/css :shadow-basic-info)}
-        [:> icon-button* {:variant "options"
+        [:> icon-button* {:variant "secondary"
                           :icon i/menu
                           :class (stl/css-case :shadow-basic-button true
                                                :selected is-open)
@@ -152,11 +152,11 @@
                     :on-change on-style-change}]]
 
        [:div {:class (stl/css :shadow-basic-actions)}
-        [:> icon-button* {:variant "options"
+        [:> icon-button* {:variant "ghost"
                           :aria-label (tr "workspace.options.shadow-options.toggle-shadow")
                           :on-click on-toggle-visibility
                           :icon (if hidden? "hide" "shown")}]
-        [:> icon-button* {:variant "options"
+        [:> icon-button* {:variant "ghost"
                           :aria-label (tr "workspace.options.shadow-options.remove-shadow")
                           :on-click on-remove
                           :icon i/remove}]]]

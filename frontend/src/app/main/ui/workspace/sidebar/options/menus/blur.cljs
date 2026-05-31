@@ -93,7 +93,7 @@
                                       (tr "workspace.options.blur-options.title"))
                       :class        (stl/css-case :title-spacing-blur (not has-value?))}
        (when-not has-value?
-         [:> icon-button* {:variant "options"
+         [:> icon-button* {:variant "ghost"
                            :aria-label (tr "workspace.options.blur-options.add-blur")
                            :on-click handle-add
                            :icon i/add
@@ -110,11 +110,11 @@
           [:span {:class (stl/css :label)}
            (tr "workspace.options.blur-options.title")]]
          [:div {:class (stl/css :actions)}
-          [:> icon-button* {:variant "options"
+          [:> icon-button* {:variant "ghost"
                             :aria-label (tr "workspace.options.blur-options.toggle-blur")
                             :on-click handle-toggle-visibility
                             :icon (if hidden? i/hide i/shown)}]
-          [:> icon-button* {:variant "options"
+          [:> icon-button* {:variant "ghost"
                             :aria-label (tr "workspace.options.blur-options.remove-blur")
                             :on-click handle-delete
                             :icon i/remove}]]]

@@ -93,7 +93,7 @@
         (tr "workspace.tokens.no-sets-yet")]
        [:button {:on-click on-start-creation
                  :class (stl/css :create-set-button)}
-        (tr "workspace.tokens.create-set")]]
+        (tr "workspace.tokens.create-one")]]
       [:div {:class (stl/css :empty-sets-wrapper)}
        [:> text* {:as "span" :typography "body-small" :class (stl/css :empty-state-message)}
         (tr "workspace.tokens.no-sets-yet")]])))
@@ -102,7 +102,6 @@
   []
   [:> icon-button* {:variant "ghost"
                     :icon i/add
-                    :size "s"
                     :on-click on-start-creation
                     :aria-label (tr "workspace.tokens.add set")}])
 

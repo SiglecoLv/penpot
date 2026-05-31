@@ -204,7 +204,7 @@
                       :class        (stl/css-case :fill-title-bar (not has-fills?))}
 
        (when (not (= :multiple fills))
-         [:> icon-button* {:variant "options"
+         [:> icon-button* {:variant "ghost"
                            :aria-label (tr "workspace.options.fill.add-fill")
                            :on-click on-add
                            :data-testid "add-fill"
@@ -219,7 +219,7 @@
           [:div {:class (stl/css :fill-multiple)}
            [:div {:class (stl/css :fill-multiple-label)}
             (tr "settings.multiple")]
-           [:> icon-button* {:variant "options"
+           [:> icon-button* {:variant "ghost"
                              :aria-label (tr "workspace.options.fill.remove-fill")
                              :on-click on-remove-all
                              :icon i/remove}]]

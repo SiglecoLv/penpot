@@ -902,7 +902,6 @@
 
     [:*
      [:> icon-button* {:variant "ghost"
-                       :size "s"
                        :aria-pressed show-menu?
                        :aria-label (tr "shortcut-subsection.main-menu")
                        :on-click toggle-menu

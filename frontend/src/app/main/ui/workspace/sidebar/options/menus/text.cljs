@@ -314,7 +314,7 @@
                       :title        label
                       :class        (stl/css :title-spacing-text)}
        (when (and (not typography) (not multiple?))
-         [:> icon-button* {:variant "options"
+         [:> icon-button* {:variant "ghost"
                            :aria-label (tr "labels.options")
                            :on-click on-convert-to-typography
                            :icon i/add}])]]
@@ -343,7 +343,7 @@
         [:div {:class (stl/css :text-align-options)}
          [:> text-align-options opts]
          [:> grow-options opts]
-         [:> icon-button* {:variant "options"
+         [:> icon-button* {:variant "ghost"
                            :aria-label (tr "labels.options")
                            :data-testid "text-align-options-button"
                            :on-click toggle-more-options

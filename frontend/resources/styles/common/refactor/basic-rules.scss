@@ -64,7 +64,7 @@
   border: $s-1 solid var(--button-primary-border-color-rest);
   color: var(--button-primary-foreground-color-rest);
   border-radius: $br-8;
-  min-height: $s-30;
+  min-height: $s-32;
   svg,
   span svg {
     stroke: var(--button-primary-foreground-color-rest);
@@ -154,7 +154,7 @@
   place-content: center;
   svg,
   span svg {
-    color: var(--button-tertiary-foreground-color-rest);
+    stroke: var(--button-tertiary-foreground-color-rest);
   }
   @include focusTertiary;
   &:hover {
@@ -163,7 +163,7 @@
     border-color: var(--button-secondary-border-color-hover);
     svg,
     span svg {
-      color: var(--button-tertiary-foreground-color-hover);
+      stroke: var(--button-tertiary-foreground-color-hover);
     }
   }
   &:active {
@@ -173,7 +173,7 @@
     color: var(--button-tertiary-foreground-color-active);
     svg,
     span svg {
-      color: var(--button-tertiary-foreground-color-active);
+      stroke: var(--button-tertiary-foreground-color-active);
     }
   }
 
@@ -186,7 +186,7 @@
 
     svg,
     span svg {
-      color: var(--button-foreground-color-disabled);
+      stroke: var(--button-foreground-color-disabled);
     }
   }
 }
@@ -267,19 +267,10 @@
 
 .button-icon {
   @include flexCenter;
-  height: $s-25;
-  width: $s-25;
-  color: var(--color-foreground-secondary);
+  height: $s-16;
+  width: $s-16;
+  color: transparent;
   fill: none;
-  stroke-width: 1px;
-}
-
-.button-icon-fill {
-  @include flexCenter;
-  height: $s-25;
-  width: $s-25;
-  fill: none;
-  stroke: none;
   stroke-width: 1px;
 }
 
@@ -292,7 +283,7 @@
 
 .button-constraint {
   @include buttonStyle;
-  width: $s-30;
+  width: $s-32;
   height: $s-4;
   border-radius: $br-8;
   background-color: var(--button-constraint-background-color-rest);
@@ -308,7 +299,7 @@
 .input-base {
   @include removeInputStyle;
   @include textEllipsis;
-  height: $s-25;
+  height: $s-28;
   width: 100%;
   flex-grow: 1;
   margin: $s-2 0;
@@ -324,7 +315,7 @@
 .input-icon {
   @include flexCenter;
   min-width: $s-12;
-  height: $s-30;
+  height: $s-32;
   svg {
     @extend .button-icon-small;
   }
@@ -333,23 +324,20 @@
 .input-label {
   @include headlineSmallTypography;
   @include flexCenter;
-  justify-content: flex-start;
-  flex: 0 0 auto;
-  white-space: nowrap;
-  padding-inline-start: var(--sp-9);
-  height: $s-30;
+  width: $s-20;
+  padding-left: $s-8;
+  height: $s-32;
   color: var(--input-foreground-color);
 }
 
 .input-element {
   display: flex;
   align-items: center;
-  height: $s-30;
+  height: $s-32;
   border-radius: $br-8;
   background-color: var(--input-background-color);
-  // border: $s-1 solid var(--input-background-color);
+  border: $s-1 solid var(--input-border-color);
   color: var(--input-foreground-color);
-  padding-inline-end: var(--sp-9);
   span,
   label {
     @extend .input-label;
@@ -369,7 +357,7 @@
 
   @include focusInput;
   &:hover {
-    border: $s-1 solid var(--input-background-color-hover);
+    border: $s-1 solid var(--input-border-color-hover);
     background-color: var(--input-background-color-hover);
     span {
       color: var(--input-foreground-color-hover);
@@ -421,7 +409,7 @@
     padding-left: $s-8;
     display: flex;
     align-items: flex-start;
-    height: $s-30;
+    height: $s-32;
     box-sizing: border-box;
     width: 100%;
     margin: 0;
@@ -467,16 +455,16 @@
 
 .checkbox-icon {
   @include flexCenter;
-  width: $s-15;
-  height: $s-15;
-  min-width: $s-15;
-  min-height: $s-15;
+  width: $s-16;
+  height: $s-16;
+  min-width: $s-16;
+  min-height: $s-16;
   background-color: var(--input-checkbox-background-color-rest);
-  // border: $s-1 solid var(--input-checkbox-border-color-rest);
+  border: $s-1 solid var(--input-checkbox-border-color-rest);
   border-radius: $br-4;
   svg {
-    width: $s-15;
-    height: $s-15;
+    width: $s-16;
+    height: $s-16;
     display: none;
     stroke: var(--input-checkbox-inactive-foreground-color);
   }
@@ -561,8 +549,8 @@
     @extend .input-base;
     @include bodySmallTypography;
     border-radius: $br-8;
-    height: $s-30;
-    min-height: $s-30;
+    height: $s-32;
+    min-height: $s-32;
     margin-top: $s-8;
     background-color: var(--input-background-color);
     border: $s-1 solid var(--input-border-color);
@@ -613,7 +601,7 @@
 
 .modal-container-base {
   position: relative;
-  padding: $s-30;
+  padding: $s-32;
   border-radius: $br-8;
   background-color: var(--modal-background-color);
   border: $s-2 solid var(--modal-border-color);
@@ -628,7 +616,7 @@
   position: absolute;
   top: $s-8;
   right: $s-6;
-  height: $s-30;
+  height: $s-32;
   width: $s-28;
   svg {
     @extend .button-icon;
@@ -653,7 +641,7 @@
   @include uppercaseTitleTipography;
   padding: $s-8 $s-24;
   border-radius: $br-8;
-  height: $s-30;
+  height: $s-32;
   margin: 0;
 }
 
@@ -662,7 +650,7 @@
   @include uppercaseTitleTipography;
   padding: $s-8 $s-24;
   border-radius: $br-8;
-  height: $s-30;
+  height: $s-32;
   margin: 0;
 }
 
@@ -671,7 +659,7 @@
   @include uppercaseTitleTipography;
   padding: $s-8 $s-24;
   border-radius: $br-8;
-  height: $s-30;
+  height: $s-32;
   margin: 0;
   background-color: var(--modal-button-background-color-error);
   border: $s-1 solid var(--modal-button-background-color-error);
@@ -686,10 +674,10 @@
   @include bodySmallTypography;
   display: flex;
   align-items: center;
-  height: $s-30;
+  height: $s-32;
   border-radius: $br-8;
   padding: $s-8 $s-12;
-  background-color: var(--button-secondary-background-color-rest);
+  background-color: var(--assets-item-background-color);
   color: var(--assets-item-name-foreground-color-hover);
   &:hover {
     background-color: var(--assets-item-background-color-hover);
@@ -718,7 +706,7 @@
   align-items: center;
   flex-grow: 1;
   border-radius: $br-8;
-  height: $s-30;
+  height: $s-32;
   padding: $s-8;
   background-color: var(--input-background-color);
   color: var(--input-foreground-color-active);
@@ -773,9 +761,9 @@
   grid-template-areas: "name content";
   grid-template-columns: 1fr 3fr;
   gap: $s-4;
-  height: $s-30;
+  height: $s-32;
   :global(.attr-label) {
-    @include bodyMediumTypography;
+    @include bodySmallTypography;
     @include twoLineTextEllipsis;
     width: $s-92;
     margin: auto 0;
@@ -814,7 +802,7 @@
   border-radius: $br-8;
   z-index: $z-index-10;
   color: var(--title-foreground-color-hover);
-  background-color: var(--menu-dark-background-color);
+  background-color: var(--menu-background-color);
   border: $s-2 solid var(--panel-border-color);
   margin: 0;
 }
@@ -839,7 +827,7 @@
   display: flex;
   align-items: center;
   gap: $s-8;
-  height: $s-30;
+  height: $s-32;
   padding: 0 $s-8;
   border-radius: $br-6;
   cursor: pointer;
@@ -865,7 +853,7 @@
 .dropdown-wrapper {
   @include menuShadow;
   position: absolute;
-  top: $s-30;
+  top: $s-32;
   left: 0;
   width: 100%;
   max-height: var(--menu-max-height, $s-300);

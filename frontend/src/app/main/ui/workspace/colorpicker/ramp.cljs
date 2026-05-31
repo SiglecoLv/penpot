@@ -136,7 +136,7 @@
        :on-finish-drag on-finish-drag}]
 
      [:div {:class (stl/css :shade-selector)
-            :style {:--bullet-size "68px"}}
+            :style {:--bullet-size "52px"}}
       [:& cb/color-bullet {:color bullet-color
                            :area true}]
       [:div {:class (stl/css :sliders-wrapper)}

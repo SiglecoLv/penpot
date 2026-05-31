@@ -209,7 +209,7 @@
                       :on-collapsed toggle-content
                       :title        (tr (if (> (count ids) 1) "workspace.options.export-multiple" "workspace.options.export"))
                       :class        (stl/css-case :title-spacing-export (not has-exports?))}
-       [:> icon-button* {:variant "options"
+       [:> icon-button* {:variant "ghost"
                          :aria-label (tr "workspace.options.export.add-export")
                          :on-click add-export
                          :icon i/add}]]]
@@ -221,7 +221,7 @@
           [:div {:class (stl/css :multiple-exports)}
            [:div {:class (stl/css :label)} (tr "settings.multiple")]
            [:div {:class (stl/css :actions)}
-            [:> icon-button* {:variant "options"
+            [:> icon-button* {:variant "ghost"
                               :aria-label (tr "workspace.options.export.remove-export")
                               :on-click on-remove-all
                               :icon i/remove}]]]
@@ -256,7 +256,7 @@
                          :on-change on-suffix-change
                          :on-key-down manage-key-down}]]]
 
-              [:> icon-button* {:variant "options"
+              [:> icon-button* {:variant "ghost"
                                 :aria-label (tr "workspace.options.export.remove-export")
                                 :on-click delete-export
                                 :data-value index

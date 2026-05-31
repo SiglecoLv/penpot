@@ -140,7 +140,7 @@
                       :class        (stl/css-case :shadow-title-bar (not has-shadows?))}
 
        (when-not (= :multiple shadows)
-         [:> icon-button* {:variant "options"
+         [:> icon-button* {:variant "ghost"
                            :aria-label (tr "workspace.options.shadow-options.add-shadow")
                            :on-click on-add-shadow
                            :icon i/add
@@ -153,7 +153,7 @@
           [:div {:class (stl/css :shadow-multiple)}
            [:div {:class (stl/css :shadow-multiple-label)}
             (tr "settings.multiple")]
-           [:> icon-button* {:variant "options"
+           [:> icon-button* {:variant "ghost"
                              :aria-label (tr "workspace.options.shadow-options.remove-shadow")
                              :on-click on-remove-all
                              :icon i/remove}]]]

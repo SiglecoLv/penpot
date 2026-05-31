@@ -22,7 +22,7 @@
 @mixin flexRow {
   display: flex;
   align-items: center;
-  gap: $s-9;
+  gap: $s-4;
 }
 
 @mixin buttonStyle {
@@ -38,83 +38,83 @@
 }
 
 @mixin uppercaseTitleTipography {
-  font-family: 'Tilda Sans', system-ui, sans-serif;
+  font-family: "worksans", "vazirmatn", sans-serif;
   font-size: $fs-11;
   font-weight: $fw500;
   line-height: 1.2;
-  // text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 @mixin bigTitleTipography {
-  font-family: 'Tilda Sans', system-ui, sans-serif;
+  font-family: "worksans", "vazirmatn", sans-serif;
   font-size: $fs-24;
-  font-weight: $fw500;
+  font-weight: $fw400;
   line-height: 1.2;
 }
 
 @mixin medTitleTipography {
-  font-family: 'Tilda Sans', system-ui, sans-serif;
+  font-family: "worksans", "vazirmatn", sans-serif;
   font-size: $fs-20;
-  font-weight: $fw500;
+  font-weight: $fw400;
   line-height: 1.2;
 }
 
 @mixin smallTitleTipography {
-  font-family: 'Tilda Sans', system-ui, sans-serif;
-  font-size: $fs-16;
-  font-weight: $fw500;
+  font-family: "worksans", "vazirmatn", sans-serif;
+  font-size: $fs-14;
+  font-weight: $fw400;
   line-height: 1.2;
 }
 
 @mixin headlineLargeTypography {
-  font-family: 'Tilda Sans', system-ui, sans-serif;
+  font-family: "worksans", "vazirmatn", sans-serif;
   font-size: $fs-18;
   line-height: 1.2;
-  // text-transform: uppercase;
-  font-weight: $fw500;
+  text-transform: uppercase;
+  font-weight: $fw400;
 }
 
 @mixin headlineMediumTypography {
-  font-family: 'Tilda Sans', system-ui, sans-serif;
+  font-family: "worksans", "vazirmatn", sans-serif;
   font-size: $fs-16;
   line-height: 1.4;
-  // text-transform: uppercase;
-  font-weight: $fw500;
+  text-transform: uppercase;
+  font-weight: $fw400;
 }
 
 @mixin headlineSmallTypography {
-  font-family: 'Tilda Sans', system-ui, sans-serif;
-  font-size: $fs-14;
+  font-family: "worksans", "vazirmatn", sans-serif;
+  font-size: $fs-12;
   line-height: 1.2;
-  // text-transform: uppercase;
+  text-transform: uppercase;
   font-weight: $fw500;
 }
 
 @mixin bodyLargeTypography {
-  font-family: 'Tilda Sans', system-ui, sans-serif;
-  font-size: $fs-18;
+  font-family: "worksans", "vazirmatn", sans-serif;
+  font-size: $fs-16;
   line-height: 1.5;
-  font-weight: $fw500;
+  font-weight: $fw400;
 }
 
 @mixin bodyMediumTypography {
-  font-family: 'Tilda Sans', system-ui, sans-serif;
-  font-size: $fs-16;
-  line-height: 1;
-  font-weight: $fw500;
+  font-family: "worksans", "vazirmatn", sans-serif;
+  font-size: $fs-14;
+  line-height: 1.4;
+  font-weight: $fw400;
 }
 
 @mixin bodySmallTypography {
-  font-family: 'Tilda Sans', system-ui, sans-serif;
+  font-family: "worksans", "vazirmatn", sans-serif;
   font-size: $fs-12;
-  font-weight: $fw500;
+  font-weight: $fw400;
   line-height: 1.4;
 }
 
 @mixin codeTypography {
   font-family: "robotomono", monospace;
-  font-size: $fs-14;
-  font-weight: $fw500;
+  font-size: $fs-12;
+  font-weight: $fw400;
   line-height: 1.2;
 }
 
