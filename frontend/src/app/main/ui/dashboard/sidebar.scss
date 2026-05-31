@@ -71,7 +71,7 @@
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  height: $sz-48;
+  height: $sz-59;
   width: 100%;
   border-radius: $br-8;
   border: $b-1 solid var(--menu-background-color);
@@ -132,7 +132,7 @@
 .arrow-icon {
   @extend .button-icon;
   transform: rotate(90deg);
-  stroke: var(--icon-foreground);
+  color: var(--color-foreground-secondary);
 }
 
 .switch-options {
@@ -147,7 +147,7 @@
 
 .menu-icon {
   @extend .button-icon;
-  stroke: var(--icon-foreground);
+  // stroke: var(--icon-foreground);
 }
 
 // DROPDOWNS
@@ -167,9 +167,9 @@
 .team-dropdown-item {
   @extend .menu-item-base;
   display: grid;
-  grid-template-columns: var(--sp-xxl) 1fr auto;
+  grid-template-columns: var(--sp-xxxl) 1fr auto;
   gap: var(--sp-s);
-  height: $sz-40;
+  height: $sz-48;
 }
 
 .action {
@@ -184,8 +184,8 @@
 
 .icon-wrapper {
   @include deprecated.flexCenter;
-  width: var(--sp-xxl);
-  height: var(--sp-xxl);
+  width: var(--sp-xxxl);
+  height: var(--sp-xxxl);
   margin-right: var(--sp-m);
   border-radius: 50%;
   background-color: var(--sidebar-icon-backgroun-color);
@@ -195,7 +195,7 @@
   @extend .button-icon;
   width: var(--sp-xxl);
   height: var(--sp-xxl);
-  stroke: var(--sidebar-action-icon-color);
+  color: var(--sidebar-action-icon-color);
 }
 
 .team-separator {
@@ -316,12 +316,12 @@
   border: $b-1 solid transparent;
   margin: 0 var(--sp-l);
   border-radius: $br-8;
-  background-color: var(--search-bar-input-background-color);
+  background-color: #2A2B2B;
 }
 
 .input-text {
   @include t.use-typography("title-small");
-  height: $sz-40;
+  height: $sz-36;
   width: 100%;
   padding: $sz-6 var(--sp-m);
   margin: 0;
@@ -370,7 +370,7 @@
   grid-template-columns: 1fr auto;
   padding: var(--sp-m) var(--sp-l);
   border-top: $b-1 solid var(--panel-border-color);
-  background-color: var(--profile-section-background-color);
+  background-color: var(--color-background-quaternary);
   cursor: pointer;
 }
 

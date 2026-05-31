@@ -269,7 +269,7 @@
   @include flexCenter;
   height: $s-25;
   width: $s-25;
-  color: transparent;
+  color: var(--color-foreground-secondary);
   fill: none;
   stroke-width: 1px;
 }
@@ -347,7 +347,7 @@
   height: $s-30;
   border-radius: $br-8;
   background-color: var(--input-background-color);
-  border: $s-1 solid var(--input-background-color);
+  // border: $s-1 solid var(--input-background-color);
   color: var(--input-foreground-color);
   padding-inline-end: var(--sp-9);
   span,
