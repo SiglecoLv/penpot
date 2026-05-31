@@ -183,15 +183,14 @@
       (st/emit! (dw/initialize-page file-id page-id))
       (fn []
         (st/emit! (dw/finalize-page file-id page-id))))
-    
-    [:> workspace-loader*]
-    #_(if (some? page)
-        [:> workspace-content* {:file file
-                                :page page
-                                :wglobal wglobal
-                                :layout layout
-                                :file-version-id file-version-id}]
-        [:> workspace-loader*])))
+
+    (if (some? page)
+      [:> workspace-content* {:file file
+                              :page page
+                              :wglobal wglobal
+                              :layout layout
+                              :file-version-id file-version-id}]
+      [:> workspace-loader*])))
 
 (mf/defc workspace*
   {::mf/wrap [mf/memo]}
