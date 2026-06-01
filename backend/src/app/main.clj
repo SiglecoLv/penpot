@@ -47,8 +47,7 @@
    [cuerdas.core :as str]
    [integrant.core :as ig]
    [nrepl.server :as nrepl]
-   [promesa.exec :as px]
-   [app.extensions :as extensions])
+   [promesa.exec :as px])
   (:gen-class))
 
 (def default-metrics
@@ -588,10 +587,10 @@
 (defn start
   []
   (cf/validate!)
-  (ig/load-namespaces (merge system-config worker-config extensions/system-config))
+  (ig/load-namespaces (merge system-config worker-config))
   (alter-var-root #'system (fn [sys]
                              (when sys (ig/halt! sys))
-                             (-> (merge system-config extensions/system-config)
+                             (-> system-config
                                  (cond-> (contains? cf/flags :backend-worker)
                                    (merge worker-config))
                                  (ig/expand)
@@ -653,8 +652,7 @@
     (let [p (promise)]
       (when (contains? cf/flags :nrepl-server)
         (l/inf :hint "start nrepl server" :port 6064)
-        (nrepl/start-server :bind "0.0.0.0" :port 6064
-                            :middleware '[cider.nrepl/cider-middleware]))
+        (nrepl/start-server :bind "0.0.0.0" :port 6064))
 
       (start)
       (deref p))

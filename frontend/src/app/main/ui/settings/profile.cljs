@@ -16,7 +16,6 @@
    [app.main.store :as st]
    [app.main.ui.components.file-uploader :refer [file-uploader]]
    [app.main.ui.components.forms :as fm]
-   [app.main.ui.settings.password :as password]
    [app.util.dom :as dom]
    [app.util.i18n :as i18n :refer [tr]]
    [rumext.v2 :as mf]))
@@ -127,10 +126,6 @@
   [:div {:class (stl/css :dashboard-settings)}
    [:div {:class (stl/css :form-container)}
     [:h2 (tr "labels.profile")]
-    [:div {:style {:flex-direction "row"
-                   :display "flex"
-                   :justify-content "space-between"}}
-     [:& profile-photo-form]
-     [:& profile-form]]]
-   [:& password/password-container]])
+    [:& profile-photo-form]
+    [:& profile-form]]])
 

@@ -14,7 +14,6 @@
     "content resize";
   grid-template-rows: deprecated.$s-52 1fr;
   grid-template-columns: 1fr 0;
-  border-right: 1px solid var(--color-border-secondary);
   position: relative;
   grid-area: left-sidebar;
   min-width: var(--left-sidebar-width);

@@ -16,12 +16,11 @@
    [app.main.router :as rt]
    [app.main.store :as st]
    [app.util.storage :as storage]
-   [app.extensions :as extensions]
    [beicon.v2.core :as rx]
    [cuerdas.core :as str]
    [potok.v2.core :as ptk]))
 
-(def base-routes
+(def routes
   [["/auth"
     ["/login"             :auth-login]
     ["/register"          :auth-register]
@@ -36,7 +35,6 @@
     ["/password"      :settings-password]
     ["/feedback"      :settings-feedback]
     ["/options"       :settings-options]
-    ["/license"       :settings-license]
     ["/subscriptions" :settings-subscription]
     ["/integrations"  :settings-integrations]
     ["/notifications" :settings-notifications]]
@@ -84,9 +82,6 @@
    ["/workspace" :workspace]
    ["/workspace/:project-id/:file-id" :workspace-legacy]])
 
-(def routes
-  (into base-routes extensions/routes))
-
 
 (defn- store-session-params
   [{:keys [template plugin]}]
@@ -97,14 +92,6 @@
     (when (some? plugin)
       (swap! storage/session assoc
              :plugin-url plugin))))
-
-(defn check-license-error
-  [cause]
-  (let [data (ex-data cause)]
-    (if (and (= :license-required (:type data))
-             (= :invalid-license (:code data)))
-      (rx/of (rt/nav :license))
-      (rx/throw cause))))
 
 (defn on-navigate
   [router path send-event-info?]
@@ -151,8 +138,7 @@
                          (st/emit! (rt/assign-exception {:type :not-found}))))
 
                      (fn [cause]
-                       (errors/on-error cause)))
-           (rx/catch check-license-error)))))
+                       (errors/on-error cause)))))))
 
 (defn init-routes
   []

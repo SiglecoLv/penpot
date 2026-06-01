@@ -34,7 +34,6 @@
                                                nitrate-sidebar*
                                                show-subscription-dashboard-banner?
                                                subscription-sidebar*]]
-   [app.main.ui.settings.license :refer [license-sidebar*]]
    [app.main.ui.dashboard.team-form]
    [app.main.ui.ds.buttons.button :refer [button*]]
    [app.main.ui.ds.foundations.assets.icon :refer [icon*] :as i]
@@ -1093,7 +1092,6 @@
          (if (show-subscription-dashboard-banner? profile)
            [:> dashboard-cta* {:profile profile}]
            [:> subscription-sidebar* {:profile profile}])))
-     [:> license-sidebar* ]
 
      ;; TODO remove this block when subscriptions is full implemented
      (when (contains? cf/flags :subscriptions-old)
