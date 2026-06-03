@@ -21,6 +21,9 @@ async function compileFile(path) {
     try {
       const result = await compiler.compileAsync(path, {
         loadPaths: [
+          "../../frontend/resources/styles/common/",
+          "../../frontend/resources/styles/",
+          "../../frontend/src/app/main/ui/",
           "node_modules/animate.css",
           "resources/styles/common/",
           "resources/styles",
