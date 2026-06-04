@@ -114,6 +114,7 @@ export async function compileSassStorybook(worker) {
 export async function compileSassAll(worker) {
   const limitFn = pLimit(4);
   const sourceDir = "src";
+  const contrastDir = "../../frontend/src";
 
   const isDesignSystemFile = (path) => {
     return path.startsWith("app/main/ui/ds/");
@@ -123,33 +124,33 @@ export async function compileSassAll(worker) {
     return path.startsWith("app/main/ui/components/");
   };
 
-  let files = (await fs.readdir(sourceDir, { recursive: true })).filter(
-    isSassFile,
-  );
+  // Build a priority map: relative-path → absolute-path.
+  // Contrast files shadow penpot files at the same relative path,
+  // matching prod behaviour (Dockerfile copies Contrast SCSS over penpot SCSS
+  // before compilation, so only one file per path is ever compiled).
+  const fileMap = new Map();
 
-  const appFiles = files
-    .filter((path) => !isDesignSystemFile(path))
-    .filter((path) => !isOldComponentSystemFile(path))
-    .map((path) => ph.join(sourceDir, path));
+  for (const rel of (await fs.readdir(sourceDir, { recursive: true })).filter(isSassFile)) {
+    fileMap.set(rel, ph.join(sourceDir, rel));
+  }
 
-  // Contrast overrides: include SCSS from ../../frontend/src
-  const contrastDir = "../../frontend/src";
   try {
-    const contrastFiles = (await fs.readdir(contrastDir, { recursive: true }))
-      .filter(isSassFile)
-      .map((path) => ph.join(contrastDir, path));
-    appFiles.push(...contrastFiles);
+    for (const rel of (await fs.readdir(contrastDir, { recursive: true })).filter(isSassFile)) {
+      fileMap.set(rel, ph.join(contrastDir, rel)); // Contrast wins
+    }
   } catch (e) {
     // Contrast directory not available — skip silently
   }
 
-  const dsFiles = files
-    .filter(isDesignSystemFile)
-    .map((path) => ph.join(sourceDir, path));
+  const appFiles = [];
+  const dsFiles = [];
+  const oldComponentsFiles = [];
 
-  const oldComponentsFiles = files
-    .filter(isOldComponentSystemFile)
-    .map((path) => ph.join(sourceDir, path));
+  for (const [rel, absPath] of fileMap) {
+    if (isDesignSystemFile(rel)) dsFiles.push(absPath);
+    else if (isOldComponentSystemFile(rel)) oldComponentsFiles.push(absPath);
+    else appFiles.push(absPath);
+  }
 
   const procs = [compileSass(worker, "resources/styles/main-default.scss", {})];
 

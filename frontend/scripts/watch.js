@@ -72,8 +72,19 @@ await h.compilePolyfills();
 log.info("watch: scss src (~)");
 
 h.watch("src", h.isSassFile, async function (path) {
+  // Skip penpot files that are shadowed by a Contrast override — the Contrast
+  // watcher below handles those. Compiling the penpot version here would
+  // reintroduce the shadowed file into the CSS, diverging from prod behaviour.
+  const rel = ph.relative("src", path);
+  const contrastPath = ph.join("../../frontend/src", rel);
+  try {
+    await fs.access(contrastPath);
+    log.info("skipped (shadowed by Contrast override):", path);
+    return;
+  } catch (_) {}
+
   if (path.includes("common")) {
-    await compileSassAll(path);
+    await compileSassAll();
   } else {
     await compileSass(path);
   }
