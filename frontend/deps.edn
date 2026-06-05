@@ -1,4 +1,4 @@
-{:paths ["../../frontend/src" "src" "vendor" "resources" "test"]
+{:paths ["../../frontend/src" "../../common/src" "src" "vendor" "resources" "test"]
  :deps
  {penpot/common
   {:local/root "../common"}
