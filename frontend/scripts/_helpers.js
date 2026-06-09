@@ -451,6 +451,14 @@ async function generateSvgSprites() {
   const cursorsMap = Object.fromEntries(
     cursorsFiles.filter(p => p.endsWith(".svg")).map(p => [ph.basename(p), p])
   );
+  // Override with Contrast cursor customizations
+  try {
+    const contrastCursors = await findFiles("../../frontend/resources/images/cursors/", isSvgFile);
+    for (let path of contrastCursors) {
+      const name = ph.basename(path);
+      if (name.endsWith(".svg")) cursorsMap[name] = path;
+    }
+  } catch (_) {}
   const cursorsSprite = await generateSvgSprite(cursorsMap, "cursor-");
   await fs.writeFile(
     "resources/public/images/sprites/symbol/cursors.svg",
