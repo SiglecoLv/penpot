@@ -128,6 +128,15 @@ h.watch(["resources/images", "resources/fonts"], null, async function (path) {
   await h.compileTemplates();
 });
 
+log.info("watch: contrast assets (~)");      
+h.watch(["../../frontend/resources/images"], 
+null, async function (path) {                
+  log.info("changed:", path);                
+  await h.copyAssets();                      
+  await h.compileSvgSprites();               
+  await h.compileTemplates();                
+}); 
+
 log.info("watch: wasm playground (~)");
 h.watch(["resources/wasm-playground"], null, async function (path) {
   log.info("changed:", path);
