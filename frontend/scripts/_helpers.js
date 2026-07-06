@@ -62,6 +62,20 @@ function syncDirs(originPath, destPath) {
   });
 }
 
+function overlayDir(originPath, destPath) {
+  const command = `rsync -ar ${originPath} ${destPath}`;
+
+  return new Promise((resolve, reject) => {
+    proc.exec(command, (cause, stdout) => {
+      if (cause) {
+        reject(cause);
+      } else {
+        resolve();
+      }
+    });
+  });
+}
+
 export function isSassFile(path) {
   return path.endsWith(".scss");
 }
@@ -652,6 +666,17 @@ export async function copyAssets() {
 
   await syncDirs("resources/images/", "resources/public/images/");
   await syncDirs("resources/fonts/", "resources/public/fonts/");
+
+  // Contrast: overlay root-level image overrides (favicon, apple-touch-icon, ...)
+  // on top of penpot's. In dev the base syncDirs above only reads penpot's
+  // resources/images/, so without this the Contrast favicon never reaches
+  // resources/public/. In prod this is redundant (Dockerfile.frontend already
+  // merges Contrast resources before build) but harmless.
+  try {
+    await overlayDir("../../frontend/resources/images/", "resources/public/images/");
+  } catch (_) {
+    // Contrast images directory not available — skip
+  }
 
   const end = process.hrtime(start);
   log.info("done: copy assets", `(${ppt(end)})`);
