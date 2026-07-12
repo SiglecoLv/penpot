@@ -262,7 +262,19 @@ async function generateManifest() {
 }
 
 async function renderTemplate(path, context = {}, partials = {}) {
-  const content = await fs.readFile(path, { encoding: "utf-8" });
+  // Contrast: prefer an override template from ../../frontend/resources/templates/
+  // when present, so dev builds the same templates as prod (which cp-merges
+  // frontend/resources/ over penpot's). Falls back to penpot's template.
+  let templatePath = path;
+  if (path.startsWith("resources/")) {
+    const overridePath = "../../frontend/" + path;
+    try {
+      await fs.access(overridePath);
+      templatePath = overridePath;
+    } catch (_) {}
+  }
+
+  const content = await fs.readFile(templatePath, { encoding: "utf-8" });
 
   context = Object.assign({}, context, {
     isDebug: IS_DEBUG,

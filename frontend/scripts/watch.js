@@ -114,6 +114,12 @@ h.watch("resources/templates", null, async function (path) {
   await h.compileTemplates();
 });
 
+log.info("watch: contrast templates (~)");
+h.watch("../../frontend/resources/templates", null, async function (path) {
+  log.info("changed:", path);
+  await h.compileTemplates();
+});
+
 log.info("watch: translations (~)");
 h.watch("translations", null, async function (path) {
   log.info("changed:", path);
