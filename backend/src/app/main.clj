@@ -46,7 +46,8 @@
    [clojure.tools.namespace.repl :as repl]
    [cuerdas.core :as str]
    [integrant.core :as ig]
-   [promesa.exec :as px])
+   [promesa.exec :as px]
+   [app.extensions :as extensions])
   (:gen-class))
 
 (def default-metrics
@@ -633,11 +634,11 @@
 (defn start
   []
   (cf/validate!)
-  (ig/load-namespaces (merge system-config worker-config))
+  (ig/load-namespaces (merge system-config worker-config extensions/system-config))
   (alter-var-root #'app.system/system
                   (fn [sys]
                     (some-> sys not-empty ig/halt!)
-                    (-> system-config
+                    (-> (merge system-config extensions/system-config)
                         (cond-> (contains? cf/flags :backend-worker)
                           (merge worker-config))
                         (ig/expand)

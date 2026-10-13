@@ -194,7 +194,12 @@
   [_ {:keys [:port :host] :as cfg}]
   (when (contains? cf/flags :nrepl-server)
     (l/inf :hint "init nrepl server" :host host :port port)
-    (nrepl/start-server :bind host :port port)))
+    ;; Contrast: use the cider handler when cider-nrepl is on the
+    ;; classpath (added by the :contrast alias in dev).
+    (if-let [handler (try (requiring-resolve 'cider.nrepl/cider-nrepl-handler)
+                          (catch Throwable _ nil))]
+      (nrepl/start-server :bind host :port port :handler @handler)
+      (nrepl/start-server :bind host :port port))))
 
 (defmethod ig/halt-key! ::nrepl
   [_ server]
