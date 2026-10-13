@@ -109,6 +109,13 @@
 
 ;; --- Password Page
 
+(mf/defc password-container
+  "Contrast: password form block, embedded into the profile settings page."
+  []
+  [:div {:class (stl/css :form-container)}
+   [:h2 (tr "dashboard.password-change")]
+   [:> password-form*]])
+
 (mf/defc password-page*
   []
   (mf/with-effect []

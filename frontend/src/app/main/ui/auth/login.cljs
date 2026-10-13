@@ -287,7 +287,7 @@
      [:h1 {:class (stl/css :title)
            :data-testid "login-title"} (tr "auth.login-account-title")]
 
-     [:p {:class (stl/css :tagline)}
+     #_[:p {:class (stl/css :tagline)}
       (tr "auth.login-tagline")]
 
      (when (contains? cf/flags :demo-warning)

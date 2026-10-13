@@ -16,6 +16,8 @@
 (def ^:icon loader (icon-xref :loader))
 (def ^:icon logo (icon-xref :penpot-logo))
 (def ^:icon logo-icon (icon-xref :penpot-logo-icon))
+(def ^:icon contrast-logo (icon-xref :contrast-logo-max))
+(def ^:icon contrast-logo-icon (icon-xref :contrast-logo))
 (def ^:icon logo-error-screen (icon-xref :logo-error-screen))
 (def ^:icon logo-subscription (icon-xref :logo-subscription))
 (def ^:icon logo-subscription-light (icon-xref :logo-subscription-light))
