@@ -13,6 +13,23 @@ import autoprefixerProcessor from "autoprefixer";
 
 const compiler = await sass.initAsyncCompiler();
 
+// Contrast: a relative @use/@forward inside a Contrast SCSS override
+// (../../frontend/...) must fall back to penpot's file at the same relative
+// path when Contrast doesn't override that partial — prod gets this for free
+// because the Dockerfile copies Contrast files over penpot's tree.
+const contrastFrontendDir = ph.resolve("../../frontend");
+const penpotFrontendDir = ph.resolve(".");
+const contrastFallbackImporter = {
+  findFileUrl(target, context) {
+    if (/^[a-z][a-z0-9+.-]*:/i.test(target) || !context.containingUrl) return null;
+    if (context.containingUrl.protocol !== "file:") return null;
+    const containing = url.fileURLToPath(context.containingUrl);
+    if (!containing.startsWith(contrastFrontendDir + ph.sep)) return null;
+    const rel = ph.relative(contrastFrontendDir, ph.dirname(containing));
+    return url.pathToFileURL(ph.join(penpotFrontendDir, rel, target));
+  },
+};
+
 async function compileFile(path) {
   const dir = ph.dirname(path);
   const name = ph.basename(path, ".scss");
@@ -21,6 +38,7 @@ async function compileFile(path) {
   return new Promise(async (resolve, reject) => {
     try {
       const result = await compiler.compileAsync(path, {
+        importers: [contrastFallbackImporter],
         loadPaths: [
           "../../frontend/resources/styles/common/",
           "../../frontend/resources/styles/",
