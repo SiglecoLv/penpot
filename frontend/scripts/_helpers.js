@@ -65,6 +65,20 @@ function syncDirs(originPath, destPath, excludes = []) {
   });
 }
 
+function overlayDir(originPath, destPath) {
+  const command = `rsync -ar ${originPath} ${destPath}`;
+
+  return new Promise((resolve, reject) => {
+    proc.exec(command, (cause, stdout) => {
+      if (cause) {
+        reject(cause);
+      } else {
+        resolve();
+      }
+    });
+  });
+}
+
 export function isSassFile(path) {
   return path.endsWith(".scss");
 }
@@ -117,6 +131,7 @@ export async function compileSassStorybook(worker) {
 export async function compileSassAll(worker) {
   const limitFn = pLimit(4);
   const sourceDir = "src";
+  const contrastDir = "../../frontend/src";
 
   const isDesignSystemFile = (path) => {
     return path.startsWith("app/main/ui/ds/");
@@ -126,22 +141,33 @@ export async function compileSassAll(worker) {
     return path.startsWith("app/main/ui/components/");
   };
 
-  let files = (await fs.readdir(sourceDir, { recursive: true })).filter(
-    isSassFile,
-  );
+  // Build a priority map: relative-path → absolute-path.
+  // Contrast files shadow penpot files at the same relative path,
+  // matching prod behaviour (Dockerfile copies Contrast SCSS over penpot SCSS
+  // before compilation, so only one file per path is ever compiled).
+  const fileMap = new Map();
 
-  const appFiles = files
-    .filter((path) => !isDesignSystemFile(path))
-    .filter((path) => !isOldComponentSystemFile(path))
-    .map((path) => ph.join(sourceDir, path));
+  for (const rel of (await fs.readdir(sourceDir, { recursive: true })).filter(isSassFile)) {
+    fileMap.set(rel, ph.join(sourceDir, rel));
+  }
 
-  const dsFiles = files
-    .filter(isDesignSystemFile)
-    .map((path) => ph.join(sourceDir, path));
+  try {
+    for (const rel of (await fs.readdir(contrastDir, { recursive: true })).filter(isSassFile)) {
+      fileMap.set(rel, ph.join(contrastDir, rel)); // Contrast wins
+    }
+  } catch (e) {
+    // Contrast directory not available — skip silently
+  }
 
-  const oldComponentsFiles = files
-    .filter(isOldComponentSystemFile)
-    .map((path) => ph.join(sourceDir, path));
+  const appFiles = [];
+  const dsFiles = [];
+  const oldComponentsFiles = [];
+
+  for (const [rel, absPath] of fileMap) {
+    if (isDesignSystemFile(rel)) dsFiles.push(absPath);
+    else if (isOldComponentSystemFile(rel)) oldComponentsFiles.push(absPath);
+    else appFiles.push(absPath);
+  }
 
   const procs = [compileSass(worker, "resources/styles/main-default.scss", {})];
 
@@ -239,7 +265,19 @@ async function generateManifest() {
 }
 
 async function renderTemplate(path, context = {}, partials = {}) {
-  const content = await fs.readFile(path, { encoding: "utf-8" });
+  // Contrast: prefer an override template from ../../frontend/resources/templates/
+  // when present, so dev builds the same templates as prod (which cp-merges
+  // frontend/resources/ over penpot's). Falls back to penpot's template.
+  let templatePath = path;
+  if (path.startsWith("resources/")) {
+    const overridePath = "../../frontend/" + path;
+    try {
+      await fs.access(overridePath);
+      templatePath = overridePath;
+    } catch (_) {}
+  }
+
+  const content = await fs.readFile(templatePath, { encoding: "utf-8" });
 
   context = Object.assign({}, context, {
     isDebug: IS_DEBUG,
@@ -367,15 +405,15 @@ export async function compileTranslations() {
   }
 }
 
-async function generateSvgSprite(files, prefix) {
+async function generateSvgSprite(filesMap, prefix) {
   const spriter = new SVGSpriter({
     mode: {
       symbol: { inline: true },
     },
   });
 
-  for (let path of files) {
-    const name = `${prefix}${ph.basename(path)}`;
+  for (let [basename, path] of Object.entries(filesMap)) {
+    const name = `${prefix}${basename}`;
     const content = await fs.readFile(path, { encoding: "utf-8" });
     spriter.add(name, name, content);
   }
@@ -385,27 +423,82 @@ async function generateSvgSprite(files, prefix) {
   return resource.contents;
 }
 
+async function mergeIconsWithContrastOverrides(basePath) {
+  // Build a map of basename -> path, starting with penpot base icons
+  const iconsMap = {};
+
+  const baseFiles = await findFiles(basePath, isSvgFile);
+  for (let path of baseFiles) {
+    const name = ph.basename(path);
+    if (name.endsWith(".svg")) {
+      iconsMap[name] = path;
+    }
+  }
+
+  // Override with Contrast unchanged/ icons (penpot originals tracked by Contrast)
+  try {
+    const unchangedFiles = await findFiles("../../frontend/resources/images/icons/unchanged/", isSvgFile);
+    for (let path of unchangedFiles) {
+      const name = ph.basename(path);
+      if (name.endsWith(".svg")) {
+        iconsMap[name] = path;
+      }
+    }
+  } catch (_) {
+    // Contrast unchanged/ directory not available — skip
+  }
+
+  // Override with Contrast root-level icons (customized versions)
+  try {
+    const contrastFiles = await findFiles("../../frontend/resources/images/icons/", isSvgFile);
+    for (let path of contrastFiles) {
+      const name = ph.basename(path);
+      if (name.endsWith(".svg")) {
+        iconsMap[name] = path;
+      }
+    }
+  } catch (_) {
+    // Contrast icons directory not available — skip
+  }
+
+  return iconsMap;
+}
+
 async function generateSvgSprites() {
   await fs.mkdir("resources/public/images/sprites/symbol/", {
     recursive: true,
   });
 
-  const icons = await findFiles("resources/images/icons/", isSvgFile);
-  const iconsSprite = await generateSvgSprite(icons, "icon-");
+  const iconsMap = await mergeIconsWithContrastOverrides("resources/images/icons/");
+  const iconsSprite = await generateSvgSprite(iconsMap, "icon-");
   await fs.writeFile(
     "resources/public/images/sprites/symbol/icons.svg",
     iconsSprite,
   );
 
-  const cursors = await findFiles("resources/images/cursors/", isSvgFile);
-  const cursorsSprite = await generateSvgSprite(cursors, "cursor-");
+  const cursorsFiles = await findFiles("resources/images/cursors/", isSvgFile);
+  const cursorsMap = Object.fromEntries(
+    cursorsFiles.filter(p => p.endsWith(".svg")).map(p => [ph.basename(p), p])
+  );
+  // Override with Contrast cursor customizations
+  try {
+    const contrastCursors = await findFiles("../../frontend/resources/images/cursors/", isSvgFile);
+    for (let path of contrastCursors) {
+      const name = ph.basename(path);
+      if (name.endsWith(".svg")) cursorsMap[name] = path;
+    }
+  } catch (_) {}
+  const cursorsSprite = await generateSvgSprite(cursorsMap, "cursor-");
   await fs.writeFile(
     "resources/public/images/sprites/symbol/cursors.svg",
     cursorsSprite,
   );
 
-  const assets = await findFiles("resources/images/assets/", isSvgFile);
-  const assetsSprite = await generateSvgSprite(assets, "asset-");
+  const assetsFiles = await findFiles("resources/images/assets/", isSvgFile);
+  const assetsMap = Object.fromEntries(
+    assetsFiles.filter(p => p.endsWith(".svg")).map(p => [ph.basename(p), p])
+  );
+  const assetsSprite = await generateSvgSprite(assetsMap, "asset-");
   await fs.writeFile(
     "resources/public/images/sprites/assets.svg",
     assetsSprite,
@@ -622,6 +715,17 @@ export async function copyAssets() {
   await syncDirs("resources/fonts/", "resources/public/fonts/", [
     "fonts-preview-sprite.svg",
   ]);
+
+  // Contrast: overlay root-level image overrides (favicon, apple-touch-icon, ...)
+  // on top of penpot's. In dev the base syncDirs above only reads penpot's
+  // resources/images/, so without this the Contrast favicon never reaches
+  // resources/public/. In prod this is redundant (Dockerfile.frontend already
+  // merges Contrast resources before build) but harmless.
+  try {
+    await overlayDir("../../frontend/resources/images/", "resources/public/images/");
+  } catch (_) {
+    // Contrast images directory not available — skip
+  }
 
   const end = process.hrtime(start);
   log.info("done: copy assets", `(${ppt(end)})`);

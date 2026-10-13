@@ -1,4 +1,5 @@
-{:deps {:aliases [:dev]}
+{:source-paths ["../../frontend/src"]
+ :deps {:aliases [:dev]}
  :http {:port #shadow/env ["HTTP_PORT" :as :int :default 3448]}
  :nrepl {:port #shadow/env ["NREPL_PORT" :as :int :default 3447] :host "0.0.0.0"}
  :dev-http {#shadow/env ["DEV_PORT" :as :int :default 8888] "classpath:public"}
@@ -74,13 +75,13 @@
 
    :release
    {:closure-defines {goog.DEBUG false
-                      goog.debug.LOGGING_ENABLED true
+                      goog.debug.LOGGING_ENABLED false
                       app.config/compiled-version-tag #shadow/env ["VERSION_TAG" :default "develop"]}
     :compiler-options
     {:fn-invoke-direct true
      :optimizations #shadow/env ["PENPOT_BUILD_OPTIMIZATIONS" :as :keyword :default :advanced]
-     :source-map true
-     :pseudo-names true
+     :source-map false
+     :pseudo-names false
      :elide-asserts true
      :anon-fn-naming-policy :off
      :cross-chunk-method-motion false
@@ -118,8 +119,8 @@
     {:fn-invoke-direct true
      :optimizations #shadow/env ["PENPOT_BUILD_OPTIMIZATIONS" :as :keyword :default :advanced]
      :output-wrapper true
-     :rename-prefix-namespace "PENPOT"
-     :source-map true
+     :rename-prefix-namespace "C"
+     :source-map false
      :elide-asserts true
      :anon-fn-naming-policy :off
      :source-map-detail-level :all}}}

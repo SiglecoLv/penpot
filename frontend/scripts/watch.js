@@ -73,8 +73,19 @@ await h.compilePolyfills();
 log.info("watch: scss src (~)");
 
 h.watch("src", h.isSassFile, async function (path) {
+  // Skip penpot files that are shadowed by a Contrast override — the Contrast
+  // watcher below handles those. Compiling the penpot version here would
+  // reintroduce the shadowed file into the CSS, diverging from prod behaviour.
+  const rel = ph.relative("src", path);
+  const contrastPath = ph.join("../../frontend/src", rel);
+  try {
+    await fs.access(contrastPath);
+    log.info("skipped (shadowed by Contrast override):", path);
+    return;
+  } catch (_) {}
+
   if (path.includes("common")) {
-    await compileSassAll(path);
+    await compileSassAll();
   } else {
     await compileSass(path);
   }
@@ -86,8 +97,26 @@ h.watch("resources/styles", h.isSassFile, async function (path) {
   await compileSassAll();
 });
 
+log.info("watch: scss: contrast (~)");
+h.watch("../../frontend/src", h.isSassFile, async function (path) {
+  log.info("changed:", path);
+  await compileSassAll();
+});
+
+log.info("watch: scss: contrast resources (~)");
+h.watch("../../frontend/resources/styles", h.isSassFile, async function (path) {
+  log.info("changed:", path);
+  await compileSassAll();
+});
+
 log.info("watch: templates (~)");
 h.watch("resources/templates", null, async function (path) {
+  log.info("changed:", path);
+  await h.compileTemplates();
+});
+
+log.info("watch: contrast templates (~)");
+h.watch("../../frontend/resources/templates", null, async function (path) {
   log.info("changed:", path);
   await h.compileTemplates();
 });
@@ -101,8 +130,17 @@ h.watch("translations", null, async function (path) {
 log.info("watch: assets (~)");
 h.watch(["resources/images", "resources/fonts"], null, async function (path) {
   log.info("changed:", path);
-  await h.compileSvgSprites();
   await h.copyAssets();
+  await h.compileSvgSprites();
+  await h.compileTemplates();
+});
+
+log.info("watch: contrast assets (~)");      
+h.watch(["../../frontend/resources/images"], 
+null, async function (path) {                
+  log.info("changed:", path);                
+  await h.copyAssets();
+  await h.compileSvgSprites();
   await h.compileTemplates();
 });
 

@@ -67,9 +67,15 @@
   software.amazon.awssdk/s3 {:mvn/version "2.54.5"}
   software.amazon.awssdk/sts {:mvn/version "2.54.5"}}
 
- :paths ["src" "resources" "target/classes"]
+ :paths ["../../backend/src" "../../common/src" "../../backend/resources" "src" "resources" "target/classes"]
  :aliases
- {:dev
+ {:contrast
+  {:extra-paths ["../../backend/src"]
+   :extra-deps  {org.clojars.abhinav/snitch {:mvn/version "0.1.16"}
+                 nrepl/nrepl                {:mvn/version "1.7.0"}
+                 cider/cider-nrepl          {:mvn/version "0.58.0"}}}
+
+  :dev
   {:jvm-opts ["--sun-misc-unsafe-memory-access=allow"
               "--enable-native-access=ALL-UNNAMED"]
    :extra-deps
@@ -77,7 +83,9 @@
     clojure-humanize/clojure-humanize {:mvn/version "0.2.2"}
     org.clojure/data.csv {:mvn/version "1.1.1"}
     com.clojure-goes-fast/clj-async-profiler {:mvn/version "2.0.0-beta1"}
-    mockery/mockery {:mvn/version "0.1.4"}}
+    mockery/mockery {:mvn/version "0.1.4"}
+    djblue/portal {:mvn/version "0.58.2"}
+    cider/cider-nrepl {:mvn/version "0.58.0"}}
    :extra-paths ["test" "dev"]}
 
   :build
