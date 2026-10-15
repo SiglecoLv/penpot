@@ -6,8 +6,8 @@ mod text_editor;
 mod ui;
 pub use shapes_pool::{ShapesPool, ShapesPoolMutRef, ShapesPoolRef};
 pub use text_editor::*;
-pub use ui::RulerState;
 pub use ui::UIState;
+pub use ui::{RulerGeometry, RulerState};
 
 use crate::error::{Error, Result};
 use crate::render::raster::RasterFormat;

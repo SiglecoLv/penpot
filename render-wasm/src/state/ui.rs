@@ -84,8 +84,51 @@ impl Default for GuidePool {
     }
 }
 
+/// Contrast: ruler geometry, in CSS pixels. Defaults are penpot's; the
+/// frontend pushes its own (`set_rulers_geometry`) so the WASM rulers can
+/// match a customized SVG design.
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub struct RulerGeometry {
+    pub area_size: f32,
+    /// baseline of the tick labels (labels sit 1px above it, ticks start
+    /// `tick_gap` below it)
+    pub tick_offset: f32,
+    pub tick_len: f32,
+    pub tick_gap: f32,
+    pub font_size: f32,
+    pub border_radius: f32,
+    pub border_width: f32,
+    /// baseline of the selection labels across the X / Y bar
+    pub sel_baseline_x: f32,
+    pub sel_baseline_y: f32,
+    /// distance between the selection band and its labels on X / Y
+    pub label_gap_x: f32,
+    pub label_gap_y: f32,
+    pub over_number_percent: f32,
+}
+
+impl Default for RulerGeometry {
+    fn default() -> Self {
+        Self {
+            area_size: 22.0,
+            tick_offset: 15.0,
+            tick_len: 4.0,
+            tick_gap: 2.0,
+            font_size: 12.0,
+            border_radius: 12.0,
+            border_width: 4.0,
+            sel_baseline_x: 13.6,
+            sel_baseline_y: 13.6,
+            label_gap_x: 11.0,
+            label_gap_y: 11.0,
+            over_number_percent: 1.0,
+        }
+    }
+}
+
 #[derive(Debug, Clone, Copy)]
 pub struct RulerState {
+    pub geometry: RulerGeometry,
     pub visible: bool,
     // The rounded canvas frame/border. Drawn even when `visible` is false
     // (rulers toggled off), but hidden in hide-UI mode.
@@ -102,6 +145,7 @@ pub struct RulerState {
 impl Default for RulerState {
     fn default() -> Self {
         Self {
+            geometry: RulerGeometry::default(),
             visible: false,
             frame: true,
             offset_x: 0.0,

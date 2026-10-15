@@ -94,15 +94,14 @@ impl From<RawImageFillData> for ImageFill {
         let id = uuid_from_u32_quartet(value.a, value.b, value.c, value.d);
         let keep_aspect_ratio = value.flags & FLAG_KEEP_ASPECT_RATIO != 0;
 
-        let crop = (value.flags & FLAG_CROP != 0
-            && value.crop_width > 0.0
-            && value.crop_height > 0.0)
-            .then_some((
-                value.crop_x,
-                value.crop_y,
-                value.crop_width,
-                value.crop_height,
-            ));
+        let crop =
+            (value.flags & FLAG_CROP != 0 && value.crop_width > 0.0 && value.crop_height > 0.0)
+                .then_some((
+                    value.crop_x,
+                    value.crop_y,
+                    value.crop_width,
+                    value.crop_height,
+                ));
 
         Self::new(
             id,

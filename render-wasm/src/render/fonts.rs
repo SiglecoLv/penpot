@@ -79,6 +79,18 @@ impl FontStore {
         &self.ui_font
     }
 
+    /// Contrast: replaces the UI font (rulers) with the given TTF bytes.
+    pub fn set_ui_font(&mut self, font_data: &[u8]) -> Result<()> {
+        let typeface =
+            self.font_mgr
+                .new_from_data(font_data, None)
+                .ok_or(Error::RecoverableError(
+                    "Failed to load UI font".to_string(),
+                ))?;
+        self.ui_font = skia::Font::new(typeface, 12.0);
+        Ok(())
+    }
+
     pub fn add(
         &mut self,
         family: FontFamily,

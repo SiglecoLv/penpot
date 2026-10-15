@@ -51,8 +51,8 @@ pub use strokes::*;
 pub use svg_attrs::*;
 pub use svgraw::*;
 pub use text::*;
-pub use transform::*;
 pub use text_on_path::{PathGlyph, TextOnPath};
+pub use transform::*;
 
 use crate::math::{self, Bounds, Matrix, Point};
 

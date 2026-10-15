@@ -13,30 +13,19 @@ use crate::render::fonts::FontStore;
 use crate::state::RulerState;
 use crate::view::Viewbox;
 
-pub const RULER_AREA_SIZE: f32 = 22.0;
-const RULER_TICK_OFFSET: f32 = 15.0;
-const RULER_TICK_LEN: f32 = 4.0;
-const RULER_TICK_GAP: f32 = 2.0;
-const FONT_SIZE: f32 = 12.0;
+// Contrast: the geometry (bar size, tick placement, font size, border,
+// selection-label placement) lives in `RulerState::geometry`, so a
+// customized design can be pushed from the frontend.
 const SELECTION_FILL_OPACITY: f32 = 0.3;
-const CANVAS_BORDER_RADIUS: f32 = 12.0;
-
-// Baseline of selection labels inside the 22-px bar. Empirical value from
-// the SVG (`rulers.cljs`): the only place this number is justified is "it
-// looks right for a 12-px font in a 22-px bar". Different from the regular
-// tick-label baseline (`RULER_TICK_OFFSET - 1.0 = 14.0`); the SVG uses
-// distinct offsets for the two and we mirror that.
-const SELECTION_LABEL_BASELINE: f32 = 13.6;
 
 // Selection-label gradient mask: fades the tick labels behind the selection
-// band. The mask is `OVER_NUMBER_SIZE` screen pixels long. `OVER_NUMBER_PERCENT`
+// band. The mask is `OVER_NUMBER_SIZE` screen pixels long. `ctx.state.geometry.over_number_percent`
 // is the fraction of the mask that sits *outside* the band; at 1.0 the mask's
 // inner edge lands exactly on the band edge, so the dark shadow begins where
 // the green selection area ends and fades outward (it never bleeds under the
 // band). `GRADIENT_FADE_FRACTION` is the share of the mask spent on the
 // transparent→opaque ramp at the outer end.
 const OVER_NUMBER_SIZE: f32 = 100.0;
-const OVER_NUMBER_PERCENT: f32 = 1.0;
 const GRADIENT_FADE_FRACTION: f32 = 0.4;
 const OVER_NUMBER_OPACITY: f32 = 0.8;
 
@@ -119,14 +108,14 @@ pub fn render(canvas: &skia::Canvas, viewbox: Viewbox, fonts: &FontStore, state:
     // scales the rounded gaps back up and the spacing looks too wide.
     // Subpixel positioning + a stable font size keeps spacing consistent.
     let mut font: Font = fonts.ui_font().clone();
-    font.set_size(FONT_SIZE);
+    font.set_size(state.geometry.font_size);
     font.set_subpixel(true);
 
     // When rulers are hidden we still draw the viewport frame (the rounded
     // canvas border) with bar=0, matching the SVG viewport-frame* behavior
     // which always renders the frame regardless of ruler visibility.
     let bar = if state.visible {
-        RULER_AREA_SIZE * zi
+        state.geometry.area_size * zi
     } else {
         0.0
     };
@@ -170,16 +159,19 @@ pub fn render(canvas: &skia::Canvas, viewbox: Viewbox, fonts: &FontStore, state:
 ///    viewport, including the top-left intersection where the two bars
 ///    meet.
 fn draw_background(ctx: &RenderCtx, vw: f32, vh: f32) {
-    let radius = CANVAS_BORDER_RADIUS * ctx.zi;
+    let g = &ctx.state.geometry;
+    let radius = g.border_radius * ctx.zi;
     let inner_rect = Rect::from_ltrb(ctx.vx + ctx.bar, ctx.vy + ctx.bar, ctx.vx + vw, ctx.vy + vh);
     let inner_rrect = RRect::new_rect_xy(inner_rect, radius, radius);
 
-    let mut border = Paint::default();
-    border.set_anti_alias(true);
-    border.set_style(PaintStyle::Stroke);
-    border.set_stroke_width(4.0 * ctx.zi);
-    border.set_color(ctx.state.border_color);
-    ctx.canvas.draw_rrect(inner_rrect, &border);
+    if g.border_width > 0.0 {
+        let mut border = Paint::default();
+        border.set_anti_alias(true);
+        border.set_style(PaintStyle::Stroke);
+        border.set_stroke_width(g.border_width * ctx.zi);
+        border.set_color(ctx.state.border_color);
+        ctx.canvas.draw_rrect(inner_rrect, &border);
+    }
 
     let outer_rect = Rect::from_xywh(ctx.vx, ctx.vy, vw, vh);
     let mut pb = skia::PathBuilder::new();
@@ -214,9 +206,9 @@ fn draw_ticks_x(ctx: &RenderCtx, vw: f32, step: f32, offset: f32) {
     let minv = (start.max(-100_000.0) / step).ceil() * step + (offset % step);
     let maxv = (end.min(100_000.0) / step).floor() * step + (offset % step);
 
-    let tick_top = ctx.vy + (RULER_TICK_OFFSET + RULER_TICK_GAP) * zi;
-    let tick_bottom = tick_top + RULER_TICK_LEN * zi;
-    let text_y = ctx.vy + (RULER_TICK_OFFSET - 1.0) * zi;
+    let tick_top = ctx.vy + (ctx.state.geometry.tick_offset + ctx.state.geometry.tick_gap) * zi;
+    let tick_bottom = tick_top + ctx.state.geometry.tick_len * zi;
+    let text_y = ctx.vy + (ctx.state.geometry.tick_offset - 1.0) * zi;
 
     let mut v = minv;
     while v <= maxv {
@@ -251,9 +243,9 @@ fn draw_ticks_y(ctx: &RenderCtx, vh: f32, step: f32, offset: f32) {
     let minv = (start.max(-100_000.0) / step).ceil() * step + (offset % step);
     let maxv = (end.min(100_000.0) / step).floor() * step + (offset % step);
 
-    let tick_left = ctx.vx + (RULER_TICK_OFFSET + RULER_TICK_GAP) * zi;
-    let tick_right = tick_left + RULER_TICK_LEN * zi;
-    let text_x = ctx.vx + (RULER_TICK_OFFSET - 1.0) * zi;
+    let tick_left = ctx.vx + (ctx.state.geometry.tick_offset + ctx.state.geometry.tick_gap) * zi;
+    let tick_right = tick_left + ctx.state.geometry.tick_len * zi;
+    let text_x = ctx.vx + (ctx.state.geometry.tick_offset - 1.0) * zi;
 
     let mut v = minv;
     while v <= maxv {
@@ -285,14 +277,15 @@ fn draw_selection_x(ctx: &RenderCtx, sel: Rect, offset: f32) {
     // semi-transparent band on top of the masked area, then the selection
     // labels on top of everything.
     let mask_w = OVER_NUMBER_SIZE * zi;
-    let left_x = sel.left - OVER_NUMBER_SIZE * OVER_NUMBER_PERCENT * zi;
+    let left_x = sel.left - OVER_NUMBER_SIZE * ctx.state.geometry.over_number_percent * zi;
     draw_mask(
         ctx,
         Rect::from_xywh(left_x, ctx.vy, mask_w, ctx.bar),
         MaskAxis::Horizontal,
         false,
     );
-    let right_x = sel.right - OVER_NUMBER_SIZE * (1.0 - OVER_NUMBER_PERCENT) * zi;
+    let right_x =
+        sel.right - OVER_NUMBER_SIZE * (1.0 - ctx.state.geometry.over_number_percent) * zi;
     draw_mask(
         ctx,
         Rect::from_xywh(right_x, ctx.vy, mask_w, ctx.bar),
@@ -309,10 +302,10 @@ fn draw_selection_x(ctx: &RenderCtx, sel: Rect, offset: f32) {
         &fill,
     );
 
-    let text_y = ctx.vy + SELECTION_LABEL_BASELINE * zi;
+    let text_y = ctx.vy + ctx.state.geometry.sel_baseline_x * zi;
     // Both labels use the same half-bar gap from the band so the start (left)
     // and end (right) are spaced symmetrically.
-    let gap = (RULER_AREA_SIZE / 2.0) * zi;
+    let gap = ctx.state.geometry.label_gap_x * zi;
     let left_label = format_label(sel.left - offset);
     let right_label = format_label(sel.right - offset);
     let (lw_font, _) = ctx.font.measure_str(&left_label, None);
@@ -392,14 +385,15 @@ fn draw_selection_y(ctx: &RenderCtx, sel: Rect, offset: f32) {
     // Mask first (gradient bg over tick labels behind), then band, then
     // labels — same order as SVG.
     let mask_h = OVER_NUMBER_SIZE * zi;
-    let top_y = sel.top - OVER_NUMBER_SIZE * OVER_NUMBER_PERCENT * zi;
+    let top_y = sel.top - OVER_NUMBER_SIZE * ctx.state.geometry.over_number_percent * zi;
     draw_mask(
         ctx,
         Rect::from_xywh(ctx.vx, top_y, ctx.bar, mask_h),
         MaskAxis::Vertical,
         false,
     );
-    let bottom_y = sel.bottom - OVER_NUMBER_SIZE * (1.0 - OVER_NUMBER_PERCENT) * zi;
+    let bottom_y =
+        sel.bottom - OVER_NUMBER_SIZE * (1.0 - ctx.state.geometry.over_number_percent) * zi;
     draw_mask(
         ctx,
         Rect::from_xywh(ctx.vx, bottom_y, ctx.bar, mask_h),
@@ -416,7 +410,8 @@ fn draw_selection_y(ctx: &RenderCtx, sel: Rect, offset: f32) {
         &fill,
     );
 
-    let text_x = ctx.vx + SELECTION_LABEL_BASELINE * zi;
+    let text_x = ctx.vx + ctx.state.geometry.sel_baseline_y * zi;
+    let gap_y = ctx.state.geometry.label_gap_y;
 
     let mut text_paint = Paint::default();
     text_paint.set_color(ctx.state.accent_color);
@@ -427,12 +422,7 @@ fn draw_selection_y(ctx: &RenderCtx, sel: Rect, offset: f32) {
     canvas.translate((text_x, sel.top));
     canvas.rotate(-90.0, None);
     canvas.scale((zi, zi));
-    canvas.draw_str(
-        &top_label,
-        Point::new(RULER_AREA_SIZE / 2.0, 0.0),
-        ctx.font,
-        &text_paint,
-    );
+    canvas.draw_str(&top_label, Point::new(gap_y, 0.0), ctx.font, &text_paint);
     canvas.restore();
     // 2. Bottom label
     canvas.save();
@@ -441,7 +431,7 @@ fn draw_selection_y(ctx: &RenderCtx, sel: Rect, offset: f32) {
     canvas.scale((zi, zi));
     canvas.draw_str(
         &bottom_label,
-        Point::new(-bw_font - RULER_AREA_SIZE / 2.0, 0.0),
+        Point::new(-bw_font - gap_y, 0.0),
         ctx.font,
         &text_paint,
     );

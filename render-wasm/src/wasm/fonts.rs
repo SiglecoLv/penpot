@@ -55,6 +55,17 @@ pub extern "C" fn store_font(
     Ok(())
 }
 
+/// Contrast: sets the font the UI overlay (rulers) is drawn with, from the
+/// TTF bytes in the shared buffer.
+#[no_mangle]
+#[wasm_error]
+pub extern "C" fn set_ui_font() -> Result<()> {
+    let font_bytes = mem::bytes();
+    let result = get_resources().fonts.set_ui_font(&font_bytes);
+    mem::free_bytes()?;
+    result
+}
+
 /// Resets the font store to its default state, dropping every font uploaded via
 /// `store_font`. A headless host that reuses a single WASM instance across
 /// requests must call this per render so fonts don't accumulate unbounded.

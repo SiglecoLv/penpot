@@ -9,6 +9,7 @@
   (:require
    [app.contrast.wasm.text-on-path :as wtp]
    [app.contrast.shapes.crop :as crop]
+   [app.contrast.wasm.rulers :as contrast-rulers]
    ["react-dom/server" :as rds]
    [app.common.data :as d]
    [app.common.data.macros :as dm]
@@ -398,6 +399,7 @@
      :background background}))
 
 (declare set-rulers-colors!
+         render-from-backbuffer!
          set-rulers-visible!
          set-rulers-frame-visible!
          set-rulers-offsets!
@@ -406,7 +408,11 @@
 (defn push-ruler-theme-colors!
   []
   (if-let [{:keys [bg border label accent]} (rulers-state/theme-colors)]
-    (set-rulers-colors! bg border label accent)
+    ;; Contrast: own label color, geometry and face (app.contrast.wasm.rulers)
+    (do
+      (set-rulers-colors! bg border (or (contrast-rulers/label-color) label) accent)
+      (contrast-rulers/push-geometry!)
+      (contrast-rulers/push-ui-font! #(render-from-backbuffer!)))
     (js/console.error "Failed to resolve ruler CSS colors")))
 
 (defn- sync-rulers-to-wasm!

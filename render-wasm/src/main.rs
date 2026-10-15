@@ -130,11 +130,11 @@ pub extern "C" fn render(timestamp: i32, flags: u8) -> Result<FrameType> {
         let frame_type = if is_partial && !render_state.preserve_target_during_render {
             state
                 .continue_render_loop(timestamp)
-                .map_err(|_| Error::RecoverableError("Error rendering".to_string()))?
+                .map_err(|e| Error::RecoverableError(format!("Error rendering: {e:?}")))?
         } else {
             state
                 .start_render_loop(timestamp)
-                .map_err(|_| Error::RecoverableError("Error rendering".to_string()))?
+                .map_err(|e| Error::RecoverableError(format!("Error rendering: {e:?}")))?
         };
         return Ok(frame_type);
     });
@@ -190,7 +190,7 @@ pub extern "C" fn render_sync() -> Result<()> {
         state.rebuild_tiles();
         state
             .render_sync(0)
-            .map_err(|_| Error::RecoverableError("Error rendering".to_string()))?;
+            .map_err(|e| Error::RecoverableError(format!("Error rendering: {e:?}")))?;
     });
     Ok(())
 }

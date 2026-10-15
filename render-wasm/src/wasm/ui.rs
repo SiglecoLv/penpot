@@ -165,3 +165,38 @@ pub extern "C" fn set_rulers_colors(bg: u32, border: u32, label: u32, accent: u3
     r.accent_color = Color::new(accent);
     Ok(())
 }
+
+/// Contrast: overrides the ruler geometry (see `RulerGeometry`).
+#[no_mangle]
+#[wasm_error]
+#[allow(clippy::too_many_arguments)]
+pub extern "C" fn set_rulers_geometry(
+    area_size: f32,
+    tick_offset: f32,
+    tick_len: f32,
+    tick_gap: f32,
+    font_size: f32,
+    border_radius: f32,
+    border_width: f32,
+    sel_baseline_x: f32,
+    sel_baseline_y: f32,
+    label_gap_x: f32,
+    label_gap_y: f32,
+    over_number_percent: f32,
+) -> Result<()> {
+    get_ui_state().ruler_state_mut().geometry = crate::state::RulerGeometry {
+        area_size,
+        tick_offset,
+        tick_len,
+        tick_gap,
+        font_size,
+        border_radius,
+        border_width,
+        sel_baseline_x,
+        sel_baseline_y,
+        label_gap_x,
+        label_gap_y,
+        over_number_percent,
+    };
+    Ok(())
+}
