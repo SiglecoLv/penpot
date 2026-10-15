@@ -7,6 +7,7 @@
 (ns app.render-wasm.api
   "A WASM based render API"
   (:require
+   [app.contrast.wasm.text-on-path :as wtp]
    [app.contrast.shapes.crop :as crop]
    ["react-dom/server" :as rds]
    [app.common.data :as d]
@@ -1494,6 +1495,9 @@
         (set-layout-data shape)
         (let [is-text? (= type :text)
               text-content-pending (when is-text? (set-shape-text-content id content))
+              ;; Contrast: a text-on-path run is painted from its glyphs; keep
+              ;; Rust from showing the flat paragraphs until they arrive
+              _                    (when is-text? (wtp/send-cached! shape))
               pending-thumbnails (into [] (concat
                                            text-content-pending
                                            (when is-text? (set-shape-text-images id content true))

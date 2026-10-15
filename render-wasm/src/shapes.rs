@@ -28,6 +28,8 @@ mod svg_attrs;
 mod svgraw;
 mod text;
 pub mod text_paths;
+// Contrast: text laid out along a curve
+pub mod text_on_path;
 mod transform;
 
 pub use blend::*;
@@ -50,6 +52,7 @@ pub use svg_attrs::*;
 pub use svgraw::*;
 pub use text::*;
 pub use transform::*;
+pub use text_on_path::{PathGlyph, TextOnPath};
 
 use crate::math::{self, Bounds, Matrix, Point};
 
@@ -199,6 +202,9 @@ pub struct Shape {
     pub extrect_cache: RefCell<Option<math::Rect>>,
     pub svg_transform: Option<Matrix>,
     pub ignore_constraints: bool,
+    // Contrast: when set, a text shape paints these on-curve glyphs instead
+    // of its paragraphs (see shapes::text_on_path)
+    pub text_on_path: Option<TextOnPath>,
     deleted: bool,
 }
 
@@ -301,6 +307,7 @@ impl Shape {
             extrect_cache: RefCell::new(None),
             svg_transform: None,
             ignore_constraints: false,
+            text_on_path: None,
             deleted: false,
         }
     }
@@ -662,6 +669,11 @@ impl Shape {
     #[allow(dead_code)]
     pub fn fills(&self) -> std::slice::Iter<'_, Fill> {
         self.fills.iter()
+    }
+
+    pub fn set_text_on_path(&mut self, text_on_path: Option<TextOnPath>) {
+        self.text_on_path = text_on_path;
+        self.invalidate_extrect();
     }
 
     pub fn set_fills(&mut self, fills: Vec<Fill>) {
@@ -1087,8 +1099,17 @@ impl Shape {
                 }
             }
             Type::Text(text_content) => {
-                // FIXME: we need to recalculate the text bounds here because the shape's selrect
-                text_content.calculate_bounds(shape, false)
+                // Contrast: a text-on-path run is painted from its glyphs
+                if let Some(bounds) = shape
+                    .text_on_path
+                    .as_ref()
+                    .and_then(|tp| tp.bounds(&shape.selrect()))
+                {
+                    bounds
+                } else {
+                    // FIXME: we need to recalculate the text bounds here because the shape's selrect
+                    text_content.calculate_bounds(shape, false)
+                }
             }
             _ => shape.calculate_bounds(false),
         };

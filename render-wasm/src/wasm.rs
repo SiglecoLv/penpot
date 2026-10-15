@@ -11,5 +11,7 @@ pub mod strokes;
 pub mod svg_attrs;
 pub mod text;
 pub mod text_editor;
+// Contrast
+pub mod text_on_path;
 pub mod transforms;
 pub mod ui;

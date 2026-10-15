@@ -542,6 +542,9 @@
                               (mapcat :redo-changes)
                               (filter #(contains? #{:mod-obj :add-obj} (:type %)))
                               (filter #(cfh/text-shape? objects (:id %)))
+                              ;; Contrast: text-on-path shapes carry a synthetic
+                              ;; hit band as position-data (see app.contrast.text-on-path)
+                              (remove #(some? (:text-on-path (get objects (:id %)))))
                               (map #(vector
                                      (:id %)
                                      (wasm.api/calculate-position-data (get objects (:id %))))))))

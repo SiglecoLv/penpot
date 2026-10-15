@@ -1503,6 +1503,22 @@ impl RenderState {
                 }
             }
 
+            // Contrast: a text-on-path run is painted from its browser-computed
+            // glyph placements instead of the shape's paragraphs
+            Type::Text(_) if shape.text_on_path.is_some() => {
+                self.tile_atlas_flushed = true;
+                self.surfaces.apply_mut(surface_ids, |s| {
+                    s.canvas().concat(&matrix);
+                });
+                if let Some(text_on_path) = shape.text_on_path.as_ref() {
+                    crate::shapes::text_on_path::render(
+                        text_on_path,
+                        &shape.selrect(),
+                        self.surfaces.canvas_and_mark_dirty(fills_surface_id),
+                    );
+                }
+            }
+
             Type::Text(stored_text_content) => {
                 self.tile_atlas_flushed = true;
 
