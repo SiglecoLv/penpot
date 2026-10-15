@@ -125,6 +125,8 @@ pub struct ImageFill {
     width: i32,
     height: i32,
     keep_aspect_ratio: bool,
+    // Contrast: normalized source crop rect (x, y, width, height), 0..1
+    crop: Option<(f32, f32, f32, f32)>,
 }
 
 impl ImageFill {
@@ -135,7 +137,17 @@ impl ImageFill {
             width,
             height,
             keep_aspect_ratio,
+            crop: None,
         }
+    }
+
+    pub fn with_crop(mut self, crop: Option<(f32, f32, f32, f32)>) -> Self {
+        self.crop = crop;
+        self
+    }
+
+    pub fn crop(&self) -> Option<(f32, f32, f32, f32)> {
+        self.crop
     }
 
     pub fn id(&self) -> Uuid {
@@ -268,8 +280,19 @@ pub fn get_fill_shader(fill: &Fill, bounding_box: &Rect) -> Option<skia::Shader>
                 let pos_y = bounding_box.top() - (scaled_height - bounding_box.height()) / 2.0;
 
                 let mut matrix = skia::Matrix::new_identity();
-                matrix.pre_translate((pos_x, pos_y));
-                matrix.pre_scale((scale, scale), None);
+                if let Some((crop_x, crop_y, crop_width, crop_height)) = image_fill.crop() {
+                    // Contrast: map the cropped source rect onto the bounding box.
+                    let crop_scale_x = bounding_box.width() / (crop_width * image_width);
+                    let crop_scale_y = bounding_box.height() / (crop_height * image_height);
+                    matrix.pre_translate((
+                        bounding_box.left() - crop_x * image_width * crop_scale_x,
+                        bounding_box.top() - crop_y * image_height * crop_scale_y,
+                    ));
+                    matrix.pre_scale((crop_scale_x, crop_scale_y), None);
+                } else {
+                    matrix.pre_translate((pos_x, pos_y));
+                    matrix.pre_scale((scale, scale), None);
+                }
 
                 let opacity = image_fill.opacity();
                 let alpha_color = skia::Color4f::new(1.0, 1.0, 1.0, opacity as f32 / 255.0);

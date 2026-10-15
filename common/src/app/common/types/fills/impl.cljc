@@ -124,7 +124,10 @@
         image-height (get image :height)
         alpha      (mth/floor (* opacity 0xff))
         keep-aspect-ratio  (if (get image :keep-aspect-ratio false) 0x01 0x00)
-        flags        (bit-or keep-aspect-ratio 0x00)]
+        ;; Contrast: non-destructive image crop (normalized source rect,
+        ;; see app.contrast.shapes.crop). Bytes 32..47 of the record.
+        crop         (get image :crop)
+        flags        (bit-or keep-aspect-ratio (if (some? crop) 0x02 0x00))]
     (buf/write-byte  buffer (+ offset  0) 0x03)
     (buf/write-uuid  buffer (+ offset  4) image-id)
     (buf/write-byte  buffer (+ offset 20) alpha)
@@ -132,6 +135,11 @@
     (buf/write-short buffer (+ offset 22) 0) ;; 2-byte padding (reserved for future use)
     (buf/write-int   buffer (+ offset 24) image-width)
     (buf/write-int   buffer (+ offset 28) image-height)
+    (when (some? crop)
+      (buf/write-float buffer (+ offset 32) (get crop :x))
+      (buf/write-float buffer (+ offset 36) (get crop :y))
+      (buf/write-float buffer (+ offset 40) (get crop :width))
+      (buf/write-float buffer (+ offset 44) (get crop :height)))
     (+ offset FILL-U8-SIZE)))
 
 (defn- write-metadata
@@ -215,6 +223,11 @@
                         ratio   (boolean (bit-and flags 0x01))
                         width   (buf/read-int   dbuffer (+ doffset 24))
                         height  (buf/read-int   dbuffer (+ doffset 28))
+                        crop    (when (pos? (bit-and flags 0x02))
+                                  {:x      (buf/read-float dbuffer (+ doffset 32))
+                                   :y      (buf/read-float dbuffer (+ doffset 36))
+                                   :width  (buf/read-float dbuffer (+ doffset 40))
+                                   :height (buf/read-float dbuffer (+ doffset 44))})
                         mtype   (buf/read-short mbuffer (+ moffset 2))
                         mtype   (case mtype
                                   0x01 "image/jpeg"
@@ -223,13 +236,14 @@
                                   0x04 "image/webp"
                                   0x05 "image/svg+xml")]
                     {:fill-opacity opacity
-                     :fill-image {:id id
-                                  :width width
-                                  :height height
-                                  :mtype mtype
-                                  :keep-aspect-ratio ratio
-                                  ;; FIXME: we are not encodign the name, looks useless
-                                  :name "sample"}}))]
+                     :fill-image (cond-> {:id id
+                                          :width width
+                                          :height height
+                                          :mtype mtype
+                                          :keep-aspect-ratio ratio
+                                          ;; FIXME: we are not encodign the name, looks useless
+                                          :name "sample"}
+                                   (some? crop) (assoc :crop crop))}))]
 
     (if refs?
       (let [ref-file (buf/read-uuid mbuffer (+ moffset 4))

@@ -7,6 +7,7 @@
 (ns app.main.render-viewer-wasm
   "WASM offscreen rendering for the shared viewer (snapshot + fixed-scroll)."
   (:require
+   [app.contrast.shapes.crop :as crop]
    [app.common.data.macros :as dm]
    [app.common.exceptions :as ex]
    [app.render-wasm.api :as wasm.api]
@@ -91,7 +92,7 @@
   (wasm.api/clear-render-include-filter!)
   (doseq [id clear-fills-ids]
     (wasm.api/use-shape id)
-    (wasm.api/set-shape-fills id (get-in page-objects [id :fills] []) false)))
+    (wasm.api/set-shape-fills id (crop/fills-with-crop (get page-objects id) (get-in page-objects [id :fills] [])) false)))
 
 (defn- viewer-do-render!
   [page-objects canvas os-canvas object-id vis-w vis-h scale size

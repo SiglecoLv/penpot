@@ -6,6 +6,7 @@
 
 (ns app.render-wasm.shape
   (:require
+   [app.contrast.shapes.crop :as crop]
    [app.common.data :as d]
    [app.common.data.macros :as dm]
    [app.common.files.helpers :as cfh]
@@ -166,7 +167,11 @@
         (api/set-shape-transform v)
 
         :fills
-        (api/set-shape-fills id v false)
+        (api/set-shape-fills id (crop/fills-with-crop shape v) false)
+
+        ;; Contrast: the image crop travels inside the image fill record
+        :crop
+        (api/set-shape-fills id (crop/fills-with-crop shape (:fills shape)) false)
 
         :strokes
         (into [] (api/set-shape-strokes id v false))
@@ -230,7 +235,7 @@
         (do
           (api/set-shape-svg-attrs v)
           ;; Always update fills/blur/shadow to clear previous state if filters disappear
-          (api/set-shape-fills id (:fills shape) false)
+          (api/set-shape-fills id (crop/fills-with-crop shape (:fills shape)) false)
           (api/set-shape-blur (:blur shape))
           (api/set-shape-background-blur (:background-blur shape))
           (api/set-shape-shadows (:shadow shape)))

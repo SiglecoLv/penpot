@@ -30,6 +30,8 @@ fn touch_shapes_with_image(state: &mut State, image_id: Uuid) {
 }
 
 const FLAG_KEEP_ASPECT_RATIO: u8 = 1 << 0;
+// Contrast: the record carries a non-destructive crop (bytes 32..47).
+const FLAG_CROP: u8 = 1 << 1;
 const IMAGE_IDS_SIZE: usize = 32;
 const IMAGE_HEADER_SIZE: usize = 36; // 32 bytes for IDs + 4 bytes for is_thumbnail flag
 
@@ -46,16 +48,28 @@ pub struct RawImageFillData {
     // 16-bit padding here, reserved for future use
     width: i32,
     height: i32,
+    // Contrast: normalized crop rect of the source image (valid if FLAG_CROP)
+    crop_x: f32,
+    crop_y: f32,
+    crop_width: f32,
+    crop_height: f32,
 }
 
 impl From<&ImageFill> for RawImageFillData {
     fn from(image_fill: &ImageFill) -> Self {
         let id = image_fill.id();
         let (a, b, c, d) = crate::utils::uuid_to_u32_quartet(&id);
-        let flags = if image_fill.keep_aspect_ratio() {
+        let mut flags = if image_fill.keep_aspect_ratio() {
             FLAG_KEEP_ASPECT_RATIO
         } else {
             0
+        };
+        let (crop_x, crop_y, crop_width, crop_height) = match image_fill.crop() {
+            Some(crop) => {
+                flags |= FLAG_CROP;
+                crop
+            }
+            None => (0.0, 0.0, 1.0, 1.0),
         };
 
         Self {
@@ -67,6 +81,10 @@ impl From<&ImageFill> for RawImageFillData {
             flags,
             width: image_fill.width(),
             height: image_fill.height(),
+            crop_x,
+            crop_y,
+            crop_width,
+            crop_height,
         }
     }
 }
@@ -76,6 +94,16 @@ impl From<RawImageFillData> for ImageFill {
         let id = uuid_from_u32_quartet(value.a, value.b, value.c, value.d);
         let keep_aspect_ratio = value.flags & FLAG_KEEP_ASPECT_RATIO != 0;
 
+        let crop = (value.flags & FLAG_CROP != 0
+            && value.crop_width > 0.0
+            && value.crop_height > 0.0)
+            .then_some((
+                value.crop_x,
+                value.crop_y,
+                value.crop_width,
+                value.crop_height,
+            ));
+
         Self::new(
             id,
             value.opacity,
@@ -83,6 +111,7 @@ impl From<RawImageFillData> for ImageFill {
             value.height,
             keep_aspect_ratio,
         )
+        .with_crop(crop)
     }
 }
 

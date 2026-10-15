@@ -7,6 +7,7 @@
 (ns app.render-wasm.api
   "A WASM based render API"
   (:require
+   [app.contrast.shapes.crop :as crop]
    ["react-dom/server" :as rds]
    [app.common.data :as d]
    [app.common.data.macros :as dm]
@@ -1496,11 +1497,11 @@
               pending-thumbnails (into [] (concat
                                            text-content-pending
                                            (when is-text? (set-shape-text-images id content true))
-                                           (set-shape-fills id fills true)
+                                           (set-shape-fills id (crop/fills-with-crop shape fills) true)
                                            (set-shape-strokes id strokes true)))
               pending-full (into [] (concat
                                      (when is-text? (set-shape-text-images id content false))
-                                     (set-shape-fills id fills false)
+                                     (set-shape-fills id (crop/fills-with-crop shape fills) false)
                                      (set-shape-strokes id strokes false)))]
           (perf/end-measure "set-object")
           {:thumbnails pending-thumbnails

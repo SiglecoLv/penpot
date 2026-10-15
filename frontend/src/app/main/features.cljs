@@ -31,9 +31,10 @@
                           (get :wasm))
 
         ;; When the :render-switch feature flag is active, read the user's
-        ;; preferred renderer from their profile settings (default :svg).
+        ;; preferred renderer from their profile settings.
+        ;; Contrast: WASM is the default renderer (users can switch back to SVG).
         renderer      (when (contains? cf/flags :render-switch)
-                        (dm/get-in state [:profile :props :renderer] :svg))
+                        (dm/get-in state [:profile :props :renderer] :wasm))
 
         features      (cond
                         ;; Priority 1 — URL query param (?wasm=true|false)

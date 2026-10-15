@@ -187,4 +187,15 @@ mod tests {
         assert_eq!(bytes[0], 0x03);
         assert_eq!(shapes::Fill::from(RawFillData::from(bytes)), fill);
     }
+
+    #[test]
+    fn test_image_fill_crop_round_trip() {
+        let image_fill = shapes::ImageFill::new(crate::uuid::Uuid::nil(), 0xff, 300, 200, true)
+            .with_crop(Some((0.25, 0.1, 0.5, 0.75)));
+        let fill = shapes::Fill::Image(image_fill);
+        let raw_fill = RawFillData::try_from(&fill).expect("image fill must be serializable");
+        let bytes = <[u8; RAW_FILL_DATA_SIZE]>::from(raw_fill);
+
+        assert_eq!(shapes::Fill::from(RawFillData::from(bytes)), fill);
+    }
 }

@@ -36,6 +36,17 @@ pub fn get_source_rect(size: ISize, container: &MathRect, image_fill: &ImageFill
     let source_scale_y = image_height / container_height;
     let source_scale_x = image_width / container_width;
 
+    // Contrast: an explicit crop (normalized rect of the source) wins over
+    // keep-aspect-ratio — the cropped part is stretched onto the container.
+    if let Some((crop_x, crop_y, crop_width, crop_height)) = image_fill.crop() {
+        return MathRect::from_xywh(
+            crop_x * image_width,
+            crop_y * image_height,
+            crop_width * image_width,
+            crop_height * image_height,
+        );
+    }
+
     if image_fill.keep_aspect_ratio() {
         // Calculate scale to ensure the image covers the container
         let image_aspect_ratio = image_width / image_height;
