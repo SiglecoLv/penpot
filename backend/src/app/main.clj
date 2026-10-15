@@ -631,6 +631,13 @@
     ::db/pool         (ig/ref ::db/pool)}})
 
 
+;; Contrast: extension components are added as-is; for components penpot
+;; already defines, the extension map is merged into penpot's config so it
+;; only needs to list its extra refs.
+(defn- merge-component
+  [a b]
+  (if (and (map? a) (map? b)) (merge a b) b))
+
 (defn start
   []
   (cf/validate!)
@@ -638,7 +645,7 @@
   (alter-var-root #'app.system/system
                   (fn [sys]
                     (some-> sys not-empty ig/halt!)
-                    (-> (merge system-config extensions/system-config)
+                    (-> (merge-with merge-component system-config extensions/system-config)
                         (cond-> (contains? cf/flags :backend-worker)
                           (merge worker-config))
                         (ig/expand)
